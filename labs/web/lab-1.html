@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratoire : Interface Interactive en HTML, CSS et JavaScript - G-RIEL IT Garden</title>
+    <link rel="stylesheet" href="/css/labs.css">
+</head>
+<body>
+
+    <div id="reading-progress"></div>
+
+    <div class="lab-layout">
+        <main class="lab-container">
+            
+            <header class="lab-header">
+                <div class="lab-meta-badges">
+                    <span class="badge badge-blue">
+                        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+                        Développement Web / Frontend
+                    </span>
+                    <span class="badge badge-difficulty">
+                        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                        Fondamental
+                    </span>
+                    <span class="badge badge-blue">
+                        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        30 minutes
+                    </span>
+                </div>
+                <h1>Création d'un Composant Interactif en JavaScript Moderne</h1>
+                <p>Apprenez à dynamiser vos pages web en manipulant le DOM, en gérant les événements utilisateurs et en appliquant un style CSS moderne et modulaire.</p>
+                
+                <div class="lab-action-bar">
+                    <button class="action-btn" onclick="openModal()">
+                        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+                        Donner une remarque
+                    </button>
+                </div>
+            </header>
+
+            <div class="prereq-box">
+                <h3>
+                    <svg class="icon-svg" style="color: var(--accent-blue);" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    Avant de commencer (Prérequis)
+                </h3>
+                <ul>
+                    <li>Bases de la structure HTML5 et des sélecteurs CSS3</li>
+                    <li>Notions fondamentales de programmation en JavaScript (fonctions, écouteurs d'événements)</li>
+                    <li>Un éditeur de code moderne (VS Code recommandé) et un navigateur web</li>
+                </ul>
+            </div>
+
+            <div class="result-box">
+                <h3>
+                    <svg class="icon-svg" style="color: var(--accent-blue);" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+                    Ce que vous allez apprendre
+                </h3>
+                <ul>
+                    <li>Structurer proprement un composant web réutilisable</li>
+                    <li>Manipuler dynamiquement le DOM avec JavaScript (<code>document.createElement</code>, <code>classList.toggle</code>)</li>
+                    <li>Gérer les interactions utilisateur via des écouteurs d'événements (<code>addEventListener</code>)</li>
+                    <li>Appliquer des transitions fluides en CSS</li>
+                </ul>
+            </div>
+
+            <section id="introduction">
+                <h2>1. Introduction au Développement Web Moderne</h2>
+                <p>Le triptyque HTML, CSS et JavaScript forme la base de toute application web interactive. Le HTML structure le contenu, le CSS met en forme l'interface selon l'identité visuelle, et le JavaScript insère de la logique et de l'interactivité en temps réel sans recharger la page.</p>
+            </section>
+
+            <section id="script">
+                <h2>2. Implémentation du Code Source</h2>
+                <p>Découvrez ci-dessous l'implémentation combinée d'un composant de type "Panneau à bascule (Toggle Box)" interactif.</p>
+
+                <div class="code-wrapper">
+                    <div class="code-header">
+                        <span>html / component.html & js</span>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                            Copier
+                        </button>
+                    </div>
+                    <pre><code>&lt;!-- Structure HTML du composant --&gt;
+&lt;div class="interactive-card"&gt;
+    &lt;button id="toggleBtn" class="action-btn"&gt;Afficher les détails techniques&lt;/button&gt;
+    &lt;div id="infoPanel" class="panel hidden"&gt;
+        &lt;p&gt;Statut du système : &lt;span class="status-ok"&gt;Opérationnel&lt;/span&gt;&lt;/p&gt;
+        &lt;p&gt;Protocole de communication sécurisé actif.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Script JavaScript associé --&gt;
+&lt;script&gt;
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggleBtn = document.getElementById('toggleBtn');
+        const infoPanel = document.getElementById('infoPanel');
+
+        toggleBtn.addEventListener('click', () => {
+            // Bascule de la classe 'hidden' pour afficher ou masquer le panneau
+            infoPanel.classList.toggle('hidden');
+            
+            if (infoPanel.classList.contains('hidden')) {
+                toggleBtn.textContent = 'Afficher les détails techniques';
+            } else {
+                toggleBtn.textContent = 'Masquer les détails techniques';
+            }
+        });
+    });
+&lt;/script&gt;</code></pre>
+                </div>
+            </section>
+
+            <div class="takeaway-box">
+                <h3>
+                    <svg class="icon-svg" style="color: #10b981;" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 017 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+                    À retenir
+                </h3>
+                <ul>
+                    <li>L'écouteur <code>DOMContentLoaded</code> garantit que le script s'exécute uniquement une fois que le DOM est entièrement chargé.</li>
+                    <li>La méthode <code>classList.toggle()</code> est la manière la plus propre d'ajouter ou de supprimer dynamiquement une classe CSS.</li>
+                    <li>Il est recommandé de séparer les styles visuels (dans le CSS) des comportements logiques (dans le JavaScript).</li>
+                </ul>
+            </div>
+
+            <section id="defi">
+                <h2>3. Passez à l'action</h2>
+                <div class="challenge-box">
+                    <h3>
+                        <svg class="icon-svg" style="color: #f59e0b;" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        Défi Pratique Frontend
+                    </h3>
+                    <p>Améliorez ce composant directement dans votre environnement de développement :</p>
+                    <ul>
+                        <li>Ajoutez une transition CSS fluide (propriété <code>transition</code> ou <code>opacity</code>) pour éviter l'apparition brusque du panneau.</li>
+                        <li>Modifiez le code JavaScript pour inclure un compteur dynamique du nombre de clics effectués sur le bouton.</li>
+                        <li>Intégrez ce composant directement dans votre jardin numérique personnel pour documenter une section spécifique.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="lab-history">
+                <h3>Historique des versions</h3>
+                <ul>
+                    <li><strong>v1.0 (29 juillet 2026) :</strong> Publication initiale du laboratoire de développement web interactif.</li>
+                </ul>
+            </div>
+
+            <nav class="lab-footer-nav">
+                <a href="#" class="action-btn">Lab précédent</a>
+                <a href="#" class="action-btn">Tous les laboratoires</a>
+                <a href="#" class="action-btn">Lab suivant</a>
+            </nav>
+
+            <div style="margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); text-align: center; font-size: 0.85rem; color: var(--text-secondary);">
+                <p>Ce laboratoire fait partie du <strong>G-RIEL IT Garden</strong></p>
+                <p>Document pédagogique conçu par <strong>Gabriel Bakansambu</strong></p>
+                <p style="margin-top: 0.5rem; font-style: italic;">Dernière mise à jour : 29 juillet 2026</p>
+            </div>
+
+        </main>
+
+        <aside class="lab-sidebar">
+            <h3>Sommaire</h3>
+            <ul>
+                <li><a href="#introduction" class="active">1. Introduction</a></li>
+                <li><a href="#script">2. Code Source</a></li>
+                <li><a href="#defi">3. Défi</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content">
+            <h3>Donner un avis sur ce laboratoire</h3>
+            <form onsubmit="submitFeedback(event)">
+                <input type="text" placeholder="Votre nom (facultatif)">
+                <input type="email" placeholder="Votre e-mail (facultatif)">
+                <select>
+                    <option value="erreur">Signaler une erreur</option>
+                    <option value="suggestion">Proposer une suggestion</option>
+                    <option value="question">Poser une question</option>
+                    <option value="compliment">Compliment / Félicitations</option>
+                </select>
+                <textarea rows="4" placeholder="Votre message..." required></textarea>
+                <div class="modal-actions">
+                    <button type="button" class="action-btn" onclick="closeModal()">Annuler</button>
+                    <button type="submit" class="action-btn" style="background-color: var(--accent-blue); color: #fff;">Envoyer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/labs.js" defer></script>
+</body>
+</html>

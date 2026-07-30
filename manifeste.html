@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manifeste & Parcours — G-RIEL IT Garden, Gabriel Bakansambu.">
+    <meta name="author" content="Gabriel Bakansambu">
+    <meta name="theme-color" content="#0a0a0a">
+    <title>Manifeste & Discipline — G-RIEL IT Garden</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profil.css">
+    <style>
+        /* Barre de progression de lecture */
+        #reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--accent-color, #00ffcc);
+            width: 0%;
+            z-index: 1000;
+            transition: width 0.1s ease-out;
+        }
+
+        /* 1. Glassmorphism optimisé (Plus dense et lisible) */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        /* 3. Titres plus lumineux */
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: #ffffff;
+            letter-spacing: -0.02em;
+        }
+
+        /* Styles spécifiques pour la page Manifeste avec typographie contrastée */
+        .manifest-quote {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            margin: 2rem auto;
+            border-left: 3px solid var(--accent-color, #00ffcc);
+            border-right: 3px solid var(--accent-color, #00ffcc);
+            background: rgba(255, 255, 255, 0.02);
+            max-width: 800px;
+        }
+        .manifest-quote blockquote {
+            font-size: 1.35rem;
+            font-style: italic;
+            color: #ffffff;
+            font-weight: 500;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .pdf-card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        @media (max-width: 768px) {
+            .pdf-card-grid { grid-template-columns: 1fr; }
+            .pdf-viewer-container {
+                height: 420px !important;
+            }
+        }
+        
+        /* 2. Textes secondaires optimisés */
+        .profile-description,
+        .timeline-content p,
+        .semester-subtitle,
+        .section-header p {
+            color: #d9e2f2 !important;
+        }
+
+        .pdf-meta-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        .pdf-meta-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.95rem;
+        }
+        .pdf-meta-list span.label {
+            color: #bdbdbd;
+            font-weight: 500;
+        }
+        .pdf-meta-list span.value {
+            color: #fff;
+            font-weight: 500;
+        }
+        .pdf-viewer-container {
+            margin-top: 2rem;
+            width: 100%;
+            height: 600px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #111;
+        }
+        .pdf-viewer-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .pdf-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        /* Timeline Style */
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto;
+            padding-left: 2rem;
+            border-left: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.35rem;
+            top: 0.25rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-color, #00ffcc);
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+        }
+        .timeline-year {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-color, #00ffcc);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .timeline-content h3 {
+            margin: 0.3rem 0 0.5rem 0;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+        /* 4. Texte de la timeline amélioré */
+        .timeline-content p {
+            color: #e5e7eb !important;
+            font-size: 0.95rem;
+            line-height: 1.9;
+            margin: 0;
+        }
+
+        /* Principes Grid */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .principle-card {
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .principle-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(0, 255, 204, 0.3);
+        }
+        .principle-icon {
+            width: 28px;
+            height: 28px;
+            color: var(--accent-color, #00ffcc);
+            flex-shrink: 0;
+        }
+        .principle-card span {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* Galerie Boxe & Effet de survol discret */
+        .semester-card .semester-image {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.35s ease;
+        }
+        .semester-card .semester-image:hover {
+            transform: scale(1.03);
+        }
+        .semester-subtitle {
+            color: #d9e2f2 !important;
+        }
+
+        /* 5. Badge Tech amélioré */
+        .tech-tag {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            background: rgba(0,255,204,0.12);
+            color: #00ffcc !important;
+            border: 1px solid rgba(0,255,204,0.25);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* 6. Engagement Box optimisé */
+        .engagement-box {
+            text-align: center;
+            max-width: 800px;
+            margin: 4rem auto 2rem auto;
+            padding: 3rem 2rem;
+            background: linear-gradient(
+                135deg,
+                rgba(15,23,42,0.95),
+                rgba(0,255,204,0.12)
+            );
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            border-radius: 12px;
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+        .engagement-box h2 {
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+        .engagement-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #f1f1f1;
+        }
+        .manifest-meta-footer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #b8b8b8;
+            margin-top: 1rem;
+        }
+
+        /* 7. Couche globale de contraste et correctifs de sécurité */
+        body {
+            color: #f8fafc;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-card,
+        .principle-card,
+        .semester-card {
+            color: #f8fafc;
+        }
+
+        a {
+            color: #00ffcc;
+        }
+
+        .accent {
+            color: #00ffcc !important;
+        }
+    </style>
+
+    <style>
+    /* 1. Correction globale du fond et du texte de la page */
+    html, body {
+        background-color: #0b0f19 !important;
+        color: #f8fafc !important;
+    }
+
+    /* 2. Forcer un fond sombre et un texte clair sur toutes les sections principales */
+    main.it-garden-profile-main,
+    section.container,
+    .notes-hero,
+    .manifest-quote,
+    .glass-panel {
+        background-color: transparent !important;
+        color: #f8fafc !important;
+    }
+
+    /* 3. Correction spécifique de la citation illisible */
+    .manifest-quote {
+        background: rgba(15, 23, 42, 0.8) !important;
+        border-left: 3px solid #00ffcc;
+        border-right: 3px solid #00ffcc;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+    }
+    .manifest-quote blockquote {
+        color: #ffffff !important;
+    }
+
+    /* 4. Correction de la timeline (textes gris sur fond blanc) */
+    .timeline-container {
+        border-left: 2px solid rgba(0, 255, 204, 0.3) !important;
+    }
+    .timeline-content h3 {
+        color: #ffffff !important;
+    }
+    .timeline-content p {
+        color: #e5e7eb !important;
+    }
+
+    /* 5. Correction des titres du Hero et des en-têtes de section */
+    .hero-content h1,
+    .section-header h2,
+    .section-header p {
+        color: #ffffff !important;
+    }
+    .section-header p {
+        color: #d9e2f2 !important;
+    }
+</style>
+</head>
+<body>
+
+  <!-- Barre de progression de lecture -->
+  <div id="reading-progress"></div>
+
+  <!-- ============================================
+        HEADER 
+        ============================================ -->
+  <header class="site-header">
+    <div class="header-container">
+      
+      <div class="header-brand-group">
+        <div class="header-logos">
+          <img src="assets/images/logo.png" alt="Logo G-RIEL" class="brand-main-logo" loading="lazy" decoding="async">
+        </div>
+        <div class="header-text-block">
+          <span class="header-site-title">G-RIEL</span>
+          <span class="header-site-subtitle">IT Garden & Labs</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div class="header-search-bar">
+          <svg class="search-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          <input type="text" placeholder="Rechercher..." aria-label="Recherche">
+        </div>
+
+        <button aria-label="Menu" class="hamburger-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <div class="menu-panel" role="dialog" aria-label="Navigation">
+      <a href="index.html" class="nav-link">Accueil</a>
+      <a href="about.html" class="nav-link">À propos</a>
+      <a href="roadmap.html" class="nav-link">Feuille de route</a>
+      <a href="projects.html" class="nav-link">Projets</a>
+      <a href="notes.html" class="nav-link">Notes</a>
+      <a href="profil.html" class="nav-link">Profil & ISP</a>
+      <a href="homelab.html" class="nav-link">Homelab</a>
+      <a href="certifications.html" class="nav-link">Certifications</a>
+      <a href="manifeste.html" class="nav-link active">Manifeste</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+  </div>
+
+  <!-- Contenu Principal -->
+  <main class="it-garden-profile-main">
+    
+    <!-- 1. Hero Cinématique -->
+    <section class="notes-hero profile-hero">
+        <div class="hero-content">
+            <span class="badge-tech">// G-RIEL_MANIFEST_v1.0</span>
+            <h1>Le Sacerdoce d'un Bâtisseur</h1>
+            <p>
+                Un manifeste personnel sur la discipline, la transmission du savoir,
+                la cybersécurité et la construction d'un avenir durable.
+            </p>
+        </div>
+    </section>
+
+    <!-- 2. Citation -->
+    <section class="manifest-quote container">
+        <blockquote>
+            "Combattre avec honneur.<br>
+            Protéger avec intelligence.<br>
+            Construire avec discipline."
+        </blockquote>
+    </section>
+
+    <!-- 3 & 4. Présentation du Document & Lecteur PDF Intégré -->
+    <section class="container profile-section">
+        <div class="section-header">
+            <h2><span class="accent">[ 01 ]</span> Fiche Documentaire & Lecture</h2>
+            <p>Consultez ou téléchargez l'archive intégrale directement depuis le laboratoire.</p>
+        </div>
+
+        <div class="glass-panel profile-card">
+            <div class="pdf-card-grid" style="width: 100%;">
+                <div>
+                    <span class="tech-tag">Document Officiel</span>
+                    <h2>Le Sacerdoce <br><span class="accent">& Bâtisseur</span></h2>
+                    <p class="profile-description" style="margin-top: 1rem;">
+                        Ce document pose les bases philosophiques et techniques de mon engagement. Il formalise la vision d'un administrateur système orienté vers la protection des infrastructures et l'exigence méthodologique.
+                    </p>
+                    
+                    <ul class="pdf-meta-list">
+                        <li><span class="label">Auteur</span><span class="value">Gabriel Bakansambu Basikila</span></li>
+                        <li><span class="label">Catégorie</span><span class="value">Manifeste personnel</span></li>
+                        <li><span class="label">Pages</span><span class="value">6 (≈ 10 min de lecture)</span></li>
+                        <li><span class="label">Version</span><span class="value">1.0</span></li>
+                        <li><span class="label">Année</span><span class="value">2026</span></li>
+                    </ul>
+
+                    <div class="pdf-actions">
+                        <a href="assets/PDF/sacerdoce_batisseur.pdf" target="_blank" rel="noopener" class="btn-explore-all">
+                            <svg style="width:18px;height:18px;vertical-align:middle;margin-right:6px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            Lire en plein écran
+                        </a>
+                        <a href="assets/PDF/sacerdoce_batisseur.pdf" download class="btn-explore-all" style="background: transparent; border: 1px solid var(--accent-color, #00ffcc);">
+                            <svg style="width:18px;height:18px;vertical-align:middle;margin-right:6px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Télécharger
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="pdf-viewer-container">
+                        <iframe src="assets/PDF/sacerdoce_batisseur.pdf" title="PDF Manifeste"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Timeline du Parcours -->
+    <section class="container profile-section">
+        <div class="section-header">
+            <h2><span class="accent">[ 02 ]</span> Chronologie du Parcours</h2>
+            <p>Les jalons majeurs de la construction d'un profil technique.</p>
+        </div>
+
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-year">2008</div>
+                <div class="timeline-content">
+                    <h3>Premières épreuves</h3>
+                    <p>Les premières épreuves forgent la résilience et la volonté de construire plutôt que subir.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2015</div>
+                <div class="timeline-content">
+                    <h3>Découverte de la boxe</h3>
+                    <p>Apprentissage de la discipline, de l'encaissement et de la lucidité sous pression.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2024</div>
+                <div class="timeline-content">
+                    <h3>Entrée à l'ISP</h3>
+                    <p>Formalisation des études supérieures en Informatique et Technologie à Mbanza-Ngungu.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2026</div>
+                <div class="timeline-content">
+                    <h3>Création du G-RIEL IT Garden</h3>
+                    <p>Mise en place du laboratoire personnel, automatisation et structuration des connaissances.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">Futur</div>
+                <div class="timeline-content">
+                    <h3>Master Télécommunications & Cybersécurité</h3>
+                    <p>Cap vers l'expertise avancée des réseaux et la sécurisation des infrastructures critiques.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Galerie de Boxe Narrative -->
+    <section class="container profile-section">
+        <div class="section-header">
+            <h2><span class="accent">[ 03 ]</span> Rigueur & Rings</h2>
+            <p>L'analogie permanente entre l'exigence du sport de combat et l'ingénierie système.</p>
+        </div>
+
+        <div class="semestres-grid">
+            <div class="tech-card glass-panel semester-card">
+                <a href="assets/images/boxe_1.jpg" target="_blank" rel="noopener">
+                    <img src="assets/images/boxe_1.jpg" alt="Discipline" class="tech-icon semester-image" loading="lazy" decoding="async">
+                </a>
+                <h4 style="color: #fff;">Discipline</h4>
+                <small class="semester-subtitle">La boxe m'a appris la constance et le respect des gammes.</small>
+            </div>
+
+            <div class="tech-card glass-panel semester-card">
+                <a href="assets/images/boxe_2.jpg" target="_blank" rel="noopener">
+                    <img src="assets/images/boxe_2.png" alt="Résilience" class="tech-icon semester-image" loading="lazy" decoding="async">
+                </a>
+                <h4 style="color: #fff;">Résilience</h4>
+                <small class="semester-subtitle">Chaque obstacle sur un serveur se traite avec le même sang-froid.</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Section "Mes principes" -->
+    <section class="container profile-section">
+        <div class="section-header">
+            <h2><span class="accent">[ 04 ]</span> Principes Directeurs</h2>
+            <p>Les fondations éthiques et opérationnelles qui guident mon travail.</p>
+        </div>
+
+        <div class="principles-grid">
+            <div class="principle-card">
+                <svg class="principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Discipline</span>
+            </div>
+            <div class="principle-card">
+                <svg class="principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                <span>Intégrité</span>
+            </div>
+            <div class="principle-card">
+                <svg class="principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                <span>Transmission</span>
+            </div>
+            <div class="principle-card">
+                <svg class="principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                <span>Protection</span>
+            </div>
+            <div class="principle-card">
+                <svg class="principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <span>Curiosité</span>
+            </div>
+            <div class="principle-card">
+                <svg class="principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <span>Excellence</span>
+            </div>
+            <div class="principle-card">
+                <svg class="principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                <span>Construction</span>
+            </div>
+            <div class="principle-card">
+                <svg class="principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                <span>Persévérance</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Fin par un Engagement -->
+    <section class="container">
+        <div class="engagement-box">
+            <h2>Mon Engagement</h2>
+            <p>
+                Je construis des systèmes fiables.<br>
+                Je protège les infrastructures.<br>
+                Je transmets les connaissances.<br>
+                Je continue d'apprendre.<br>
+                <strong style="color: var(--accent-color, #00ffcc); display: block; margin-top: 1rem;">Parce que bâtir est plus durable que détruire.</strong>
+            </p>
+            <p style="font-size: 0.95rem; color: #d9e2f2; margin-top: 1.5rem; font-style: italic;">
+                Ce manifeste évoluera au fil de mon parcours, à mesure que mes connaissances, mes responsabilités et mes expériences grandiront.
+            </p>
+        </div>
+        <div class="manifest-meta-footer">
+            Version du manifeste : <strong>v1.0</strong> — Dernière mise à jour : <strong>Juillet 2026</strong>
+        </div>
+    </section>
+
+    <!-- Bouton de retour -->
+    <section class="container profile-return-section" style="text-align: center; margin-bottom: 3rem;">
+        <a href="index.html" class="btn-explore-all">← Retour à l'accueil</a>
+    </section>
+
+  </main>
+
+  <!-- Footer minimaliste -->
+  <footer class="site-footer-minimal">
+    <p>© <span id="year"></span> Gabriel Bakansambu — G-RIEL IT Garden. Tous droits réservés.</p>
+  </footer>
+
+  <!-- Scripts dynamiques : Barre de progression, IntersectionObserver pour la timeline, Menu mobile -->
+  <script>
+    // Barre de progression de lecture
+    window.addEventListener('scroll', () => {
+        const winScroll = document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById("reading-progress").style.width = scrolled + "%";
+    });
+
+    // Animation progressive de la timeline au scroll
+    const observerOptions = {
+        threshold: 0.2
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.timeline-item').forEach(item => {
+        observer.observe(item);
+    });
+
+    // Menu mobile & Année dynamique
+    const menuBtn = document.querySelector(".hamburger-btn");
+    const overlay = document.getElementById("menuOverlay");
+
+    if (menuBtn && overlay) {
+        menuBtn.addEventListener("click", () => {
+            overlay.classList.toggle("active");
+            document.body.classList.toggle("menu-open");
+        });
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="js/navigation.js"></script>
+</body>
+</html>

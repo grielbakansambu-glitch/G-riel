@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratoire : Automatisation Système avec Python - G-RIEL IT Garden</title>
+    <link rel="stylesheet" href="/css/labs.css">
+</head>
+<body>
+
+    <div id="reading-progress"></div>
+
+    <div class="lab-layout">
+        <main class="lab-container">
+            
+            <header class="lab-header">
+                <div class="lab-meta-badges">
+                    <span class="badge badge-blue">
+                        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+                        Python / Administration
+                    </span>
+                    <span class="badge badge-difficulty">
+                        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                        Intermédiaire
+                    </span>
+                    <span class="badge badge-blue">
+                        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        35 minutes
+                    </span>
+                </div>
+                <h1>Monitoring et Automatisation Système avec Python</h1>
+                <p>Découvrez comment remplacer vos scripts Bash complexes par Python pour superviser l'état de santé de vos serveurs de manière plus robuste et lisible.</p>
+                
+                <div class="lab-action-bar">
+                    <button class="action-btn" onclick="openModal()">
+                        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+                        Donner une remarque
+                    </button>
+                </div>
+            </header>
+
+            <div class="prereq-box">
+                <h3>
+                    <svg class="icon-svg" style="color: var(--accent-blue);" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    Avant de commencer (Prérequis)
+                </h3>
+                <ul>
+                    <li>Python 3.x installé sur votre environnement (Linux de préférence)</li>
+                    <li>Connaissance basique de la syntaxe Python (variables, fonctions, conditions)</li>
+                    <li>Compréhension de l'arborescence des systèmes de fichiers</li>
+                </ul>
+            </div>
+
+            <div class="result-box">
+                <h3>
+                    <svg class="icon-svg" style="color: var(--accent-blue);" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+                    Ce que vous allez apprendre
+                </h3>
+                <ul>
+                    <li>Interagir avec le système d'exploitation via les modules natifs (<code>os</code>, <code>shutil</code>)</li>
+                    <li>Créer un système de journalisation (logging) professionnel</li>
+                    <li>Surveiller l'espace disque d'une partition et générer des alertes</li>
+                    <li>Gérer les exceptions pour éviter les plantages de vos scripts</li>
+                </ul>
+            </div>
+
+            <section id="introduction">
+                <h2>1. Pourquoi Python en Administration Système ?</h2>
+                <p>Bien que Bash soit incontournable, Python devient extrêmement puissant lorsque les scripts grandissent. Il offre une gestion d'erreurs avancée (try/except), des structures de données complexes (dictionnaires, listes) et une bibliothèque standard riche qui évite d'enchaîner des commandes avec des "pipes" (<code>|</code>) fragiles.</p>
+            </section>
+
+            <section id="script">
+                <h2>2. Le Script de Monitoring d'Espace Disque</h2>
+                <p>Ce script vérifie l'espace disponible sur une partition spécifique et enregistre le résultat dans un fichier journal. Si le seuil d'alerte est dépassé, une alerte est levée.</p>
+
+                <div class="code-wrapper">
+                    <div class="code-header">
+                        <span>python / disk_monitor.py</span>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                            Copier
+                        </button>
+                    </div>
+                    <pre><code>#!/usr/bin/env python3
+import shutil
+import logging
+import sys
+
+# Configuration du fichier de log
+logging.basicConfig(
+    filename='/var/log/disk_monitor.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+
+def check_disk_usage(disk, threshold):
+    """Vérifie l'utilisation du disque et compare avec un seuil en pourcentage."""
+    try:
+        stat = shutil.disk_usage(disk)
+        percent_used = (stat.used / stat.total) * 100
+        
+        if percent_used > threshold:
+            msg = f"ALERTE CRITIQUE : L'utilisation de {disk} a atteint {percent_used:.1f}% !"
+            print(msg)
+            logging.error(msg)
+            return False
+            
+        msg = f"OK : L'utilisation de {disk} est stable à {percent_used:.1f}%."
+        print(msg)
+        logging.info(msg)
+        return True
+        
+    except FileNotFoundError:
+        error_msg = f"Erreur : Le chemin {disk} est introuvable."
+        print(error_msg)
+        logging.critical(error_msg)
+        sys.exit(1)
+
+if __name__ == "__main__":
+    print("[*] Démarrage de l'analyse du système...")
+    # Vérifie la partition racine (/) avec un seuil d'alerte à 80%
+    check_disk_usage("/", 80.0)</code></pre>
+                </div>
+            </section>
+
+            <div class="takeaway-box">
+                <h3>
+                    <svg class="icon-svg" style="color: #10b981;" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 017 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+                    À retenir
+                </h3>
+                <ul>
+                    <li>L'utilisation du shebang <code>#!/usr/bin/env python3</code> permet de rendre le script exécutable directement depuis le terminal.</li>
+                    <li>Le module <code>logging</code> est préférable à de simples <code>print()</code> car il permet de garder un historique avec horodatage, indispensable pour le débogage.</li>
+                    <li>Le bloc <code>try/except</code> empêche le script de planter brutalement si le dossier cible n'existe pas.</li>
+                </ul>
+            </div>
+
+            <section id="defi">
+                <h2>3. Passez à l'action</h2>
+                <div class="challenge-box">
+                    <h3>
+                        <svg class="icon-svg" style="color: #f59e0b;" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        Défi Pratique
+                    </h3>
+                    <p>Faites évoluer ce script pour qu'il réponde aux besoins d'une infrastructure plus complexe :</p>
+                    <ul>
+                        <li>Modifiez la fonction pour qu'elle accepte une liste de partitions (ex: <code>["/", "/var", "/home"]</code>) et les vérifie toutes avec une boucle <code>for</code>.</li>
+                        <li>Utilisez le module <code>subprocess</code> pour récupérer la charge CPU actuelle (via la commande <code>uptime</code> ou <code>top</code>) et l'ajouter aux logs.</li>
+                        <li>Planifiez l'exécution de ce script python toutes les 5 minutes en utilisant le <code>crontab</code> de votre système Linux.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="lab-history">
+                <h3>Historique des versions</h3>
+                <ul>
+                    <li><strong>v1.0 (29 juillet 2026) :</strong> Intégration du laboratoire de monitoring Python.</li>
+                </ul>
+            </div>
+
+            <nav class="lab-footer-nav">
+                <a href="#" class="action-btn">Lab précédent</a>
+                <a href="#" class="action-btn">Tous les laboratoires</a>
+                <a href="#" class="action-btn">Lab suivant</a>
+            </nav>
+
+            <div style="margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); text-align: center; font-size: 0.85rem; color: var(--text-secondary);">
+                <p>Ce laboratoire fait partie du <strong>G-RIEL IT Garden</strong></p>
+                <p>Document pédagogique conçu par <strong>Gabriel Bakansambu</strong></p>
+                <p style="margin-top: 0.5rem; font-style: italic;">Dernière mise à jour : 29 juillet 2026</p>
+            </div>
+
+        </main>
+
+        <aside class="lab-sidebar">
+            <h3>Sommaire</h3>
+            <ul>
+                <li><a href="#introduction" class="active">1. Introduction</a></li>
+                <li><a href="#script">2. Le Script Python</a></li>
+                <li><a href="#defi">3. Défi</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content">
+            <h3>Donner un avis sur ce laboratoire</h3>
+            <form onsubmit="submitFeedback(event)">
+                <input type="text" placeholder="Votre nom (facultatif)">
+                <input type="email" placeholder="Votre e-mail (facultatif)">
+                <select>
+                    <option value="erreur">Signaler une erreur</option>
+                    <option value="suggestion">Proposer une suggestion</option>
+                    <option value="question">Poser une question</option>
+                    <option value="compliment">Compliment / Félicitations</option>
+                </select>
+                <textarea rows="4" placeholder="Votre message..." required></textarea>
+                <div class="modal-actions">
+                    <button type="button" class="action-btn" onclick="closeModal()">Annuler</button>
+                    <button type="submit" class="action-btn" style="background-color: var(--accent-blue); color: #fff;">Envoyer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/labs.js" defer></script>
+</body>
+</html>

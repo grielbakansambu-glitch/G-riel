@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Accueil — G-RIEL IT Garden, Digital Garden de Gabriel Bakansambu.">
+  <meta name="author" content="Gabriel Bakansambu">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Accueil — G-RIEL IT Garden</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/navigation.js"></script>
+<base target="_blank">
+</head>
+<body>
+
+  <!-- ============================================
+       HEADER — Identique sur toutes les pages
+       ============================================ -->
+  <header class="site-header">
+  <div class="header-container">
+    
+    <!-- Partie Gauche : Identité visuelle (Logo + Titre / Légende) -->
+    <div class="header-brand-group">
+      <div class="header-logos">
+        <img src="assets/images/logo.png" alt="Logo G-RIEL" class="brand-main-logo">
+      </div>
+      <div class="header-text-block">
+        <span class="header-site-title">G-RIEL</span>
+        <span class="header-site-subtitle">IT Garden & Labs</span>
+      </div>
+    </div>
+
+    <!-- Partie Droite : Recherche discrète + Menu Hamburger -->
+    <div class="header-actions">
+      <div class="header-search-bar">
+        <svg class="search-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <input type="text" placeholder="Rechercher..." aria-label="Recherche">
+      </div>
+
+      <button aria-label="Menu" class="hamburger-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  CORPS DE PAGE — G-RIEL IT Garden (homepage)                 -->
+<!--  À placer entre ton <header> et mon <footer>                 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+<main class="main-content">
+
+  <!-- 1. HERO PERCUTANT -->
+<section class="hero-immersive" id="hero">  
+
+  <div class="hero-container container">  
+
+    <div class="hero-content">  
+
+      <span class="badge-sub">
+        JARDIN DE CONNAISSANCES NUMÉRIQUE
+      </span>
+
+
+      <h1>G-RIEL IT Garden</h1>
+
+
+      <p class="hero-tagline-strong">
+        Learn.<br>
+        Build.<br>
+        Document.<br>
+        Evolve.
+      </p>
+
+
+      <div class="hero-badges">
+
+        <span class="tech-badge">Linux</span>
+        <span class="tech-badge">Networks</span>
+        <span class="tech-badge">Cybersecurity</span>
+        <span class="tech-badge">Documentation</span>
+        <span class="tech-badge">Open Source</span>
+
+      </div>
+
+
+      <p>
+        Laboratoire numérique personnel dédié à l'expérimentation,
+        la documentation et la construction progressive de compétences
+        en administration système, réseaux, cybersécurité et ingénierie
+        logicielle. Chaque note, architecture et projet représente une
+        étape concrète de mon évolution technique.
+      </p>
+
+
+
+      <div class="hero-buttons">
+
+        <a href="#garden" class="btn btn-primary">
+          Explorer le Garden
+        </a>
+
+        <a href="/homelab.html" class="btn btn-secondary">
+          Explorer le Homelab
+        </a>
+
+      </div>
+
+
+
+      <!-- Liens rapides -->
+
+      <div class="hero-quick-links">
+
+        <a href="https://github.com/grielbakansambu-glitch"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="quick-link-item">
+          GitHub
+        </a>
+
+
+        <a href="assets/PDF/CV_de_Gabriel_BAKANSAMBU.pdf"
+           target="_blank"
+           class="quick-link-item">
+          CV
+        </a>
+
+
+        <a href="/contact.html"
+           class="quick-link-item">
+          Contact
+        </a>
+
+      </div>
+
+
+
+
+      <div class="hero-micro-context">
+
+        <span>
+          Étudiant en Informatique & Technologies —
+          ISP Mbanza-Ngungu • RDC
+        </span>
+
+        <span class="dot">•</span>
+
+        <span>
+          Linux • Réseaux • Cybersécurité
+        </span>
+
+        <span class="dot">•</span>
+
+        <span>
+          Apprentissage continu
+        </span>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="hero-photo-frame with-overlays">
+
+      <img src="assets/images/hero-setup.jpg"
+           alt="Mon espace de travail et homelab"
+           class="rounded-img shadow-img">
+
+
+      <div class="setup-overlay-badge top-left">
+        Ubuntu
+      </div>
+
+
+      <div class="setup-overlay-badge top-right">
+        VirtualBox
+      </div>
+
+
+      <div class="setup-overlay-badge bottom-left">
+        VS Code
+      </div>
+
+
+      <div class="setup-overlay-badge bottom-right">
+        Kali Linux
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+
+<!-- 2. À PROPOS -->
+
+<section class="about-section" id="apropos">  
+
+  <div class="container">  
+
+    <div class="about-grid">  
+
+
+      <div class="about-photo">  
+
+        <img src="assets/images/griel-profile.png"
+             alt="Gabriel Bakansambu"
+             class="rounded-img shadow-img">
+
+      </div>
+
+
+
+
+      <div class="about-text">  
+
+
+        <span class="section-tag">
+          À PROPOS DE MOI
+        </span>
+
+
+        <h2>
+          Construire des compétences par la pratique
+        </h2>
+
+
+
+        <p>
+          Orienté vers les infrastructures informatiques et
+          la sécurité des systèmes, je développe ce
+          <strong>Digital Garden</strong> comme un environnement
+          d'apprentissage permanent permettant de structurer mes
+          connaissances, expérimenter des architectures et transformer
+          les concepts théoriques en compétences opérationnelles.
+        </p>
+
+
+
+
+        <div class="about-badges-row mt-3 mb-3">
+
+
+          <span class="profile-badge">
+            Étudiant Informatique & Technologies
+          </span>
+
+
+          <span class="profile-badge">
+            Linux & Systèmes
+          </span>
+
+
+          <span class="profile-badge">
+            Cybersécurité en apprentissage
+          </span>
+
+
+        </div>
+
+
+
+
+        <div class="about-focus-mini">
+
+
+          <p>
+            <strong>Statut :</strong>
+            Étudiant à l'ISP Mbanza-Ngungu
+          </p>
+
+
+          <p>
+            <strong>Focus actuel :</strong>
+            Administration Linux, Virtualisation,
+            Réseaux et Sécurité des infrastructures
+          </p>
+
+
+        </div>
+
+
+
+
+        <div class="hero-buttons mt-3">
+
+          <a href="/about.html"
+             class="btn btn-primary">
+             En savoir plus
+          </a>
+
+        </div>
+
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- 3. ÉCOSYSTÈME TECHNIQUE -->
+<section class="technologies-section" id="technologies">
+
+  <div class="container text-center">
+
+    <span class="section-tag">ÉCOSYSTÈME TECHNIQUE</span>
+
+    <h2>Technologies & outils</h2>
+
+    <p class="section-subtitle mb-5">
+      Les technologies, plateformes et outils que j'utilise progressivement dans mes
+      laboratoires, projets et expérimentations.
+    </p>
+
+
+    <div class="stack-categories-wrapper">
+
+
+      <!-- ==================== SYSTÈMES ==================== -->
+      <div class="stack-category-group">
+
+        <h3>Systèmes d'exploitation</h3>
+
+        <div class="tech-logos-grid">
+
+
+          <div class="tech-card">
+            <img src="assets/images/linux.jpg" alt="Linux" class="tech-icon">
+
+            <h4>Linux</h4>
+            <small>Système d'exploitation</small>
+
+            <div class="progress-bar">
+              <span class="level-learning"></span>
+            </div>
+
+            <span class="progress-label">Apprentissage</span>
+          </div>
+
+
+
+          <div class="tech-card">
+            <img src="assets/images/ubuntu.jpg" alt="Ubuntu" class="tech-icon">
+
+            <h4>Ubuntu</h4>
+            <small>Distribution Linux</small>
+
+            <div class="progress-bar">
+              <span class="level-practice"></span>
+            </div>
+
+            <span class="progress-label">En pratique</span>
+          </div>
+
+
+
+          <div class="tech-card">
+            <img src="assets/images/kali.jpg" alt="Kali Linux" class="tech-icon">
+
+            <h4>Kali Linux</h4>
+            <small>Cybersécurité</small>
+
+            <div class="progress-bar">
+              <span class="level-exploration"></span>
+            </div>
+
+            <span class="progress-label">Exploration</span>
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ==================== INFRASTRUCTURE ==================== -->
+
+      <div class="stack-category-group">
+
+        <h3>Infrastructure & Virtualisation</h3>
+
+        <div class="tech-logos-grid">
+
+
+          <div class="tech-card">
+            <img src="assets/images/virtualbox.jpg" alt="VirtualBox" class="tech-icon">
+
+            <h4>VirtualBox</h4>
+            <small>Virtualisation</small>
+
+            <div class="progress-bar">
+              <span class="level-practice"></span>
+            </div>
+
+            <span class="progress-label">En pratique</span>
+          </div>
+
+
+
+          <div class="tech-card">
+            <img src="assets/images/docker.jpg" alt="Docker" class="tech-icon">
+
+            <h4>Docker</h4>
+            <small>Conteneurs</small>
+
+            <div class="progress-bar">
+              <span class="level-exploration"></span>
+            </div>
+
+            <span class="progress-label">Exploration</span>
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ==================== RÉSEAUX ==================== -->
+
+      <div class="stack-category-group">
+
+        <h3>Réseaux</h3>
+
+        <div class="tech-logos-grid">
+
+
+          <div class="tech-card">
+
+            <img src="assets/images/cisco.jpg" alt="Cisco" class="tech-icon">
+
+            <h4>Cisco</h4>
+            <small>Administration réseau</small>
+
+            <div class="progress-bar">
+              <span class="level-learning"></span>
+            </div>
+
+            <span class="progress-label">Apprentissage</span>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ==================== DÉVELOPPEMENT ==================== -->
+
+      <div class="stack-category-group">
+
+        <h3>Développement</h3>
+
+        <div class="tech-logos-grid">
+
+
+          <div class="tech-card">
+            <img src="assets/images/html5.jpg" alt="HTML5" class="tech-icon">
+            <h4>HTML5</h4>
+            <small>Structure Web</small>
+
+            <div class="progress-bar">
+              <span class="level-practice"></span>
+            </div>
+
+            <span class="progress-label">En pratique</span>
+          </div>
+
+
+
+          <div class="tech-card">
+            <img src="assets/images/css3.jpg" alt="CSS3" class="tech-icon">
+            <h4>CSS3</h4>
+            <small>Design Web</small>
+
+            <div class="progress-bar">
+              <span class="level-practice"></span>
+            </div>
+
+            <span class="progress-label">En pratique</span>
+          </div>
+
+
+
+          <div class="tech-card">
+            <img src="assets/images/javascript.jpg" alt="JavaScript" class="tech-icon">
+
+            <h4>JavaScript</h4>
+            <small>Interaction Web</small>
+
+            <div class="progress-bar">
+              <span class="level-exploration"></span>
+            </div>
+
+            <span class="progress-label">Exploration</span>
+          </div>
+
+
+
+          <div class="tech-card">
+            <img src="assets/images/php.jpg" alt="PHP" class="tech-icon">
+
+            <h4>PHP</h4>
+            <small>Back-end</small>
+
+            <div class="progress-bar">
+              <span class="level-practice"></span>
+            </div>
+
+            <span class="progress-label">En pratique</span>
+          </div>
+
+
+
+          <div class="tech-card">
+            <img src="assets/images/mysql.jpg" alt="MySQL" class="tech-icon">
+
+            <h4>MySQL</h4>
+            <small>Base de données</small>
+
+            <div class="progress-bar">
+              <span class="level-practice"></span>
+            </div>
+
+            <span class="progress-label">En pratique</span>
+          </div>
+
+
+
+          <div class="tech-card">
+            <img src="assets/images/python.jpg" alt="Python" class="tech-icon">
+
+            <h4>Python</h4>
+            <small>Programmation</small>
+
+            <div class="progress-bar">
+              <span class="level-learning"></span>
+            </div>
+
+            <span class="progress-label">Apprentissage</span>
+          </div>
+
+
+
+          <div class="tech-card">
+            <img src="assets/images/flutter.jpg" alt="Flutter" class="tech-icon">
+
+            <h4>Flutter</h4>
+            <small>Applications mobiles</small>
+
+            <div class="progress-bar">
+              <span class="level-practice"></span>
+            </div>
+
+            <span class="progress-label">En pratique</span>
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ==================== OUTILS ==================== -->
+
+      <div class="stack-category-group">
+
+        <h3>Outils de développement</h3>
+
+        <div class="tech-logos-grid">
+
+
+          <div class="tech-card">
+
+            <img src="assets/images/git.jpg" alt="Git" class="tech-icon">
+
+            <h4>Git</h4>
+            <small>Versioning</small>
+
+            <div class="progress-bar">
+              <span class="level-learning"></span>
+            </div>
+
+            <span class="progress-label">Apprentissage</span>
+
+          </div>
+
+
+
+          <div class="tech-card">
+
+            <img src="assets/images/github.jpg" alt="GitHub" class="tech-icon">
+
+            <h4>GitHub</h4>
+            <small>Collaboration</small>
+
+            <div class="progress-bar">
+              <span class="level-learning"></span>
+            </div>
+
+            <span class="progress-label">Apprentissage</span>
+
+          </div>
+
+
+
+          <div class="tech-card">
+
+            <img src="assets/images/vscode.jpg" alt="VS Code" class="tech-icon">
+
+            <h4>VS Code</h4>
+            <small>Éditeur de code</small>
+
+            <div class="progress-bar">
+              <span class="level-practice"></span>
+            </div>
+
+            <span class="progress-label">En pratique</span>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <p class="stack-note mt-5">
+      Chaque technologie présentée fait partie de mon parcours d'apprentissage.
+      Cet écosystème évolue progressivement au travers de mes laboratoires,
+      projets et expérimentations.
+    </p>
+
+
+  </div>
+
+</section>
+
+  <!-- 4. L'ÉCOSYSTÈME DU GARDEN -->
+<section class="garden-hub-section" id="garden">
+
+  <div class="container text-center">
+
+    <span class="section-tag">ÉCOSYSTÈME NUMÉRIQUE</span>
+
+    <h2>Explorer le G-RIEL IT Garden</h2>
+
+    <p class="section-subtitle">
+      Un espace organisé autour de quatre domaines complémentaires : apprendre,
+      expérimenter, construire et progresser.
+    </p>
+
+    <div class="garden-hub-grid">
+
+      <!-- Notes -->
+      <a href="/notes.html" class="hub-card hub-card-illustrated">
+
+        <div class="hub-card-image"
+             style="background-image:url('assets/images/card-notes.jpg');">
+        </div>
+
+        <div class="hub-card-content">
+
+          <h3>Notes techniques</h3>
+
+          <p>
+            Documentation, recherches, procédures et retours d'expérience
+            issus de mes apprentissages.
+          </p>
+
+          <span class="hub-link-arrow">
+            Explorer →
+          </span>
+
+        </div>
+
+      </a>
+
+      <!-- Homelab -->
+      <a href="/homelab.html" class="hub-card hub-card-illustrated">
+
+        <div class="hub-card-image"
+             style="background-image:url('assets/images/card-homelab.jpg');">
+        </div>
+
+        <div class="hub-card-content">
+
+          <h3>Homelab</h3>
+
+          <p>
+            Laboratoires virtuels dédiés aux systèmes, aux réseaux,
+            à la virtualisation et à la cybersécurité.
+          </p>
+
+          <span class="hub-link-arrow">
+            Explorer →
+          </span>
+
+        </div>
+
+      </a>
+
+      <!-- Roadmap -->
+      <a href="/roadmap.html" class="hub-card hub-card-illustrated">
+
+        <div class="hub-card-image"
+             style="background-image:url('assets/images/card-roadmap.jpg');">
+        </div>
+
+        <div class="hub-card-content">
+
+          <h3>Feuille de route</h3>
+
+          <p>
+            Les compétences, certifications et objectifs techniques
+            qui guident ma progression.
+          </p>
+
+          <span class="hub-link-arrow">
+            Explorer →
+          </span>
+
+        </div>
+
+      </a>
+
+      <!-- Projets -->
+      <a href="/projects.html" class="hub-card hub-card-illustrated">
+
+        <div class="hub-card-image"
+             style="background-image:url('assets/images/card-projects.jpg');">
+        </div>
+
+        <div class="hub-card-content">
+
+          <h3>Projets</h3>
+
+          <p>
+            Applications, outils et solutions développés pour transformer
+            les connaissances en réalisations concrètes.
+          </p>
+
+          <span class="hub-link-arrow">
+            Explorer →
+          </span>
+
+        </div>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- 5. PROJETS PHARES -->
+<section class="projects-magazine-section" id="projets">
+
+  <div class="container">
+
+    <div class="section-header text-center">
+
+      <span class="section-tag">PORTFOLIO TECHNIQUE</span>
+
+      <h2>Projets & expérimentations</h2>
+
+      <p class="section-subtitle">
+        Une sélection de projets développés pour mettre en pratique mes compétences,
+        explorer de nouvelles technologies et résoudre des problématiques concrètes.
+      </p>
+
+    </div>
+
+
+    <div class="projects-grid-3">
+
+      <!-- G-Lisolo -->
+      <article class="mag-card">
+
+        <img src="assets/images/project-glisolo.png"
+             alt="Projet G-Lisolo">
+
+        <div class="mag-overlay">
+
+          <span class="project-type-badge personal">
+            Projet personnel
+          </span>
+
+          <h3>G-Lisolo</h3>
+
+          <p>
+            Application de messagerie développée avec Flutter, PHP et MySQL,
+            mettant en œuvre une architecture client-serveur, l'authentification
+            des utilisateurs et la gestion des conversations.
+          </p>
+
+          <div class="project-tech-badges">
+            <span>Flutter</span>
+            <span>PHP</span>
+            <span>MySQL</span>
+          </div>
+
+          <a href="/projects.html" class="btn-sm">
+            Explorer le projet →
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- SIGADP -->
+      <article class="mag-card">
+
+        <img src="assets/images/project-sigadp.jpg"
+             alt="Projet SIGADP">
+
+        <div class="mag-overlay">
+
+          <span class="project-type-badge academic">
+            Projet académique
+          </span>
+
+          <h3>SIGADP</h3>
+
+          <p>
+            Système de gestion et d'automatisation des documents pédagogiques,
+            conçu pour optimiser les processus administratifs au sein d'un établissement.
+          </p>
+
+          <div class="project-tech-badges">
+            <span>PHP</span>
+            <span>MySQL</span>
+            <span>Architecture Web</span>
+          </div>
+
+          <a href="/projects.html" class="btn-sm">
+            Explorer le projet →
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- Digital Campus -->
+      <article class="mag-card">
+
+        <img src="assets/images/project-campus.png"
+             alt="Concept Digital Campus">
+
+        <div class="mag-overlay">
+
+          <span class="project-type-badge collaborative">
+            Concept collaboratif
+          </span>
+
+          <h3>Digital Campus</h3>
+
+          <p>
+            Vision d'une plateforme numérique destinée à centraliser les services
+            universitaires et faciliter la collaboration entre étudiants,
+            enseignants et administration.
+          </p>
+
+          <div class="project-tech-badges">
+            <span>UX</span>
+            <span>Architecture Web</span>
+            <span>Collaboration</span>
+          </div>
+
+          <a href="/projects.html" class="btn-sm">
+            Explorer le projet →
+          </a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+
+    <div class="text-center mt-5">
+
+      <a href="/projects.html" class="btn btn-primary">
+        Explorer le portfolio →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- 6. SECTION HOMELAB -->
+  <section class="homelab-feature-section" id="homelab-spotlight">
+  <div class="container">
+
+    <div class="homelab-feature-grid">
+
+      <div class="homelab-feature-image">
+        <img src="assets/images/homelab-setup.jpg"
+             alt="Infrastructure Homelab G-RIEL IT Garden"
+             class="rounded-img shadow-img">
+      </div>
+
+      <div class="homelab-feature-content">
+
+        <span class="section-tag">LABORATOIRE D'EXPÉRIMENTATION</span>
+
+        <h2>Mon Homelab</h2>
+
+        <p>
+          Mon Homelab constitue un environnement d'apprentissage et d'expérimentation
+          conçu pour reproduire des infrastructures informatiques réalistes. J'y
+          développe progressivement mes compétences en administration système,
+          réseaux, virtualisation et cybersécurité à travers des laboratoires,
+          des simulations et des projets pratiques.
+        </p>
+
+        <div class="homelab-badges-wrap mt-3">
+
+          <span class="tech-badge">VirtualBox</span>
+          <span class="tech-badge">Ubuntu Server</span>
+          <span class="tech-badge">Kali Linux</span>
+          <span class="tech-badge">Cisco Packet Tracer</span>
+          <span class="tech-badge">Git</span>
+          <span class="tech-badge">GitHub</span>
+          <span class="tech-badge">VS Code</span>
+
+        </div>
+
+        <div class="mt-4">
+          <a href="/homelab.html" class="btn btn-primary">
+            Explorer le Homelab →
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+  <!-- 7. DERNIÈRES NOTES -->
+  <section class="publications-section" id="notes">
+  <div class="container">
+
+    <div class="section-header text-center">
+      <span class="section-tag">CARNET TECHNIQUE</span>
+
+      <h2>Notes de laboratoire</h2>
+
+      <p class="section-subtitle">
+        Une sélection de mes expérimentations, documentations et retours d'expérience
+        en systèmes, réseaux, virtualisation et cybersécurité.
+      </p>
+    </div>
+
+    <div class="notes-cards-grid-3">
+
+      <!-- Note 1 -->
+      <article class="note-card">
+
+        <div class="note-meta">
+          <span class="note-cat">Linux</span>
+          <span class="note-date">24 Juil. 2026</span>
+          <span class="note-read">6 min</span>
+          <span class="note-level-badge intermediate">Approfondissement</span>
+        </div>
+
+        <h3>Renforcement de la sécurité SSH sous Ubuntu Server</h3>
+
+        <p>
+          Configuration sécurisée du service SSH, désactivation de l'accès administrateur
+          distant et mise en œuvre de l'authentification par clés.
+        </p>
+
+        <a href="/notes.html" class="note-link">
+          Explorer la note →
+        </a>
+
+      </article>
+
+      <!-- Note 2 -->
+      <article class="note-card">
+
+        <div class="note-meta">
+          <span class="note-cat">Réseaux</span>
+          <span class="note-date">18 Juil. 2026</span>
+          <span class="note-read">8 min</span>
+          <span class="note-level-badge intermediate">Pratique</span>
+        </div>
+
+        <h3>Segmentation réseau avec les VLAN Cisco</h3>
+
+        <p>
+          Mise en œuvre des VLAN, configuration des trunks 802.1Q et communication
+          inter-VLAN dans un environnement Cisco.
+        </p>
+
+        <a href="/notes.html" class="note-link">
+          Explorer la note →
+        </a>
+
+      </article>
+
+      <!-- Note 3 -->
+      <article class="note-card">
+
+        <div class="note-meta">
+          <span class="note-cat">Virtualisation</span>
+          <span class="note-date">12 Juil. 2026</span>
+          <span class="note-read">5 min</span>
+          <span class="note-level-badge beginner">Exploration</span>
+        </div>
+
+        <h3>Architecture des réseaux virtuels avec VirtualBox</h3>
+
+        <p>
+          Comprendre les modes NAT, Bridge et Host-Only afin de construire des
+          laboratoires virtuels fiables et isolés.
+        </p>
+
+        <a href="/notes.html" class="note-link">
+          Explorer la note →
+        </a>
+
+      </article>
+
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="/notes.html" class="btn btn-secondary">
+        Accéder à toutes les notes →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+  <!-- 8. OBJECTIFS / ROADMAP -->
+  <section class="roadmap-preview-section" id="objectifs">
+  <div class="container text-center">
+    <span class="section-tag">CAP & AVENIR</span>
+
+    <h2>Feuille de route</h2>
+
+    <p class="section-subtitle">
+      Les compétences techniques que je développe progressivement afin de construire un profil solide en ingénierie informatique.
+    </p>
+
+    <div class="roadmap-mini-timeline">
+
+      <div class="roadmap-mini-step">
+        <span class="rm-num">01</span>
+        <h3>Réseaux & Cisco</h3>
+        <p>Concevoir, configurer et administrer des infrastructures réseau fiables et sécurisées.</p>
+      </div>
+
+      <div class="roadmap-mini-step">
+        <span class="rm-num">02</span>
+        <h3>Administration Système</h3>
+        <p>Automatiser, sécuriser et maintenir des environnements Linux et Windows.</p>
+      </div>
+
+      <div class="roadmap-mini-step">
+        <span class="rm-num">03</span>
+        <h3>Virtualisation & Conteneurs</h3>
+        <p>Déployer des laboratoires virtuels avec VirtualBox, Docker et d'autres technologies d'isolation.</p>
+      </div>
+
+      <div class="roadmap-mini-step">
+        <span class="rm-num">04</span>
+        <h3>Cybersécurité</h3>
+        <p>Analyser les vulnérabilités, renforcer les systèmes et contribuer à la protection des infrastructures numériques.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- 8. BIS - PRINCIPES DU GARDEN -->
+  <section class="garden-principles-section" id="principes">
+    <div class="container text-center">
+      <span class="section-tag">PHILOSOPHIE</span>
+      <h2>Principes du Garden</h2>
+      <p class="section-subtitle">Les principes qui guident la construction, la documentation et l'évolution de ce laboratoire numérique.</p>
+      
+      <div class="principles-grid-3">
+        <div class="principle-card">
+          <h3>Documenter avant tout</h3>
+          <p>Consigner chaque configuration, chaque test et chaque solution afin de constituer une base de connaissances fiable et durable.</p>
+        </div>
+        <div class="principle-card">
+          <h3>Apprendre en construisant</h3>
+          <p>Privilégier la pratique sur des environnements de laboratoire, des projets concrets et des situations réelles afin de développer des compétences durables.</p>
+        </div>
+        <div class="principle-card">
+          <h3>Partage des connaissances</h3>
+          <p>Partager ouvertement ses connaissances, ses notes et ses retours d'expérience afin de contribuer à l'apprentissage collectif de la communauté informatique.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CITATION FINALE -->
+  <section class="philosophy-dark-massive">  
+    <div class="container text-center">  
+      <blockquote class="massive-philosophy-quote">  
+        « Ce laboratoire numérique rassemble mes travaux, mes expérimentations et mes connaissances afin de documenter une progression continue en ingénierie informatique, administration système, réseaux, cybersécurité et développement logiciel.»
+      </blockquote>  
+      <div class="mt-4">
+        <a href="#garden" class="btn btn-primary-light">Explorer le Garden</a>
+      </div>
+    </div>  
+  </section>
+
+</main>
+
+
+
+  <!-- ============================================
+       FOOTER — Identique sur toutes les pages
+       ============================================ -->
+  <footer class="site-footer">
+  <div class="footer-container">
+    
+    <!-- 1. Logo et descriptif en haut du footer -->
+<div class="footer-top">
+  <img src="assets/images/logo.png" alt="Logo G-RIEL" class="footer-logo">
+  <h3 class="footer-title">G-RIEL IT GARDEN</h3>
+  <p class="footer-desc">Laboratoire numérique personnel — Administration Système, Cybersécurité & Ingénierie Informatique.</p>
+</div>
+
+    <!-- 2. Navigation au milieu -->
+    <div class="footer-nav">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="about.html">À propos</a></li>
+        <li><a href="roadmap.html">Feuille de route</a></li>
+        <li><a href="projects.html">Projets</a></li>
+        <li><a href="notes.html">Notes</a></li>
+        <li><a href="homelab.html">Homelab</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- 3. Réseaux & Contact en SVG alignés en bas -->
+    <div class="footer-social">
+      <h4>Réseaux & Contact</h4>
+      <div class="social-icons">
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/share/1DQwb4sk5p/" target="_blank" aria-label="Facebook">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+        </a>
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/@griel_it?_r=1&_t=ZS-98LtkOWsKlJ" target="_blank" aria-label="TikTok">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
+        </a>
+        <!-- GitHub -->
+        <a href="https://github.com/grielbakansambu-glitch" target="_blank" aria-label="GitHub">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/gabriel-bakansambu-983ba6424" target="_blank" aria-label="LinkedIn">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+        <!-- Email -->
+        <a href="mailto:grielbakansambu@gmail.com" aria-label="Email">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+        <!-- Téléphone / WhatsApp -->
+        <a href="tel:0840609505" aria-label="Téléphone">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Signature finale -->
+    <div class="footer-bottom">
+      <p>Gabriel Bakansambu — © 2026 G-RIEL IT Garden</p>
+    </div>
+
+  </div>
+</footer>
+
+  <script src="js/navigation.js"></script>
+  
+ 
+</body>
+</html>

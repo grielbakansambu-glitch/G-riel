@@ -1,0 +1,173 @@
+/* =================================================   
+   STYLES SPÉCIFIQUES — PROFIL & MENTION ACADÉMIQUE
+   ================================================= */
+
+.profile-hero {
+    padding: 100px 20px 70px;
+}
+
+.profile-hero h1 {
+    font-size: clamp(2rem, 4vw, 3.3rem);
+}
+
+.profile-section {
+    margin: 40px auto;
+}
+
+/* Carte d'identité ISP */
+.profile-card {
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+}
+
+.profile-image-container {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.profile-isp-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-info-content {
+    flex: 2;
+    min-width: 280px;
+}
+
+.profile-info-content h2 {
+    margin: 10px 0;
+    font-size: 1.8rem;
+}
+
+.profile-description {
+    color: #bbb;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.profile-meta-grid {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.meta-box {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.meta-label {
+    display: block;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.meta-value {
+    font-size: 0.95rem;
+    color: #fff;
+}
+
+/* Grille des semestres */
+.semestres-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.semester-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.semester-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.semester-card h4 {
+    margin: 5px 0 2px 0;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.semester-subtitle {
+    display: block;
+    color: #888;
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+}
+
+.semester-date {
+    font-size: 0.75rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Barres de progression et statuts */
+.progress-bar {
+    background: rgba(255, 255, 255, 0.05);
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.level-learning.completed {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.status-valid {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: #00ffcc;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Note administrative en bas des archives */
+.archive-note {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.archive-note p {
+    font-size: 0.85rem;
+    color: #999;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.profile-return-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.site-footer-minimal {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #777;
+    font-size: 0.85rem;
+}
