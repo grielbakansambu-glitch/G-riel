@@ -79,6 +79,7 @@ Le projet poursuit plusieurs objectifs :
 ├── homelab.html
 ├── certifications.html
 ├── contact.html
+├── shadowops.html
 │
 ├── css/
 ├── js/
