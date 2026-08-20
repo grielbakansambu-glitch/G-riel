@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://grielbakansambu-glitch.github.io/G-riel/sitemap.xml
