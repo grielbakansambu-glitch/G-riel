@@ -1,0 +1,1185 @@
+/* ==========================================================================
+   G-RIEL IT GARDEN — GENÈSE
+   V4 — DIGITAL GARDEN / NARRATIVE EXPERIENCE
+   ========================================================================== */
+
+
+/* ==========================================================================
+   01 — VARIABLES
+   ========================================================================== */
+
+.genese {
+    --g-blue: var(--accent-blue, #2563eb);
+    --g-cyan: #06b6d4;
+    --g-green: #10b981;
+
+    --g-line: rgba(37, 99, 235, 0.18);
+    --g-border: rgba(255, 255, 255, 0.10);
+
+    --g-glass: rgba(255, 255, 255, 0.045);
+
+    --g-radius: 24px;
+
+    position: relative;
+    min-height: 100vh;
+
+    padding:
+        clamp(3rem, 7vw, 6rem)
+        1.25rem
+        6rem;
+
+    overflow: hidden;
+    isolation: isolate;
+}
+
+
+/* ==========================================================================
+   02 — ATMOSPHÈRE
+   ========================================================================== */
+
+.genese::before,
+.genese::after {
+    content: "";
+
+    position: absolute;
+    z-index: -2;
+
+    width: 520px;
+    height: 520px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    filter: blur(100px);
+    opacity: .65;
+}
+
+
+.genese::before {
+    top: -260px;
+    right: -220px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(37, 99, 235, .20),
+            transparent 70%
+        );
+
+    animation:
+        geneseOrbBlue
+        18s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+.genese::after {
+    bottom: -280px;
+    left: -240px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(16, 185, 129, .14),
+            rgba(6, 182, 212, .05),
+            transparent 70%
+        );
+
+    animation:
+        geneseOrbGreen
+        22s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+@keyframes geneseOrbBlue {
+
+    from {
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+    }
+
+    to {
+        transform:
+            translate3d(-70px, 100px, 0)
+            scale(1.12);
+    }
+}
+
+
+@keyframes geneseOrbGreen {
+
+    from {
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+    }
+
+    to {
+        transform:
+            translate3d(90px, -90px, 0)
+            scale(1.12);
+    }
+}
+
+
+/* ==========================================================================
+   03 — GRILLE
+   ========================================================================== */
+
+.genese {
+    background-image:
+        linear-gradient(
+            rgba(37, 99, 235, .025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(37, 99, 235, .025) 1px,
+            transparent 1px
+        );
+
+    background-size: 52px 52px;
+}
+
+
+/* ==========================================================================
+   04 — CONTAINER
+   ========================================================================== */
+
+.genese .container {
+    position: relative;
+
+    width: min(100%, 980px);
+
+    margin-inline: auto;
+}
+
+
+/* ==========================================================================
+   05 — HERO
+   ========================================================================== */
+
+.genese-hero {
+    margin-bottom:
+        clamp(4rem, 8vw, 7rem);
+
+    text-align: center;
+}
+
+
+.genese-banner-wrapper {
+    margin: 0;
+}
+
+
+.genese-banner {
+    display: block;
+
+    width: 100%;
+    max-width: 900px;
+
+    margin-inline: auto;
+
+    border-radius:
+        clamp(18px, 3vw, 30px);
+
+    border:
+        1px solid var(--g-border);
+
+    box-shadow:
+        0 35px 90px rgba(0, 0, 0, .18),
+        0 0 70px rgba(37, 99, 235, .08);
+
+    animation:
+        geneseHeroIn
+        1s
+        cubic-bezier(.16, 1, .3, 1)
+        both;
+
+    transition:
+        transform .6s cubic-bezier(.2, .8, .2, 1),
+        box-shadow .6s ease;
+}
+
+
+.genese-banner:hover {
+    transform:
+        translateY(-6px)
+        scale(1.01);
+
+    box-shadow:
+        0 45px 110px rgba(0, 0, 0, .22),
+        0 0 90px rgba(37, 99, 235, .12);
+}
+
+
+@keyframes geneseHeroIn {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(30px)
+            scale(.97);
+        filter: blur(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+        filter: blur(0);
+    }
+}
+
+
+/* ==========================================================================
+   06 — CONTENU
+   ========================================================================== */
+
+.genese-content {
+    position: relative;
+
+    max-width: 760px;
+
+    margin-inline: auto;
+
+    padding-left: 2.5rem;
+
+    color: var(--text-primary);
+}
+
+
+/* ==========================================================================
+   07 — LIGNE NARRATIVE
+   ========================================================================== */
+
+.genese-content::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 1px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            var(--g-line) 5%,
+            var(--g-line) 95%,
+            transparent
+        );
+}
+
+
+/* ==========================================================================
+   08 — INTRODUCTION
+   ========================================================================== */
+
+.genese-intro {
+    margin-bottom:
+        clamp(4rem, 8vw, 6rem);
+
+    animation:
+        geneseReveal
+        .8s
+        cubic-bezier(.16, 1, .3, 1)
+        both;
+}
+
+
+.genese-kicker {
+    margin: 0 0 .8rem;
+
+    color: var(--g-blue);
+
+    font-size: .72rem;
+    font-weight: 800;
+
+    letter-spacing: .22em;
+    text-transform: uppercase;
+}
+
+
+.genese-content h1 {
+    margin: 0 0 1.5rem;
+
+    font-size:
+        clamp(2.8rem, 7vw, 5.2rem);
+
+    line-height: .98;
+
+    letter-spacing: -.065em;
+
+    font-weight: 850;
+
+    background:
+        linear-gradient(
+            110deg,
+            var(--text-primary),
+            var(--g-blue),
+            var(--g-cyan),
+            var(--text-primary)
+        );
+
+    background-size: 250% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation:
+        geneseTitleFlow
+        9s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes geneseTitleFlow {
+
+    0% {
+        background-position: 0% center;
+    }
+
+    50% {
+        background-position: 100% center;
+    }
+
+    100% {
+        background-position: 0% center;
+    }
+}
+
+
+.genese-lead {
+    max-width: 620px;
+
+    margin: 0;
+
+    font-size:
+        clamp(1.15rem, 2vw, 1.4rem);
+
+    line-height: 1.7;
+
+    color: var(--text-secondary);
+}
+
+
+/* ==========================================================================
+   09 — CHAPITRES
+   ========================================================================== */
+
+.genese-chapter {
+    position: relative;
+
+    margin-bottom:
+        clamp(4rem, 8vw, 7rem);
+
+    animation:
+        geneseReveal
+        .8s
+        cubic-bezier(.16, 1, .3, 1)
+        both;
+}
+
+
+.genese-chapter-index {
+    position: absolute;
+
+    left: -2.5rem;
+    top: .25rem;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+
+    border:
+        1px solid
+        rgba(37, 99, 235, .35);
+
+    border-radius: 50%;
+
+    background:
+        var(--bg-primary, #0b1020);
+
+    color: var(--g-blue);
+
+    font-size: .62rem;
+    font-weight: 800;
+
+    box-shadow:
+        0 0 0 5px
+        rgba(37, 99, 235, .045),
+
+        0 0 20px
+        rgba(37, 99, 235, .18);
+}
+
+
+.genese-chapter h2 {
+    margin:
+        0 0 1.5rem;
+
+    font-size:
+        clamp(1.6rem, 3vw, 2.3rem);
+
+    line-height: 1.15;
+
+    letter-spacing: -.035em;
+
+    color: var(--text-primary);
+}
+
+
+.genese-chapter h2::after {
+    content: "";
+
+    display: block;
+
+    width: 45px;
+    height: 2px;
+
+    margin-top: .8rem;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--g-blue),
+            var(--g-cyan)
+        );
+}
+
+
+.genese-chapter p {
+    margin:
+        0 0 1.4rem;
+
+    font-size:
+        clamp(1rem, 1.3vw, 1.08rem);
+
+    line-height: 1.9;
+
+    color: var(--text-secondary);
+}
+
+
+.genese-chapter p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ==========================================================================
+   10 — EFFET DE SURVOL DES CHAPITRES
+   ========================================================================== */
+
+.genese-chapter {
+    transition:
+        transform .35s ease;
+}
+
+
+.genese-chapter:hover {
+    transform:
+        translateX(4px);
+}
+
+
+.genese-chapter:hover
+.genese-chapter-index {
+    transform: scale(1.12);
+
+    border-color:
+        var(--g-blue);
+
+    box-shadow:
+        0 0 0 6px
+        rgba(37, 99, 235, .05),
+
+        0 0 24px
+        rgba(37, 99, 235, .35);
+}
+
+
+.genese-chapter-index {
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+
+/* ==========================================================================
+   11 — CHAPITRE EXPÉRIMENTATION
+   ========================================================================== */
+
+.genese-chapter--experimentation {
+    padding:
+        2rem;
+
+    border:
+        1px solid var(--g-border);
+
+    border-radius:
+        var(--g-radius);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37, 99, 235, .07),
+            rgba(255, 255, 255, .018)
+        );
+
+    backdrop-filter:
+        blur(14px);
+
+    -webkit-backdrop-filter:
+        blur(14px);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, .07);
+}
+
+
+.genese-chapter--experimentation
+.genese-chapter-index {
+    left: -2.95rem;
+}
+
+
+/* ==========================================================================
+   12 — CITATION / DÉCLIC
+   ========================================================================== */
+
+.genese-quote {
+    position: relative;
+
+    margin: 2rem 0 0;
+
+    padding:
+        clamp(2rem, 5vw, 3.2rem);
+
+    border:
+        1px solid var(--g-border);
+
+    border-left:
+        3px solid var(--g-blue);
+
+    border-radius:
+        0 var(--g-radius) var(--g-radius) 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37, 99, 235, .11),
+            rgba(6, 182, 212, .035),
+            rgba(255, 255, 255, .018)
+        );
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, .12);
+
+    overflow: hidden;
+}
+
+
+.genese-quote::before {
+    content: "“";
+
+    position: absolute;
+
+    top: -1.1rem;
+    left: 1rem;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 6rem;
+
+    line-height: 1;
+
+    color: var(--g-blue);
+
+    opacity: .12;
+}
+
+
+.genese-quote p {
+    position: relative;
+
+    margin: 0 0 .6rem;
+
+    font-size:
+        clamp(1.15rem, 2vw, 1.35rem);
+
+    color: var(--text-primary);
+}
+
+
+.genese-quote strong {
+    position: relative;
+
+    display: block;
+
+    font-size:
+        clamp(1.7rem, 4vw, 2.5rem);
+
+    line-height: 1.15;
+
+    letter-spacing: -.04em;
+
+    background:
+        linear-gradient(
+            100deg,
+            var(--g-blue),
+            var(--g-cyan)
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+/* ==========================================================================
+   13 — DISCIPLINE
+   ========================================================================== */
+
+.genese-chapter--discipline {
+    padding:
+        2rem;
+
+    border:
+        1px solid
+        rgba(16, 185, 129, .15);
+
+    border-radius:
+        var(--g-radius);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(16, 185, 129, .07),
+            rgba(6, 182, 212, .025)
+        );
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, .06);
+}
+
+
+.genese-highlight {
+    margin:
+        1.8rem 0 !important;
+
+    font-size:
+        clamp(1.6rem, 4vw, 2.4rem) !important;
+
+    line-height: 1.2 !important;
+
+    letter-spacing: -.04em;
+
+    color: var(--text-primary) !important;
+}
+
+
+.genese-highlight strong {
+    background:
+        linear-gradient(
+            100deg,
+            var(--g-green),
+            var(--g-cyan)
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+/* ==========================================================================
+   14 — CONCLUSION
+   ========================================================================== */
+
+.genese-chapter--future {
+    margin-bottom: 3rem;
+}
+
+
+.genese-final {
+    margin-top: 2rem !important;
+
+    font-size:
+        clamp(1.5rem, 4vw, 2.2rem) !important;
+
+    line-height: 1.35 !important;
+
+    color: var(--text-primary) !important;
+
+    font-weight: 650;
+
+    letter-spacing: -.035em;
+}
+
+
+.genese-final::before {
+    content: "";
+
+    display: block;
+
+    width: 60px;
+    height: 3px;
+
+    margin-bottom: 1.4rem;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--g-blue),
+            var(--g-green),
+            transparent
+        );
+
+    box-shadow:
+        0 0 18px
+        rgba(37, 99, 235, .35);
+}
+
+
+/* ==========================================================================
+   15 — DEVISE
+   ========================================================================== */
+
+.genese-motto {
+    margin-top: 4rem;
+
+    padding:
+        2.5rem 1rem;
+
+    text-align: center;
+
+    border-top:
+        1px solid var(--g-border);
+
+    border-bottom:
+        1px solid var(--g-border);
+}
+
+
+.genese-motto-label {
+    display: block;
+
+    margin-bottom: .8rem;
+
+    color: var(--g-blue);
+
+    font-size: .62rem;
+    font-weight: 800;
+
+    letter-spacing: .35em;
+    text-transform: uppercase;
+}
+
+
+.genese-content .motto {
+    margin: 0;
+
+    color: var(--text-primary);
+
+    font-size:
+        clamp(.72rem, 1.5vw, .9rem);
+
+    font-weight: 800;
+
+    letter-spacing: .22em;
+
+    text-transform: uppercase;
+}
+
+
+/* ==========================================================================
+   16 — BOUTON RETOUR
+   ========================================================================== */
+
+.genese-back {
+    display: flex;
+
+    justify-content: center;
+
+    margin-top:
+        clamp(4rem, 7vw, 6rem);
+}
+
+
+.genese-back-button {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+    gap: .7rem;
+
+    min-width: 250px;
+
+    padding:
+        1rem 1.8rem;
+
+    border:
+        1px solid var(--g-border);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, .035);
+
+    backdrop-filter:
+        blur(14px);
+
+    -webkit-backdrop-filter:
+        blur(14px);
+
+    color: var(--text-primary);
+
+    text-decoration: none;
+
+    font-size: .92rem;
+    font-weight: 750;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, .08);
+
+    overflow: hidden;
+
+    transition:
+        transform .4s cubic-bezier(.2,.8,.2,1),
+        background .3s ease,
+        border-color .3s ease,
+        color .3s ease,
+        box-shadow .4s ease;
+}
+
+
+.genese-back-button::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            110deg,
+            transparent 20%,
+            rgba(255,255,255,.20) 50%,
+            transparent 80%
+        );
+
+    transform:
+        translateX(-120%);
+
+    transition:
+        transform .8s cubic-bezier(.2,.8,.2,1);
+}
+
+
+.genese-back-button:hover::before {
+    transform:
+        translateX(120%);
+}
+
+
+.genese-back-button:hover {
+    transform:
+        translateY(-5px);
+
+    background:
+        var(--g-blue);
+
+    border-color:
+        var(--g-blue);
+
+    color: #fff;
+
+    box-shadow:
+        0 20px 55px
+        rgba(37, 99, 235, .28);
+}
+
+
+.genese-back-button:active {
+    transform:
+        translateY(-1px)
+        scale(.98);
+}
+
+
+.genese-back-button:focus-visible {
+    outline:
+        3px solid
+        rgba(37, 99, 235, .35);
+
+    outline-offset: 5px;
+}
+
+
+/* ==========================================================================
+   17 — ANIMATION
+   ========================================================================== */
+
+@keyframes geneseReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+
+        filter:
+            blur(4px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+        filter:
+            blur(0);
+    }
+}
+
+
+.genese-chapter:nth-of-type(1) {
+    animation-delay: .1s;
+}
+
+.genese-chapter:nth-of-type(2) {
+    animation-delay: .18s;
+}
+
+.genese-chapter:nth-of-type(3) {
+    animation-delay: .26s;
+}
+
+.genese-chapter:nth-of-type(4) {
+    animation-delay: .34s;
+}
+
+.genese-chapter:nth-of-type(5) {
+    animation-delay: .42s;
+}
+
+.genese-chapter:nth-of-type(6) {
+    animation-delay: .50s;
+}
+
+
+/* ==========================================================================
+   18 — MOBILE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+    .genese {
+        padding:
+            2.5rem 1rem 4.5rem;
+
+        background-size:
+            36px 36px;
+    }
+
+
+    .genese-content {
+        padding-left:
+            1.5rem;
+    }
+
+
+    .genese-content::before {
+        left: .15rem;
+    }
+
+
+    .genese-chapter-index {
+        left: -1.65rem;
+
+        width: 24px;
+        height: 24px;
+
+        font-size: .55rem;
+    }
+
+
+    .genese-chapter--experimentation
+    .genese-chapter-index {
+        left: -2.1rem;
+    }
+
+
+    .genese-chapter {
+        margin-bottom:
+            4rem;
+    }
+
+
+    .genese-chapter p {
+        line-height: 1.8;
+    }
+
+
+    .genese-chapter--experimentation,
+    .genese-chapter--discipline {
+        padding:
+            1.4rem;
+    }
+
+
+    .genese-back-button {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+
+/* ==========================================================================
+   19 — PETITS ÉCRANS
+   ========================================================================== */
+
+@media (max-width: 480px) {
+
+    .genese {
+        padding:
+            2rem .8rem 4rem;
+    }
+
+
+    .genese-content {
+        padding-left:
+            1.15rem;
+    }
+
+
+    .genese-content::before {
+        left: 0;
+    }
+
+
+    .genese-content h1 {
+        font-size:
+            clamp(2.35rem, 13vw, 3.5rem);
+    }
+
+
+    .genese-chapter-index {
+        left: -1.35rem;
+
+        width: 21px;
+        height: 21px;
+
+        font-size: .48rem;
+    }
+
+
+    .genese-chapter--experimentation
+    .genese-chapter-index {
+        left: -1.8rem;
+    }
+
+
+    .genese-quote {
+        padding:
+            1.8rem 1.25rem;
+    }
+
+
+    .genese-quote strong {
+        font-size:
+            1.65rem;
+    }
+
+
+    .genese-content .motto {
+        font-size:
+            .65rem;
+
+        letter-spacing:
+            .14em;
+    }
+}
+
+
+/* ==========================================================================
+   20 — ACCESSIBILITÉ
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .genese *,
+    .genese::before,
+    .genese::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+
+    .genese-banner:hover,
+    .genese-chapter:hover,
+    .genese-back-button:hover {
+        transform: none;
+    }
+}
+
+
+/* ==========================================================================
+   21 — FALLBACK BACKDROP FILTER
+   ========================================================================== */
+
+@supports not (backdrop-filter: blur(10px)) {
+
+    .genese-chapter--experimentation,
+    .genese-quote,
+    .genese-chapter--discipline,
+    .genese-back-button {
+        background:
+            var(
+                --bg-secondary,
+                rgba(255,255,255,.06)
+            );
+    }
+}
+
+
+/* ==========================================================================
+   END — G-RIEL IT GARDEN
+   ========================================================================== */

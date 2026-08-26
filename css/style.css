@@ -3605,3 +3605,288 @@ section {
   outline-offset: 2px;
   border-radius: 4px;
 }
+
+/* ==========================================================================
+   G-RIEL IT GARDEN — BOUTON GENÈSE
+   ========================================================================== */
+
+.genese-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 4rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   BOUTON
+   -------------------------------------------------------------------------- */
+
+.genese-back-button {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+
+    min-width: 250px;
+    padding: 1rem 1.6rem;
+
+    border: 1px solid rgba(37, 99, 235, 0.25);
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37, 99, 235, 0.08),
+            rgba(6, 182, 212, 0.04)
+        );
+
+    color: var(--text-primary);
+
+    text-decoration: none;
+
+    font-size: 0.95rem;
+    font-weight: 750;
+    letter-spacing: 0.01em;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.45s cubic-bezier(.2,.8,.2,1),
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.45s ease;
+}
+
+
+/* --------------------------------------------------------------------------
+   LUEUR QUI TRAVERSE LE BOUTON
+   -------------------------------------------------------------------------- */
+
+.genese-back-button::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            110deg,
+            transparent 25%,
+            rgba(255, 255, 255, 0.18) 50%,
+            transparent 75%
+        );
+
+    transform: translateX(-120%);
+
+    transition:
+        transform 0.8s cubic-bezier(.2,.8,.2,1);
+
+    pointer-events: none;
+}
+
+
+/* --------------------------------------------------------------------------
+   FLÈCHE
+   -------------------------------------------------------------------------- */
+
+.genese-back-button span:first-child {
+    position: relative;
+    z-index: 1;
+
+    display: inline-flex;
+    align-items: center;
+
+    font-size: 1.25rem;
+    color: var(--accent-blue, #2563eb);
+
+    transition:
+        transform 0.4s cubic-bezier(.2,.8,.2,1),
+        color 0.3s ease;
+}
+
+
+/* --------------------------------------------------------------------------
+   TEXTE
+   -------------------------------------------------------------------------- */
+
+.genese-back-button span:last-child {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* --------------------------------------------------------------------------
+   HOVER
+   -------------------------------------------------------------------------- */
+
+.genese-back-button:hover {
+    transform: translateY(-5px);
+
+    border-color:
+        var(--accent-blue, #2563eb);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent-blue, #2563eb),
+            #06b6d4
+        );
+
+    color: #fff;
+
+    box-shadow:
+        0 20px 55px rgba(37, 99, 235, 0.25),
+        0 0 35px rgba(6, 182, 212, 0.12);
+}
+
+
+.genese-back-button:hover::before {
+    transform: translateX(120%);
+}
+
+
+.genese-back-button:hover span:first-child {
+    transform: translateX(5px);
+
+    color: #fff;
+}
+
+
+/* --------------------------------------------------------------------------
+   ACTIVE
+   -------------------------------------------------------------------------- */
+
+.genese-back-button:active {
+    transform:
+        translateY(-1px)
+        scale(0.98);
+}
+
+
+/* --------------------------------------------------------------------------
+   ACCESSIBILITÉ
+   -------------------------------------------------------------------------- */
+
+.genese-back-button:focus-visible {
+    outline:
+        3px solid rgba(37, 99, 235, 0.35);
+
+    outline-offset: 5px;
+}
+
+
+/* --------------------------------------------------------------------------
+   MOBILE
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+    .genese-back {
+        margin-top: 3rem;
+        padding: 0 1rem;
+    }
+
+    .genese-back-button {
+        width: 100%;
+        min-width: 0;
+
+        padding: 1rem 1.4rem;
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   RÉDUCTION DES ANIMATIONS
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .genese-back-button,
+    .genese-back-button::before,
+    .genese-back-button span:first-child {
+        transition: none;
+    }
+
+    .genese-back-button:hover {
+        transform: none;
+    }
+
+}
+
+
+.secondary-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    margin: 2.5rem auto;
+}
+
+.secondary-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+
+    padding: .7rem 1.15rem;
+
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, .035);
+
+    color: var(--text-secondary);
+    text-decoration: none;
+
+    font-size: .82rem;
+    font-weight: 650;
+
+    transition:
+        transform .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        background .3s ease;
+}
+
+.secondary-link:hover {
+    transform: translateY(-3px);
+
+    color: var(--text-primary);
+
+    border-color: var(--accent-blue, #2563eb);
+
+    background: rgba(37, 99, 235, .08);
+}
+
+.secondary-link span:last-child {
+    color: var(--accent-blue, #2563eb);
+
+    transition: transform .3s ease;
+}
+
+.secondary-link:hover span:last-child {
+    transform: translateX(4px);
+}
+
+@media (max-width: 520px) {
+    .secondary-links {
+        flex-direction: column;
+        gap: .7rem;
+    }
+
+    .secondary-link {
+        width: min(100%, 240px);
+        justify-content: center;
+    }
+}
