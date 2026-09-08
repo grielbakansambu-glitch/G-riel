@@ -3890,3 +3890,16 @@ section {
         justify-content: center;
     }
 }
+
+
+.view-all-labs {
+    color: #3b82f6;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.view-all-labs:hover {
+    color: #60a5fa;
+    text-decoration: underline;
+}

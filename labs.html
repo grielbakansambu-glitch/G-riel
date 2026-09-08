@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Explorez les laboratoires du G-RIEL IT Garden : Web, Linux, Bash, Réseaux, Python et Cybersécurité."
+    >
+
+    <title>Laboratoires — G-RIEL IT Garden</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/labs.css">
+</head>
+
+<body>
+
+    <!-- ============================================
+         HEADER — Identique sur toutes les pages
+         ============================================ -->
+
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <!-- Identité visuelle -->
+            <div class="header-brand-group">
+
+                <div class="header-logos">
+                    <img
+                        src="assets/images/logo.png"
+                        alt="Logo G-RIEL"
+                        class="brand-main-logo"
+                    >
+                </div>
+
+                <div class="header-text-block">
+                    <span class="header-site-title">G-RIEL</span>
+                    <span class="header-site-subtitle">IT Garden & Labs</span>
+                </div>
+
+            </div>
+
+            <!-- Recherche + Menu -->
+            <div class="header-actions">
+
+                <div class="header-search-bar">
+
+                    <svg
+                        class="search-icon"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path
+                            fill="currentColor"
+                            d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5
+                            16 5.91 13.09 3 9.5 3S3 5.91 3 9.5
+                            5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57
+                            l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0
+                            C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5
+                            14 7.01 14 9.5 11.99 14 9.5 14z"
+                        />
+                    </svg>
+
+                    <input
+                        type="text"
+                        placeholder="Rechercher..."
+                        aria-label="Recherche"
+                    >
+
+                </div>
+
+                <button
+                    aria-label="Menu"
+                    class="hamburger-btn"
+                    type="button"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ============================================
+         NAVIGATION MOBILE
+         ============================================ -->
+
+    <div
+        class="menu-overlay"
+        id="menuOverlay"
+        aria-hidden="true"
+    >
+
+        <div
+            class="menu-panel"
+            role="dialog"
+            aria-label="Navigation"
+        >
+
+            <a href="index.html" class="nav-link">
+                Accueil
+            </a>
+
+            <a href="about.html" class="nav-link">
+                À propos
+            </a>
+
+            <a href="roadmap.html" class="nav-link">
+                Feuille de route
+            </a>
+
+            <a href="projects.html" class="nav-link">
+                Projets
+            </a>
+
+            <a href="notes.html" class="nav-link">
+                Notes
+            </a>
+
+            <a href="homelab.html" class="nav-link">
+                Homelab
+            </a>
+
+            <a href="labs.html" class="nav-link active">
+                Laboratoires
+            </a>
+
+            <a href="certifications.html" class="nav-link">
+                Certifications
+            </a>
+
+            <a href="contact.html" class="nav-link">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- ============================================
+         CONTENU PRINCIPAL — CATALOGUE DES LABS
+         ============================================ -->
+
+    <main>
+
+        <section class="homelab-section">
+
+            <div class="content-section">
+
+                <h1>Laboratoires</h1>
+
+                <p>
+                    Explore les différents environnements d'expérimentation
+                    du G-RIEL IT Garden.
+                </p>
+
+
+                <div class="lab-grid">
+
+
+                    <!-- ============================================
+                         WEB
+                         ============================================ -->
+
+                    <a
+                        href="labs/web.html"
+                        class="lab-card"
+                    >
+
+                        <img
+                            src="assets/images/web-lab.jpg"
+                            alt="Laboratoires Web"
+                        >
+
+                        <h2>Web Development</h2>
+
+                        <p>
+                            Expérimentations autour du développement web,
+                            des applications et des technologies du Web.
+                        </p>
+
+                    </a>
+
+
+                    <!-- ============================================
+                         LINUX
+                         ============================================ -->
+
+                    <a
+                        href="labs/linux.html"
+                        class="lab-card"
+                    >
+
+                        <img
+                            src="assets/images/linux.jpg"
+                            alt="Laboratoires Linux"
+                        >
+
+                        <h2>Linux Systems</h2>
+
+                        <p>
+                            Administration système, environnement Linux,
+                            commandes et expérimentations système.
+                        </p>
+
+                    </a>
+
+
+                    <!-- ============================================
+                         BASH
+                         ============================================ -->
+
+                    <a
+                        href="labs/bash.html"
+                        class="lab-card"
+                    >
+
+                        <img
+                            src="assets/images/bash.jpg"
+                            alt="Laboratoires Bash"
+                        >
+
+                        <h2>Bash Scripting</h2>
+
+                        <p>
+                            Scripts, automatisation et exploitation
+                            du terminal Linux.
+                        </p>
+
+                    </a>
+
+
+                    <!-- ============================================
+                         NETWORK
+                         ============================================ -->
+
+                    <a
+                        href="labs/network.html"
+                        class="lab-card"
+                    >
+
+                        <img
+                            src="assets/images/cisco_web.jpg"
+                            alt="Laboratoires Réseaux"
+                        >
+
+                        <h2>Networking</h2>
+
+                        <p>
+                            Réseaux, protocoles, configuration,
+                            communication et architecture réseau.
+                        </p>
+
+                    </a>
+
+
+                    <!-- ============================================
+                         PYTHON
+                         ============================================ -->
+
+                    <a
+                        href="labs/python.html"
+                        class="lab-card"
+                    >
+
+                        <img
+                            src="assets/images/python.jpg"
+                            alt="Laboratoires Python"
+                        >
+
+                        <h2>Python Development</h2>
+
+                        <p>
+                            Programmation, scripts, automatisation
+                            et expérimentation avec Python.
+                        </p>
+
+                    </a>
+
+
+                    <!-- ============================================
+                         CYBERSÉCURITÉ
+                         ============================================ -->
+
+                    <a
+                        href="labs/security.html"
+                        class="lab-card"
+                    >
+
+                        <img
+                            src="assets/images/kali-lab.jpg"
+                            alt="Laboratoires Cybersécurité"
+                        >
+
+                        <h2>Cybersecurity</h2>
+
+                        <p>
+                            Expérimentations de sécurité, analyse,
+                            tests et compréhension des mécanismes défensifs.
+                        </p>
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-top">
+
+                <img
+                    src="assets/images/logo.png"
+                    alt="Logo G-RIEL"
+                    class="footer-logo"
+                >
+
+                <h3 class="footer-title">
+                    G-RIEL IT GARDEN
+                </h3>
+
+                <p class="footer-desc">
+                    Jardin numérique dédié à l'expérimentation,
+                    la documentation et la construction progressive
+                    de compétences techniques.
+                </p>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    Gabriel Bakansambu — © 2026 G-RIEL IT Garden
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/navigation.js"></script>
+
+</body>
+</html>
