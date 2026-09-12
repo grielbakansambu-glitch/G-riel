@@ -88,8 +88,9 @@ const searchInput =
 if (searchInput) {
 
     const items = document.querySelectorAll(
-        ".tech-card, .hub-card, .mag-card, .note-card, .roadmap-mini-step, .principle-card"
+        ".tech-card, .hub-card, .mag-card, .note-card, .roadmap-mini-step, .principle-card, .tech-card, .hub-card, .mag-card, .note-card, .roadmap-mini-step, .principle-card, .value-card, .tool-card, .timeline-entry"
     );
+    
 
     searchInput.addEventListener("input", (e) => {
 
