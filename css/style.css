@@ -3903,3 +3903,42 @@ section {
     color: #60a5fa;
     text-decoration: underline;
 }
+
+
+
+
+/* =========================================
+   CARROUSEL DES TECHNOLOGIES
+   ========================================= */
+
+.skills-ticker-container {
+    overflow: hidden;
+    width: 100%;
+    padding: 20px 0;
+    position: relative;
+}
+
+.ticker-track {
+    display: flex;
+    width: max-content;
+    gap: 20px;
+    animation: scrollCards 45s linear infinite;
+}
+
+.ticker-track .tech-card {
+    flex: 0 0 220px;
+}
+
+.skills-ticker-container:hover .ticker-track {
+    animation-play-state: paused;
+}
+
+@keyframes scrollCards {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}

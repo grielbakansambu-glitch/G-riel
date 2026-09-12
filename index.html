@@ -11,7 +11,7 @@
   <meta
     name="description"
     content="Portfolio technique de Gabriel Bakansambu, étudiant en informatique à l'ISP Mbanza-Ngungu. Administration Linux, réseaux, cybersécurité, homelab et développement web."
-  >
+>
 
   <meta name="author" content="Gabriel Bakansambu">
 
@@ -29,10 +29,8 @@
   >
 
   <link rel="stylesheet" href="css/style.css">
+   <script src="js/navigation.js"></script>
 
-  <script src="js/navigation.js"></script>
-
-  <base target="_blank">
 </head>
 <body>
 
@@ -64,11 +62,28 @@
         <span></span>
         <span></span>
         <span></span>
+        
       </button>
     </div>
 
   </div>
+
+  <!-- Mobile Navigation Overlay -->
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <div class="menu-panel" role="dialog" aria-label="Navigation">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="about.html" class="nav-link">À propos</a>
+        <a href="roadmap.html" class="nav-link">Feuille de route</a>
+        <a href="projects.html" class="nav-link">Projets</a>
+        <a href="notes.html" class="nav-link">Notes</a>
+        <a href="homelab.html" class="nav-link">Homelab</a>
+        <a href="certifications.html" class="nav-link">Certifications</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+</div>
 </header>
+
+
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <!--  CORPS DE PAGE — G-RIEL IT Garden (homepage)                 -->
@@ -107,16 +122,16 @@
         <span class="tech-badge">Cybersecurity</span>
         <span class="tech-badge">Documentation</span>
         <span class="tech-badge">Open Source</span>
+        <span class="tech-badge">Didactique de l'informatique </span>
 
       </div>
 
 
       <p>
         Laboratoire numérique personnel dédié à l'expérimentation,
-        la documentation et la construction progressive de compétences
-        en administration système, réseaux, cybersécurité et ingénierie
-        logicielle. Chaque note, architecture et projet représente une
-        étape concrète de mon évolution technique.
+        à la documentation et à la construction progressive de compétences
+        en informatique. Chaque note, expérience et réalisation représente
+        une étape concrète de mon parcours d'apprentissage.
       </p>
 
 
@@ -146,13 +161,12 @@
           GitHub
         </a>
 
-
         <a href="assets/PDF/CV_de_Gabriel_BAKANSAMBU.pdf"
            target="_blank"
+           rel="noopener noreferrer"
            class="quick-link-item">
           CV
         </a>
-
 
         <a href="contact.html"
            class="quick-link-item">
@@ -161,30 +175,20 @@
 
       </div>
 
-
-
-
       <div class="hero-micro-context">
-
-        <span>
-          Étudiant en Informatique & Technologies —
-          ISP Mbanza-Ngungu • RDC
-        </span>
-
-        <span class="dot">•</span>
-
-        <span>
-          Linux • Réseaux • Cybersécurité
-        </span>
-
-        <span class="dot">•</span>
-
-        <span>
-          Apprentissage continu
-        </span>
-
-      </div>
-
+      <span>
+        Étudiant en Licence 3 — Informatique & Technologies —
+        ISP Mbanza-Ngungu • RDC
+      </span>
+      <span class="dot">•</span>
+      <span>
+        Linux • Réseaux • Cybersécurité
+    </span>
+    <span class="dot">•</span>
+      <span>
+        Apprentissage continu
+       </span>
+     </div>
 
     </div>
 
@@ -195,142 +199,111 @@
            alt="Mon espace de travail et homelab"
            class="rounded-img shadow-img">
 
-
       <div class="setup-overlay-badge top-left">
         Ubuntu
       </div>
-
 
       <div class="setup-overlay-badge top-right">
         VirtualBox
       </div>
 
-
       <div class="setup-overlay-badge bottom-left">
         VS Code
       </div>
-
 
       <div class="setup-overlay-badge bottom-right">
         Kali Linux
       </div>
 
-
     </div>
-
 
   </div>
 
 </section>
 
 
-
-
 <!-- 2. À PROPOS -->
 
-<section class="about-section" id="apropos">  
+<section class="about-section" id="apropos">
 
-  <div class="container">  
-
-    <div class="about-grid">  
+  <div class="container">
 
 
-      <div class="about-photo">  
+<div class="about-grid">
 
-        <img src="assets/images/griel-profile.png"
-             alt="Gabriel Bakansambu"
-             class="rounded-img shadow-img">
+  <div class="about-photo">
 
-      </div>
+    <img src="assets/images/griel-profile.png"
+         alt="Gabriel Bakansambu"
+         class="rounded-img shadow-img">
 
+  </div>
 
+  <div class="about-text">
 
+    <span class="section-tag">
+      À PROPOS DE MOI
+    </span>
 
-      <div class="about-text">  
+    <h2>
+      Construire des compétences par la pratique
+    </h2>
 
+    <p>
+      Orienté vers les infrastructures informatiques et
+      la sécurité des systèmes, je développe ce
+      <strong>Digital Garden</strong> comme un espace
+      d'apprentissage, d'expérimentation et de documentation.
+      J'y transforme progressivement les notions étudiées en
+      expériences concrètes, afin de mieux les comprendre,
+      de garder une trace de mon parcours et de construire
+      des réalisations vérifiables.
+    </p>
 
-        <span class="section-tag">
-          À PROPOS DE MOI
-        </span>
+    <div class="about-badges-row mt-3 mb-3">
 
+      <span class="profile-badge">
+        Étudiant en Licence 3 — Informatique & Technologies
+      </span>
 
-        <h2>
-          Construire des compétences par la pratique
-        </h2>
+      <span class="profile-badge">
+        Linux & Systèmes
+      </span>
 
-
-
-        <p>
-          Orienté vers les infrastructures informatiques et
-          la sécurité des systèmes, je développe ce
-          <strong>Digital Garden</strong> comme un environnement
-          d'apprentissage permanent permettant de structurer mes
-          connaissances, expérimenter des architectures et transformer
-          les concepts théoriques en compétences opérationnelles.
-        </p>
-
-
-
-
-        <div class="about-badges-row mt-3 mb-3">
-
-
-          <span class="profile-badge">
-            Étudiant Informatique & Technologies
-          </span>
-
-
-          <span class="profile-badge">
-            Linux & Systèmes
-          </span>
-
-
-          <span class="profile-badge">
-            Cybersécurité en apprentissage
-          </span>
-
-
-        </div>
-
-
-
-
-        <div class="about-focus-mini">
-
-
-          <p>
-            <strong>Statut :</strong>
-            Étudiant à l'ISP Mbanza-Ngungu
-          </p>
-
-
-          <p>
-            <strong>Focus actuel :</strong>
-            Administration Linux, Virtualisation,
-            Réseaux et Sécurité des infrastructures
-          </p>
-
-
-        </div>
-
-
-
-
-        <div class="hero-buttons mt-3">
-
-          <a href="about.html"
-             class="btn btn-primary">
-             En savoir plus
-          </a>
-
-        </div>
-
-
-
-      </div>
-
+      <span class="profile-badge">
+        Cybersécurité en apprentissage
+      </span>
 
     </div>
+
+    <div class="about-focus-mini">
+
+      <p>
+        <strong>Statut :</strong>
+        Étudiant en Licence 3 à l'ISP Mbanza-Ngungu
+      </p>
+
+      <p>
+        <strong>Focus actuel :</strong>
+        Administration Linux, Virtualisation,
+        Réseaux et Sécurité des infrastructures
+      </p>
+
+    </div>
+
+    <div class="hero-buttons mt-3">
+
+      <a href="about.html"
+         class="btn btn-primary">
+         En savoir plus
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
 
   </div>
 
@@ -350,333 +323,359 @@
       laboratoires, projets et expérimentations.
     </p>
 
+    <div class="skills-ticker-container">
 
-    <div class="stack-categories-wrapper">
+      <div class="ticker-track">
 
+        <!-- ==================== SÉRIE 1 ==================== -->
 
-      <!-- ==================== SYSTÈMES ==================== -->
-      <div class="stack-category-group">
-
-        <h3>Systèmes d'exploitation</h3>
-
-        <div class="tech-logos-grid">
-
-
-          <div class="tech-card">
-            <img src="assets/images/linux.jpg" alt="Linux" class="tech-icon">
-
-            <h4>Linux</h4>
-            <small>Système d'exploitation</small>
-
-            <div class="progress-bar">
-              <span class="level-learning"></span>
-            </div>
-
-            <span class="progress-label">Apprentissage</span>
+        <!-- Linux -->
+        <div class="tech-card">
+          <img src="assets/images/linux.jpg" alt="Linux" class="tech-icon">
+          <h4>Linux</h4>
+          <small>Système d'exploitation</small>
+          <div class="progress-bar">
+            <span class="level-learning"></span>
           </div>
+          <span class="progress-label">Apprentissage</span>
+        </div>
 
-
-
-          <div class="tech-card">
-            <img src="assets/images/ubuntu.jpg" alt="Ubuntu" class="tech-icon">
-
-            <h4>Ubuntu</h4>
-            <small>Distribution Linux</small>
-
-            <div class="progress-bar">
-              <span class="level-practice"></span>
-            </div>
-
-            <span class="progress-label">En pratique</span>
+        <!-- Ubuntu -->
+        <div class="tech-card">
+          <img src="assets/images/ubuntu.jpg" alt="Ubuntu" class="tech-icon">
+          <h4>Ubuntu</h4>
+          <small>Distribution Linux</small>
+          <div class="progress-bar">
+            <span class="level-practice"></span>
           </div>
+          <span class="progress-label">En pratique</span>
+        </div>
 
-
-
-          <div class="tech-card">
-            <img src="assets/images/kali.jpg" alt="Kali Linux" class="tech-icon">
-
-            <h4>Kali Linux</h4>
-            <small>Cybersécurité</small>
-
-            <div class="progress-bar">
-              <span class="level-exploration"></span>
-            </div>
-
-            <span class="progress-label">Exploration</span>
+        <!-- Kali Linux -->
+        <div class="tech-card">
+          <img src="assets/images/kali.jpg" alt="Kali Linux" class="tech-icon">
+          <h4>Kali Linux</h4>
+          <small>Cybersécurité</small>
+          <div class="progress-bar">
+            <span class="level-exploration"></span>
           </div>
+          <span class="progress-label">Exploration</span>
+        </div>
 
+        <!-- VirtualBox -->
+        <div class="tech-card">
+          <img src="assets/images/virtualbox.jpg" alt="VirtualBox" class="tech-icon">
+          <h4>VirtualBox</h4>
+          <small>Virtualisation</small>
+          <div class="progress-bar">
+            <span class="level-practice"></span>
+          </div>
+          <span class="progress-label">En pratique</span>
+        </div>
 
+        <!-- Docker -->
+        <div class="tech-card">
+          <img src="assets/images/docker.jpg" alt="Docker" class="tech-icon">
+          <h4>Docker</h4>
+          <small>Conteneurs</small>
+          <div class="progress-bar">
+            <span class="level-exploration"></span>
+          </div>
+          <span class="progress-label">Exploration</span>
+        </div>
+
+        <!-- Cisco -->
+        <div class="tech-card">
+          <img src="assets/images/cisco.jpg" alt="Cisco" class="tech-icon">
+          <h4>Cisco</h4>
+          <small>Administration réseau</small>
+          <div class="progress-bar">
+            <span class="level-learning"></span>
+          </div>
+          <span class="progress-label">Apprentissage</span>
+        </div>
+
+        <!-- HTML5 -->
+        <div class="tech-card">
+          <img src="assets/images/html5.jpg" alt="HTML5" class="tech-icon">
+          <h4>HTML5</h4>
+          <small>Structure Web</small>
+          <div class="progress-bar">
+            <span class="level-practice"></span>
+          </div>
+          <span class="progress-label">En pratique</span>
+        </div>
+
+        <!-- CSS3 -->
+        <div class="tech-card">
+          <img src="assets/images/css3.jpg" alt="CSS3" class="tech-icon">
+          <h4>CSS3</h4>
+          <small>Design Web</small>
+          <div class="progress-bar">
+            <span class="level-practice"></span>
+          </div>
+          <span class="progress-label">En pratique</span>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="tech-card">
+          <img src="assets/images/javascript.jpg" alt="JavaScript" class="tech-icon">
+          <h4>JavaScript</h4>
+          <small>Interaction Web</small>
+          <div class="progress-bar">
+            <span class="level-exploration"></span>
+          </div>
+          <span class="progress-label">Exploration</span>
+        </div>
+
+        <!-- PHP -->
+        <div class="tech-card">
+          <img src="assets/images/php.jpg" alt="PHP" class="tech-icon">
+          <h4>PHP</h4>
+          <small>Back-end</small>
+          <div class="progress-bar">
+            <span class="level-practice"></span>
+          </div>
+          <span class="progress-label">Exploration</span>
+        </div>
+
+        <!-- MySQL -->
+        <div class="tech-card">
+          <img src="assets/images/mysql.jpg" alt="MySQL" class="tech-icon">
+          <h4>MySQL</h4>
+          <small>Base de données</small>
+          <div class="progress-bar">
+            <span class="level-practice"></span>
+          </div>
+          <span class="progress-label">En pratique</span>
+        </div>
+
+        <!-- Python -->
+        <div class="tech-card">
+          <img src="assets/images/python.jpg" alt="Python" class="tech-icon">
+          <h4>Python</h4>
+          <small>Programmation</small>
+          <div class="progress-bar">
+            <span class="level-learning"></span>
+          </div>
+          <span class="progress-label">Apprentissage</span>
+        </div>
+
+        <!-- Flutter -->
+        <div class="tech-card">
+          <img src="assets/images/flutter.jpg" alt="Flutter" class="tech-icon">
+          <h4>Flutter</h4>
+          <small>Applications mobiles</small>
+          <div class="progress-bar">
+            <span class="level-practice"></span>
+          </div>
+          <span class="progress-label">Exploration</span>
+        </div>
+
+        <!-- Git -->
+        <div class="tech-card">
+          <img src="assets/images/git.jpg" alt="Git" class="tech-icon">
+          <h4>Git</h4>
+          <small>Versioning</small>
+          <div class="progress-bar">
+            <span class="level-learning"></span>
+          </div>
+          <span class="progress-label">Apprentissage</span>
+        </div>
+
+        <!-- GitHub -->
+        <div class="tech-card">
+          <img src="assets/images/github.jpg" alt="GitHub" class="tech-icon">
+          <h4>GitHub</h4>
+          <small>Collaboration</small>
+          <div class="progress-bar">
+            <span class="level-learning"></span>
+          </div>
+          <span class="progress-label">Apprentissage</span>
+        </div>
+
+        <!-- VS Code -->
+        <div class="tech-card">
+          <img src="assets/images/vscode.jpg" alt="VS Code" class="tech-icon">
+          <h4>VS Code</h4>
+          <small>Éditeur de code</small>
+          <div class="progress-bar">
+            <span class="level-practice"></span>
+          </div>
+          <span class="progress-label">En pratique</span>
+        </div>
+
+        <!-- ==================== SÉRIE 2 ==================== -->
+        <!-- DUPLICATION POUR LA BOUCLE INFINIE -->
+
+        <div class="tech-card">
+          <img src="assets/images/linux.jpg" alt="Linux" class="tech-icon">
+          <h4>Linux</h4>
+          <small>Système d'exploitation</small>
+          <div class="progress-bar">
+            <span class="level-learning"></span>
+          </div>
+          <span class="progress-label">Apprentissage</span>
+        </div>
+
+        <div class="tech-card">
+          <img src="assets/images/ubuntu.jpg" alt="Ubuntu" class="tech-icon">
+          <h4>Ubuntu</h4>
+          <small>Distribution Linux</small>
+          <div class="progress-bar">
+            <span class="level-practice"></span>
+          </div>
+          <span class="progress-label">En pratique</span>
+        </div>
+
+        <div class="tech-card">
+          <img src="assets/images/kali.jpg" alt="Kali Linux" class="tech-icon">
+          <h4>Kali Linux</h4>
+          <small>Cybersécurité</small>
+          <div class="progress-bar">
+            <span class="level-exploration"></span>
+          </div>
+          <span class="progress-label">Exploration</span>
+        </div>
+
+        <div class="tech-card">
+          <img src="assets/images/virtualbox.jpg" alt="VirtualBox" class="tech-icon">
+          <h4>VirtualBox</h4>
+          <small>Virtualisation</small>
+          <div class="progress-bar">
+            <span class="level-practice"></span>
+          </div>
+          <span class="progress-label">En pratique</span>
+        </div>
+
+        <div class="tech-card">
+          <img src="assets/images/docker.jpg" alt="Docker" class="tech-icon">
+          <h4>Docker</h4>
+          <small>Conteneurs</small>
+          <div class="progress-bar">
+            <span class="level-exploration"></span>
+          </div>
+          <span class="progress-label">Exploration</span>
+        </div>
+
+        <div class="tech-card">
+          <img src="assets/images/cisco.jpg" alt="Cisco" class="tech-icon">
+          <h4>Cisco</h4>
+          <small>Administration réseau</small>
+          <div class="progress-bar">
+            <span class="level-learning"></span>
+          </div>
+          <span class="progress-label">Apprentissage</span>
+        </div>
+
+        <div class="tech-card">
+          <img src="assets/images/html5.jpg" alt="HTML5" class="tech-icon">
+          <h4>HTML5</h4>
+          <small>Structure Web</small>
+          <div class="progress-bar">
+            <span class="level-practice"></span>
+          </div>
+          <span class="progress-label">En pratique</span>
+        </div>
+
+        <div class="tech-card">
+          <img src="assets/images/css3.jpg" alt="CSS3" class="tech-icon">
+          <h4>CSS3</h4>
+          <small>Design Web</small>
+          <div class="progress-bar">
+            <span class="level-practice"></span>
+          </div>
+          <span class="progress-label">En pratique</span>
+        </div>
+
+        <div class="tech-card">
+          <img src="assets/images/javascript.jpg" alt="JavaScript" class="tech-icon">
+          <h4>JavaScript</h4>
+          <small>Interaction Web</small>
+          <div class="progress-bar">
+            <span class="level-exploration"></span>
+          </div>
+          <span class="progress-label">Exploration</span>
+        </div>
+
+        <div class="tech-card">
+          <img src="assets/images/php.jpg" alt="PHP" class="tech-icon">
+          <h4>PHP</h4>
+          <small>Back-end</small>
+          <div class="progress-bar">
+            <span class="level-practice"></span>
+          </div>
+          <span class="progress-label">En pratique</span>
+        </div>
+
+        <div class="tech-card">
+          <img src="assets/images/mysql.jpg" alt="MySQL" class="tech-icon">
+          <h4>MySQL</h4>
+          <small>Base de données</small>
+          <div class="progress-bar">
+            <span class="level-practice"></span>
+          </div>
+          <span class="progress-label">En pratique</span>
+        </div>
+
+        <div class="tech-card">
+          <img src="assets/images/python.jpg" alt="Python" class="tech-icon">
+          <h4>Python</h4>
+          <small>Programmation</small>
+          <div class="progress-bar">
+            <span class="level-learning"></span>
+          </div>
+          <span class="progress-label">Apprentissage</span>
+        </div>
+
+        <div class="tech-card">
+          <img src="assets/images/flutter.jpg" alt="Flutter" class="tech-icon">
+          <h4>Flutter</h4>
+          <small>Applications mobiles</small>
+          <div class="progress-bar">
+            <span class="level-practice"></span>
+          </div>
+          <span class="progress-label">En pratique</span>
+        </div>
+
+        <div class="tech-card">
+          <img src="assets/images/git.jpg" alt="Git" class="tech-icon">
+          <h4>Git</h4>
+          <small>Versioning</small>
+          <div class="progress-bar">
+            <span class="level-learning"></span>
+          </div>
+          <span class="progress-label">Apprentissage</span>
+        </div>
+
+        <div class="tech-card">
+          <img src="assets/images/github.jpg" alt="GitHub" class="tech-icon">
+          <h4>GitHub</h4>
+          <small>Collaboration</small>
+          <div class="progress-bar">
+            <span class="level-learning"></span>
+          </div>
+          <span class="progress-label">Apprentissage</span>
+        </div>
+
+        <div class="tech-card">
+          <img src="assets/images/vscode.jpg" alt="VS Code" class="tech-icon">
+          <h4>VS Code</h4>
+          <small>Éditeur de code</small>
+          <div class="progress-bar">
+            <span class="level-practice"></span>
+          </div>
+          <span class="progress-label">En pratique</span>
         </div>
 
       </div>
-
-
-
-      <!-- ==================== INFRASTRUCTURE ==================== -->
-
-      <div class="stack-category-group">
-
-        <h3>Infrastructure & Virtualisation</h3>
-
-        <div class="tech-logos-grid">
-
-
-          <div class="tech-card">
-            <img src="assets/images/virtualbox.jpg" alt="VirtualBox" class="tech-icon">
-
-            <h4>VirtualBox</h4>
-            <small>Virtualisation</small>
-
-            <div class="progress-bar">
-              <span class="level-practice"></span>
-            </div>
-
-            <span class="progress-label">En pratique</span>
-          </div>
-
-
-
-          <div class="tech-card">
-            <img src="assets/images/docker.jpg" alt="Docker" class="tech-icon">
-
-            <h4>Docker</h4>
-            <small>Conteneurs</small>
-
-            <div class="progress-bar">
-              <span class="level-exploration"></span>
-            </div>
-
-            <span class="progress-label">Exploration</span>
-          </div>
-
-
-        </div>
-
-      </div>
-
-
-
-      <!-- ==================== RÉSEAUX ==================== -->
-
-      <div class="stack-category-group">
-
-        <h3>Réseaux</h3>
-
-        <div class="tech-logos-grid">
-
-
-          <div class="tech-card">
-
-            <img src="assets/images/cisco.jpg" alt="Cisco" class="tech-icon">
-
-            <h4>Cisco</h4>
-            <small>Administration réseau</small>
-
-            <div class="progress-bar">
-              <span class="level-learning"></span>
-            </div>
-
-            <span class="progress-label">Apprentissage</span>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-
-
-      <!-- ==================== DÉVELOPPEMENT ==================== -->
-
-      <div class="stack-category-group">
-
-        <h3>Développement</h3>
-
-        <div class="tech-logos-grid">
-
-
-          <div class="tech-card">
-            <img src="assets/images/html5.jpg" alt="HTML5" class="tech-icon">
-            <h4>HTML5</h4>
-            <small>Structure Web</small>
-
-            <div class="progress-bar">
-              <span class="level-practice"></span>
-            </div>
-
-            <span class="progress-label">En pratique</span>
-          </div>
-
-
-
-          <div class="tech-card">
-            <img src="assets/images/css3.jpg" alt="CSS3" class="tech-icon">
-            <h4>CSS3</h4>
-            <small>Design Web</small>
-
-            <div class="progress-bar">
-              <span class="level-practice"></span>
-            </div>
-
-            <span class="progress-label">En pratique</span>
-          </div>
-
-
-
-          <div class="tech-card">
-            <img src="assets/images/javascript.jpg" alt="JavaScript" class="tech-icon">
-
-            <h4>JavaScript</h4>
-            <small>Interaction Web</small>
-
-            <div class="progress-bar">
-              <span class="level-exploration"></span>
-            </div>
-
-            <span class="progress-label">Exploration</span>
-          </div>
-
-
-
-          <div class="tech-card">
-            <img src="assets/images/php.jpg" alt="PHP" class="tech-icon">
-
-            <h4>PHP</h4>
-            <small>Back-end</small>
-
-            <div class="progress-bar">
-              <span class="level-practice"></span>
-            </div>
-
-            <span class="progress-label">En pratique</span>
-          </div>
-
-
-
-          <div class="tech-card">
-            <img src="assets/images/mysql.jpg" alt="MySQL" class="tech-icon">
-
-            <h4>MySQL</h4>
-            <small>Base de données</small>
-
-            <div class="progress-bar">
-              <span class="level-practice"></span>
-            </div>
-
-            <span class="progress-label">En pratique</span>
-          </div>
-
-
-
-          <div class="tech-card">
-            <img src="assets/images/python.jpg" alt="Python" class="tech-icon">
-
-            <h4>Python</h4>
-            <small>Programmation</small>
-
-            <div class="progress-bar">
-              <span class="level-learning"></span>
-            </div>
-
-            <span class="progress-label">Apprentissage</span>
-          </div>
-
-
-
-          <div class="tech-card">
-            <img src="assets/images/flutter.jpg" alt="Flutter" class="tech-icon">
-
-            <h4>Flutter</h4>
-            <small>Applications mobiles</small>
-
-            <div class="progress-bar">
-              <span class="level-practice"></span>
-            </div>
-
-            <span class="progress-label">En pratique</span>
-          </div>
-
-
-        </div>
-
-      </div>
-
-
-
-      <!-- ==================== OUTILS ==================== -->
-
-      <div class="stack-category-group">
-
-        <h3>Outils de développement</h3>
-
-        <div class="tech-logos-grid">
-
-
-          <div class="tech-card">
-
-            <img src="assets/images/git.jpg" alt="Git" class="tech-icon">
-
-            <h4>Git</h4>
-            <small>Versioning</small>
-
-            <div class="progress-bar">
-              <span class="level-learning"></span>
-            </div>
-
-            <span class="progress-label">Apprentissage</span>
-
-          </div>
-
-
-
-          <div class="tech-card">
-
-            <img src="assets/images/github.jpg" alt="GitHub" class="tech-icon">
-
-            <h4>GitHub</h4>
-            <small>Collaboration</small>
-
-            <div class="progress-bar">
-              <span class="level-learning"></span>
-            </div>
-
-            <span class="progress-label">Apprentissage</span>
-
-          </div>
-
-
-
-          <div class="tech-card">
-
-            <img src="assets/images/vscode.jpg" alt="VS Code" class="tech-icon">
-
-            <h4>VS Code</h4>
-            <small>Éditeur de code</small>
-
-            <div class="progress-bar">
-              <span class="level-practice"></span>
-            </div>
-
-            <span class="progress-label">En pratique</span>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-
     </div>
-
 
     <p class="stack-note mt-5">
       Chaque technologie présentée fait partie de mon parcours d'apprentissage.
       Cet écosystème évolue progressivement au travers de mes laboratoires,
       projets et expérimentations.
     </p>
-
 
   </div>
 
@@ -780,15 +779,14 @@
         <div class="hub-card-content">
 
           <h3>Projets</h3>
+        <p>
+          Projets, conceptions et expérimentations qui transforment
+          progressivement les connaissances en réalisations concrètes.
+        </p>
+        <span class="hub-link-arrow">
+          Explorer →
+        </span>
 
-          <p>
-            Applications, outils et solutions développés pour transformer
-            les connaissances en réalisations concrètes.
-          </p>
-
-          <span class="hub-link-arrow">
-            Explorer →
-          </span>
 
         </div>
 
@@ -820,7 +818,6 @@
 
     </div>
 
-
     <div class="projects-grid-3">
 
       <!-- G-Lisolo -->
@@ -832,22 +829,23 @@
         <div class="mag-overlay">
 
           <span class="project-type-badge personal">
-            Projet personnel
+           Projet personnel
           </span>
 
           <h3>G-Lisolo</h3>
 
-          <p>
-            Application de messagerie développée avec Flutter, PHP et MySQL,
-            mettant en œuvre une architecture client-serveur, l'authentification
-            des utilisateurs et la gestion des conversations.
-          </p>
+        <p>
+          Projet de construction d'une plateforme collaborative académique,
+          actuellement repris dans une démarche de reconstruction progressive
+          d'un MVP fonctionnel.
+        </p>
 
-          <div class="project-tech-badges">
-            <span>Flutter</span>
-            <span>PHP</span>
-            <span>MySQL</span>
-          </div>
+        <div class="project-tech-badges">
+          <span>Flutter</span>
+          <span>PHP</span>
+          <span>MySQL</span>
+        </div>
+
 
           <a href="projects.html" class="btn-sm">
             Explorer le projet →
@@ -875,14 +873,16 @@
           <span>0X430 SHADOW OPS</span>
 
           <p>
-            Système de gestion et d'automatisation des documents pédagogiques,
-            conçu pour optimiser les processus administratifs au sein d'un établissement.
+            Projet académique consacré à l'analyse,
+             à la modélisation et à la conception d'un système informatique de gestion
+              et d'automatisation des documents pédagogiques.
           </p>
 
           <div class="project-tech-badges">
-            <span>PHP</span>
-            <span>MySQL</span>
-            <span>Architecture Web</span>
+            <span>Analyse</span>
+            <span>Modélisation</span>
+            <span>Merise</span>
+            <span>Conception</span>
           </div>
 
           <a href="projects.html" class="btn-sm">
@@ -892,7 +892,6 @@
         </div>
 
       </article>
-
 
       <!-- Digital Campus -->
       <article class="mag-card">
@@ -909,14 +908,15 @@
           <h3>Digital Campus</h3>
 
           <p>
-            Vision d'une plateforme numérique destinée à centraliser les services
-            universitaires et faciliter la collaboration entre étudiants,
-            enseignants et administration.
+            Projet collaboratif réalisé avec le groupe d'étudiants Shadow Ops,
+            actuellement en phase d'analyse et de conception d'une plateforme numérique destinée
+            à centraliser les services et ressources universitaires.
           </p>
 
           <div class="project-tech-badges">
+            <span>Analyse</span>
+            <span>Conception</span>
             <span>UX</span>
-            <span>Architecture Web</span>
             <span>Collaboration</span>
           </div>
 
@@ -928,9 +928,7 @@
 
       </article>
 
-
     </div>
-
 
     <div class="text-center mt-5">
 
@@ -995,88 +993,89 @@
   </div>
 </section>
 
-  <!-- 7. DERNIÈRES NOTES -->
-  <section class="publications-section" id="notes">
+ <!-- 7. NOTES DE LABORATOIRE -->
+
+<section class="publications-section" id="notes">
+
   <div class="container">
 
     <div class="section-header text-center">
+
       <span class="section-tag">CARNET TECHNIQUE</span>
 
       <h2>Notes de laboratoire</h2>
 
       <p class="section-subtitle">
-        Une sélection de mes expérimentations, documentations et retours d'expérience
+        Un espace consacré à mes expérimentations, documentations et retours d'expérience
         en systèmes, réseaux, virtualisation et cybersécurité.
       </p>
+
     </div>
 
     <div class="notes-cards-grid-3">
 
-      <!-- Note 1 -->
+      <!-- Thème 1 -->
       <article class="note-card">
 
         <div class="note-meta">
+
           <span class="note-cat">Linux</span>
-          <span class="note-date">24 Juil. 2026</span>
-          <span class="note-read">6 min</span>
-          <span class="note-level-badge intermediate">Approfondissement</span>
+
         </div>
 
-        <h3>Renforcement de la sécurité SSH sous Ubuntu Server</h3>
+        <h3>Administration et sécurité Linux</h3>
 
         <p>
-          Configuration sécurisée du service SSH, désactivation de l'accès administrateur
-          distant et mise en œuvre de l'authentification par clés.
+          Notes, expérimentations et procédures autour de l'administration
+          et de la sécurisation des environnements Linux.
         </p>
 
         <a href="notes.html" class="note-link">
-          Explorer la note →
+          Explorer les notes →
         </a>
 
       </article>
 
-      <!-- Note 2 -->
+      <!-- Thème 2 -->
       <article class="note-card">
 
         <div class="note-meta">
+
           <span class="note-cat">Réseaux</span>
-          <span class="note-date">18 Juil. 2026</span>
-          <span class="note-read">8 min</span>
-          <span class="note-level-badge intermediate">Pratique</span>
+
         </div>
 
-        <h3>Segmentation réseau avec les VLAN Cisco</h3>
+        <h3>Réseaux & infrastructures</h3>
 
         <p>
-          Mise en œuvre des VLAN, configuration des trunks 802.1Q et communication
-          inter-VLAN dans un environnement Cisco.
+          Expérimentations et documentation autour des réseaux,
+          de la configuration et des infrastructures informatiques.
         </p>
 
         <a href="notes.html" class="note-link">
-          Explorer la note →
+          Explorer les notes →
         </a>
 
       </article>
 
-      <!-- Note 3 -->
+      <!-- Thème 3 -->
       <article class="note-card">
 
         <div class="note-meta">
+
           <span class="note-cat">Virtualisation</span>
-          <span class="note-date">12 Juil. 2026</span>
-          <span class="note-read">5 min</span>
-          <span class="note-level-badge beginner">Exploration</span>
+
         </div>
 
-        <h3>Architecture des réseaux virtuels avec VirtualBox</h3>
+        <h3>Virtualisation & laboratoires</h3>
 
         <p>
-          Comprendre les modes NAT, Bridge et Host-Only afin de construire des
-          laboratoires virtuels fiables et isolés.
+          Notes et expérimentations consacrées aux environnements virtuels
+          et à la construction de laboratoires d'apprentissage.
         </p>
 
         <a href="notes.html" class="note-link">
-          Explorer la note →
+          Explorer les notes →
         </a>
 
       </article>
@@ -1084,94 +1083,176 @@
     </div>
 
     <div class="text-center mt-4">
+
       <a href="notes.html" class="btn btn-secondary">
         Accéder à toutes les notes →
       </a>
+
     </div>
 
   </div>
+
 </section>
 
-  <!-- 8. OBJECTIFS / ROADMAP -->
-  <section class="roadmap-preview-section" id="objectifs">
+
+<!-- 8. OBJECTIFS / ROADMAP -->
+
+<section class="roadmap-preview-section" id="objectifs">
+
   <div class="container text-center">
+
     <span class="section-tag">CAP & AVENIR</span>
 
     <h2>Feuille de route</h2>
 
     <p class="section-subtitle">
-      Les compétences techniques que je développe progressivement afin de construire un profil solide en ingénierie informatique.
+      Les compétences techniques que je développe progressivement afin de construire
+      un profil solide en ingénierie informatique.
     </p>
 
     <div class="roadmap-mini-timeline">
 
       <div class="roadmap-mini-step">
+
         <span class="rm-num">01</span>
+
         <h3>Réseaux & Cisco</h3>
-        <p>Concevoir, configurer et administrer des infrastructures réseau fiables et sécurisées.</p>
+
+        <p>
+          Approfondir la conception, la configuration et l'administration
+          d'infrastructures réseau fiables et sécurisées.
+        </p>
+
       </div>
 
       <div class="roadmap-mini-step">
+
         <span class="rm-num">02</span>
+
         <h3>Administration Système</h3>
-        <p>Automatiser, sécuriser et maintenir des environnements Linux et Windows.</p>
+
+        <p>
+          Approfondir l'automatisation, la sécurisation et la maintenance
+          des environnements Linux et Windows.
+        </p>
+
       </div>
 
       <div class="roadmap-mini-step">
+
         <span class="rm-num">03</span>
+
         <h3>Virtualisation & Conteneurs</h3>
-        <p>Déployer des laboratoires virtuels avec VirtualBox, Docker et d'autres technologies d'isolation.</p>
+
+        <p>
+          Approfondir la mise en place de laboratoires virtuels avec VirtualBox,
+          Docker et d'autres technologies d'isolation.
+        </p>
+
       </div>
 
       <div class="roadmap-mini-step">
+
         <span class="rm-num">04</span>
+
         <h3>Cybersécurité</h3>
-        <p>Analyser les vulnérabilités, renforcer les systèmes et contribuer à la protection des infrastructures numériques.</p>
+
+        <p>
+          Développer progressivement mes capacités d'analyse des vulnérabilités,
+          de renforcement des systèmes et de protection des infrastructures numériques.
+        </p>
+
       </div>
 
     </div>
+
   </div>
+
 </section>
 
-  <!-- 8. BIS - PRINCIPES DU GARDEN -->
-  <section class="garden-principles-section" id="principes">
-    <div class="container text-center">
-      <span class="section-tag">PHILOSOPHIE</span>
-      <h2>Principes du Garden</h2>
-      <p class="section-subtitle">Les principes qui guident la construction, la documentation et l'évolution de ce laboratoire numérique.</p>
-      
-      <div class="principles-grid-3">
-        <div class="principle-card">
-          <h3>Documenter avant tout</h3>
-          <p>Consigner chaque configuration, chaque test et chaque solution afin de constituer une base de connaissances fiable et durable.</p>
-        </div>
-        <div class="principle-card">
-          <h3>Apprendre en construisant</h3>
-          <p>Privilégier la pratique sur des environnements de laboratoire, des projets concrets et des situations réelles afin de développer des compétences durables.</p>
-        </div>
-        <div class="principle-card">
-          <h3>Partage des connaissances</h3>
-          <p>Partager ouvertement ses connaissances, ses notes et ses retours d'expérience afin de contribuer à l'apprentissage collectif de la communauté informatique.</p>
+
+<!-- 9. PRINCIPES DU GARDEN -->
+
+<section class="garden-principles-section" id="principes">
+
+  <div class="container text-center">
+
+    <span class="section-tag">PHILOSOPHIE</span>
+
+    <h2>Principes du Garden</h2>
+
+    <p class="section-subtitle">
+      Les principes qui guident la construction, la documentation
+      et l'évolution de ce laboratoire numérique.
+    </p>
+
+    <div class="principles-grid-3">
+
+      <div class="principle-card">
+
+        <h3>Expérimenter pour apprendre</h3>
+
+        <p>
+          Mettre les notions étudiées à l'épreuve par des expérimentations,
+          des laboratoires et des projets concrets afin de mieux les comprendre.
+        </p>
+
       </div>
+
+      <div class="principle-card">
+
+        <h3>Construire progressivement</h3>
+
+        <p>
+          Transformer progressivement les connaissances acquises en réalisations
+          concrètes, en avançant par expériences, essais et améliorations successives.
+        </p>
+
+      </div>
+
+      <div class="principle-card">
+
+        <h3>Documenter et partager</h3>
+
+        <p>
+          Conserver une trace des expériences, des configurations, des résultats
+          et des difficultés rencontrées, puis partager les apprentissages
+          lorsqu'ils peuvent être utiles à d'autres.
+        </p>
+
+      </div>
+
     </div>
-  </section>
 
-  <!-- 9. CITATION FINALE -->
-  <section class="philosophy-dark-massive">  
-    <div class="container text-center">  
-      <blockquote class="massive-philosophy-quote">  
-        « Ce laboratoire numérique rassemble mes travaux, mes expérimentations et mes connaissances afin de documenter une progression continue en ingénierie informatique, administration système, réseaux, cybersécurité et développement logiciel.»
-      </blockquote>  
-      <div class="mt-4">
-        <a href="#garden" class="btn btn-primary-light">Explorer le Garden</a>
-      </div>
-    </div>  
-  </section>
+  </div>
+
+</section>
+
+
+<!-- 10. CITATION FINALE -->
+
+<section class="philosophy-dark-massive">
+
+  <div class="container text-center">
+
+    <blockquote class="massive-philosophy-quote">
+      « Ce jardin numérique rassemble mes travaux, mes expérimentations et mes notes
+      afin de garder une trace de ma progression en informatique. »
+    </blockquote>
+
+    <div class="mt-4">
+
+      <a href="#garden" class="btn btn-primary-light">
+        Explorer le Garden
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
   
-
 </main>
-
-
 
   <!-- ============================================
        FOOTER — Identique sur toutes les pages
@@ -1183,7 +1264,7 @@
 <div class="footer-top">
   <img src="assets/images/logo.png" alt="Logo G-RIEL" class="footer-logo">
   <h3 class="footer-title">G-RIEL IT GARDEN</h3>
-  <p class="footer-desc">Laboratoire numérique personnel — Administration Système, Cybersécurité & Ingénierie Informatique.</p>
+  <p class="footer-desc">Laboratoire numérique personnel — Systèmes, Réseaux & Cybersécurité.</p>
 </div>
 
     <!-- 2. Navigation au milieu -->
@@ -1239,9 +1320,6 @@
 
   </div>
 </footer>
-
-  <script src="js/navigation.js"></script>
   
- 
 </body>
 </html>
