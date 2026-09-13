@@ -3942,3 +3942,7 @@ section {
         transform: translateX(-50%);
     }
 }
+/* Ajustement de la largeur des cartes de membres dans le ticker */
+#shadow-ops-team .ticker-track .tech-card {
+    flex: 0 0 280px; /* Un peu plus large que les technos (220px) pour loger le texte et le bouton */
+}
