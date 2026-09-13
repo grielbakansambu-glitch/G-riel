@@ -8,9 +8,7 @@
   <meta name="theme-color" content="#0a0a0a">
   <title>Notes — G-RIEL IT Garden</title>
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/navigation.js"></script>
   
-<base target="_blank">
 </head>
 <body>
     
@@ -43,36 +41,49 @@
         <span></span>
         <span></span>
         <span></span>
+        
       </button>
     </div>
 
   </div>
-</header>
 
   <!-- Mobile Navigation Overlay -->
-  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true">
     <div class="menu-panel" role="dialog" aria-label="Navigation">
-      <a href="index.html" class="nav-link">Accueil</a>
-      <a href="about.html" class="nav-link">À propos</a>
-      <a href="roadmap.html" class="nav-link">Feuille de route</a>
-      <a href="projects.html" class="nav-link">Projets</a>
-      <a href="notes.html" class="nav-link active">Notes</a>
-      <a href="homelab.html" class="nav-link">Homelab</a>
-      <a href="certifications.html" class="nav-link">Certifications</a>
-      <a href="contact.html" class="nav-link">Contact</a>
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="about.html" class="nav-link">À propos</a>
+        <a href="roadmap.html" class="nav-link">Feuille de route</a>
+        <a href="projects.html" class="nav-link">Projets</a>
+        <a href="notes.html" class="nav-link">Notes</a>
+        <a href="homelab.html" class="nav-link">Homelab</a>
+        <a href="certifications.html" class="nav-link">Certifications</a>
+        <a href="contact.html" class="nav-link">Contact</a>
     </div>
-  </div>
+</div>
+</header>
 
   
   <main class="it-garden-notes-main">
     <!-- Hero Moderne -->
     <section class="notes-hero">
-        <div class="hero-content">
-            <span class="badge-tech">// KNOWLEDGE_BASE</span>
-            <h1>Bibliothèque Numérique & Base de Connaissances</h1>
-            <p>Centre de ressources documentaires, documentations techniques et archives académiques officielles de l'ISP Mbanza-Ngungu.</p>
-        </div>
-    </section>
+
+    <div class="hero-content">
+
+        <span class="badge-tech">// KNOWLEDGE_BASE\</span>
+
+        <h1>Parcours académique — Informatique et Technologie</h1>
+
+        <p>
+            Cet espace rassemble une synthèse personnelle des enseignements suivis
+            dans mon parcours en Informatique et Technologie, ainsi que les
+            ressources associées à chaque matière. Les supports présentés peuvent
+            avoir été transmis dans le cadre des enseignements ou recherchés
+            personnellement comme ressources complémentaires.
+        </p>
+
+    </div>
+
+</section>
 
     <!-- Barre de Contrôle : Recherche SVG & Compteurs Animés -->
     <section class="notes-control-center container">
@@ -87,7 +98,7 @@
                 <span class="stat-label">Semestres ISP</span>
             </div>
             <div class="stat-card glass-panel">
-                <span class="stat-number" data-target="45">0</span>
+                <span class="stat-number" data-target="43">0</span>
                 <span class="stat-label">Cours officiels</span>
             </div>
             <div class="stat-card glass-panel">
@@ -95,7 +106,7 @@
                 <span class="stat-label">Notes PDF</span>
             </div>
             <div class="stat-card glass-panel">
-                <span class="stat-number" data-target="100">0</span><span class="stat-suffix">h+</span>
+                <span class="stat-number" data-target="1">0</span><span class="stat-suffix">h+</span>
                 <span class="stat-label">Heures de labo</span>
             </div>
         </div>
@@ -117,218 +128,437 @@
         </div>
     </section>
 
-    <!-- Documentation Technique & Laboratoires (16:9 & Boutons conditionnels) -->
-    <section class="tech-docs-section container">
-        <div class="section-header">
-            <h2><span class="accent">[ 01 ]</span> Documentation Technique & Laboratoires</h2>
-            <p>Guides pratiques, mémos de configuration et retours d'expérience en environnement réel et virtuel.</p>
-        </div>
+   <!-- Ressources techniques & laboratoires -->
+<section class="tech-docs-section container">
+
+    <div class="section-header">
+
+        <h2>
+            <span class="accent">[ 01 ]</span>
+            Ressources techniques & laboratoires
+        </h2>
+
+        <p>
+            Ressources techniques, supports d'apprentissage et laboratoires
+            associés à mon parcours en informatique et technologie.
+        </p>
+
+    </div>
 
         <div class="docs-grid">
             <!-- Carte 1: Linux Administration -->
-            <article class="doc-card glass-panel" data-category="linux ubuntu">
-                <div class="card-image-wrapper">
-                    <img src="assets/images/linux_web.jpg" alt="Terminal Ubuntu Server - Linux Administration" loading="lazy">
-                    <div class="card-badges">
-                        <span class="badge-tag pdf">PDF</span>
-                        <span class="badge-tag new">Nouveau</span>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <span class="tech-tag">Ubuntu / Linux</span>
-                    <h3>Linux Administration</h3>
-                    <p class="card-desc">Installation Ubuntu Server, gestion des utilisateurs, durcissement des services et configuration SSH avancée.</p>
-                    <div class="pdf-meta-box">
-                        <span class="pdf-file-name">linux-admin.pdf</span>
-                        <span class="pdf-file-specs">1.8 MB • 26 pages</span>
-                    </div>
-                    <div class="card-meta">
-                        <span><strong>Niveau :</strong> Intermédiaire</span>
-                        <span><strong>Mise à jour :</strong> Juillet 2026</span>
-                    </div>
-                    <div class="card-actions">
-                        <a href="assets/PDF/linux-admin.pdf" class="btn-consult" target="_blank" rel="noopener">Consulter</a>
-                        <a href="assets/PDF/linux-admin.pdf" class="btn-download" download>Télécharger</a>
-                        <a href="assets/PDF/linux-admin.pdf" class="btn-lab" target="_blank" rel="noopener">Laboratoire</a>
-                    </div>
-                </div>
-            </article>
+            <!-- Card 1 : Linux Administration -->
+<article class="doc-card glass-panel" data-category="linux ubuntu">
 
-            <!-- Carte 2: Réseaux & Cisco -->
-            <article class="doc-card glass-panel" data-category="cisco">
-                <div class="card-image-wrapper">
-                    <img src="assets/images/cisco_web.jpg" alt="Switch Cisco Packet Tracer" loading="lazy">
-                    <div class="card-badges">
-                        <span class="badge-tag pdf">PDF</span>
-                        <span class="badge-tag updated">Mis à jour</span>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <span class="tech-tag">Cisco / Réseau</span>
-                    <h3>Introduction CCNA & Routage</h3>
-                    <p class="card-desc">Notions fondamentales sur les réseaux IP, masques de sous-réseau, routage statique et dynamique sous Cisco Packet Tracer.</p>
-                    <div class="pdf-meta-box">
-                        <span class="pdf-file-name">ccna-introduction.pdf</span>
-                        <span class="pdf-file-specs">2.4 MB • 34 pages</span>
-                    </div>
-                    <div class="card-meta">
-                        <span><strong>Niveau :</strong> Fondamental</span>
-                        <span><strong>Mise à jour :</strong> Juin 2026</span>
-                    </div>
-                    <div class="card-actions">
-                        <a href="assets/PDF/ccna-introduction.pdf" class="btn-consult" target="_blank" rel="noopener">Consulter</a>
-                        <a href="assets/PDF/ccna-introduction.pdf" class="btn-download" download>Télécharger</a>
-                    </div>
-                </div>
-            </article>
+    <div class="card-image-wrapper">
+        <img
+            src="assets/images/linux_web.jpg"
+            alt="Administration de Linux et Ubuntu"
+            loading="lazy"
+        >
 
-            <!-- Carte 3: Cybersécurité & Kali -->
-            <article class="doc-card glass-panel" data-category="kali cyber">
-                <div class="card-image-wrapper">
-                    <img src="assets/images/kalilinux.png" alt="Kali Linux Security Environment" loading="lazy">
-                    <div class="card-badges">
-                        <span class="badge-tag pdf">PDF</span>
-                        <span class="badge-tag favorite">Favori</span>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <span class="tech-tag">Kali Linux</span>
-                    <h3>Sécurité & Kali Linux</h3>
-                    <p class="card-desc">Méthodologies d'audit de sécurité, analyse de vulnérabilités et maîtrise des outils de test d'intrusion.</p>
-                    <div class="pdf-meta-box">
-                        <span class="pdf-file-name">kali-linux.pdf</span>
-                        <span class="pdf-file-specs">3.1 MB • 42 pages</span>
-                    </div>
-                    <div class="card-meta">
-                        <span><strong>Niveau :</strong> Avancé</span>
-                        <span><strong>Mise à jour :</strong> Juillet 2026</span>
-                    </div>
-                    <div class="card-actions">
-                        <a href="assets/PDF/kali-linux.pdf" class="btn-consult" target="_blank" rel="noopener">Consulter</a>
-                        <a href="assets/PDF/kali-linux.pdf" class="btn-download" download>Télécharger</a>
-                        <a href="https://github.com/grielbakansambu-glitch" class="btn-github" target="_blank" rel="noopener">GitHub</a>
-                    </div>
-                </div>
-            </article>
+        <div class="card-badges">
+            <span class="badge-tag pdf">PDF</span>
+        </div>
+    </div>
+
+    <div class="card-body">
+
+        <span class="tech-tag">Ubuntu / Linux</span>
+
+        <h3>Linux Administration</h3>
+
+        <p class="card-desc">
+            Ressource consacrée à l'administration de Linux, utilisée
+            comme support complémentaire dans mon parcours d'apprentissage.
+        </p>
+
+        <div class="pdf-meta-box">
+            <span class="pdf-file-name">linux-admin.pdf</span>
+            <span class="pdf-file-specs">PDF</span>
+        </div>
+
+        <div class="card-meta">
+            <span>
+                <strong>Source :</strong> Ressource externe
+            </span>
+
+            <span>
+                <strong>Niveau estimé :</strong> Intermédiaire
+            </span>
+        </div>
+
+        <div class="card-actions">
+
+            <a
+                href="assets/PDF/linux-admin.pdf"
+                class="btn-consult"
+                target="_blank"
+                rel="noopener"
+            >
+                Consulter
+            </a>
+
+            <a
+                href="assets/PDF/linux-admin.pdf"
+                class="btn-download"
+                download
+            >
+                Télécharger
+            </a>
+
+            <a
+                href="labs.html"
+                class="btn-lab"
+                rel="noopener"
+            >
+                Laboratoire
+            </a>
+
+        </div>
+
+    </div>
+</article>
+
+            <!-- Carte 2 : Réseaux & Cisco -->
+<article class="doc-card glass-panel" data-category="cisco">
+
+    <div class="card-image-wrapper">
+
+        <img
+            src="assets/images/cisco_web.jpg"
+            alt="Réseaux et environnement Cisco"
+            loading="lazy"
+        >
+
+        <div class="card-badges">
+            <span class="badge-tag pdf">PDF</span>
+        </div>
+
+    </div>
+
+    <div class="card-body">
+
+        <span class="tech-tag">Cisco / Réseau</span>
+
+        <h3>Introduction au CCNA</h3>
+
+        <p class="card-desc">
+            Support d'introduction aux notions essentielles des réseaux
+            dans le cadre de mon apprentissage du programme CCNA.
+        </p>
+
+        <div class="pdf-meta-box">
+            <span class="pdf-file-name">ccna-introduction.pdf</span>
+            <span class="pdf-file-specs">PDF</span>
+        </div>
+
+        <div class="card-meta">
+
+            <span>
+                <strong>Source :</strong> Ressource externe
+            </span>
+
+            <span>
+                <strong>Niveau estimé :</strong> Fondamental
+            </span>
+
+        </div>
+
+        <div class="card-actions">
+
+            <a
+                href="assets/PDF/ccna-introduction.pdf"
+                class="btn-consult"
+                target="_blank"
+                rel="noopener"
+            >
+                Consulter
+            </a>
+
+            <a
+                href="assets/PDF/ccna-introduction.pdf"
+                class="btn-download"
+                download
+            >
+                Télécharger
+            </a>
+            <a
+                href="labs.html"
+                class="btn-lab"
+                rel="noopener"
+            >
+                Laboratoire
+            </a>
+
+        </div>
+
+    </div>
+
+</article>
+
+            <!-- Carte 3 : Cybersécurité & Kali -->
+<article class="doc-card glass-panel" data-category="kali">
+
+    <div class="card-image-wrapper">
+
+        <img
+            src="assets/images/kalilinux.png"
+            alt="Kali Linux"
+            loading="lazy"
+        >
+
+        <div class="card-badges">
+            <span class="badge-tag pdf">PDF</span>
+            <span class="badge-tag favorite">Favori</span>
+        </div>
+
+    </div>
+
+    <div class="card-body">
+
+        <span class="tech-tag">Kali Linux</span>
+
+        <h3>Kali Linux & Cybersécurité</h3>
+
+        <p class="card-desc">
+            Ressource d'introduction à Kali Linux et à son environnement,
+            consultée pour approfondir mes apprentissages en cybersécurité.
+        </p>
+
+        <div class="pdf-meta-box">
+            <span class="pdf-file-name">kali-linux.pdf</span>
+            <span class="pdf-file-specs">PDF</span>
+        </div>
+
+        <div class="card-meta">
+
+            <span>
+                <strong>Source :</strong> Ressource externe
+            </span>
+
+            <span>
+                <strong>Niveau estimé :</strong> Intermédiaire
+            </span>
+
+        </div>
+
+        <div class="card-actions">
+
+            <a
+                href="assets/PDF/kali-linux.pdf"
+                class="btn-consult"
+                target="_blank"
+                rel="noopener"
+            >
+                Consulter
+            </a>
+
+            <a
+                href="assets/PDF/kali-linux.pdf"
+                class="btn-download"
+                download
+            >
+                Télécharger
+            </a>
+
+            <a
+                href="labs.html"
+                class="btn-lab"
+                rel="noopener"
+            >
+                Laboratoire
+            </a>
+
+        </div>
+
+    </div>
+
+</article>
         </div>
     </section>
 
     <!-- Notes Académiques ISP Mbanza-Ngungu (Cartes de Semestres Vivantes avec Visuels) -->
     <section class="academic-notes-section container" data-category="isp">
-        <div class="section-header">
-            <h2><span class="accent">[ 02 ]</span> Notes Académiques ISP Mbanza-Ngungu</h2>
-            <p>Parcours en Informatique et Technologie — Portail universitaire officiel du S1 au S6.</p>
-        </div>
 
-        <div class="semesters-grid-modern">
-            <!-- Semestre 1 -->
-            <div class="semester-card glass-panel" onclick="openSemesterModal('s1')">
-                <div class="sem-card-image">
-                    <img src="assets/images/s1-lab.png" alt="Salle informatique ISP" loading="lazy">
-                </div>
-                <div class="sem-card-header">
-                    <span class="sem-badge">Licence 1 • Semestre 1</span>
-                    <h3>7 Unités d'enseignement</h3>
-                </div>
-                <div class="sem-card-body">
-                    <p class="sem-meta-info">Fondements, Systèmes & Maths</p>
-                    <span class="sem-update-date">Mise à jour : 2026</span>
-                </div>
-                <div class="sem-card-footer">
-                    <span class="action-link">Voir les cours →</span>
-                </div>
-            </div>
+    <div class="section-header">
+
+        <h2>
+            <span class="accent">[ 02 ]</span>
+            Parcours académique — ISP Mbanza-Ngungu
+        </h2>
+
+        <p>
+            Synthèse personnelle des enseignements suivis en Informatique et
+            Technologie, organisée par semestre, avec les ressources associées
+            lorsqu'elles sont disponibles.
+        </p>
+
+    </div>
+
+        <!-- Semestre 1 -->
+<div class="semester-card glass-panel" onclick="openSemesterModal('s1')">
+
+    <div class="sem-card-image">
+        <img
+            src="assets/images/s1-lab.png"
+            alt="Salle informatique"
+            loading="lazy"
+        >
+    </div>
+
+    <div class="sem-card-header">
+        <span class="sem-badge">Licence 1 • Semestre 1</span>
+        <h3>7 Unités d'enseignement</h3>
+    </div>
+
+    <div class="sem-card-body">
+        <p class="sem-meta-info">Fondements, systèmes & mathématiques</p>
+    </div>
+
+    <div class="sem-card-footer">
+        <span class="action-link">Voir les cours →</span>
+    </div>
+
+</div>
 
             <!-- Semestre 2 -->
-            <div class="semester-card glass-panel" onclick="openSemesterModal('s2')">
-                <div class="sem-card-image">
-                    <img src="assets/images/s2-prog.png" alt="Programmation" loading="lazy">
-                </div>
-                <div class="sem-card-header">
-                    <span class="sem-badge">Licence 1 • Semestre 2</span>
-                    <h3>7 Unités d'enseignement</h3>
-                </div>
-                <div class="sem-card-body">
-                    <p class="sem-meta-info">Algorithmique & Didactique</p>
-                    <span class="sem-update-date">Mise à jour : 2026</span>
-                </div>
-                <div class="sem-card-footer">
-                    <span class="action-link">Voir les cours →</span>
-                </div>
-            </div>
+<div class="semester-card glass-panel" onclick="openSemesterModal('s2')">
+
+    <div class="sem-card-image">
+        <img
+            src="assets/images/s2-prog.png"
+            alt="Programmation"
+            loading="lazy"
+        >
+    </div>
+
+    <div class="sem-card-header">
+        <span class="sem-badge">Licence 1 • Semestre 2</span>
+        <h3>7 Unités d'enseignement</h3>
+    </div>
+
+    <div class="sem-card-body">
+        <p class="sem-meta-info">Algorithmique & didactique</p>
+    </div>
+
+    <div class="sem-card-footer">
+        <span class="action-link">Voir les cours →</span>
+    </div>
+
+</div>
 
             <!-- Semestre 3 -->
-            <div class="semester-card glass-panel" onclick="openSemesterModal('s3')">
-                <div class="sem-card-image">
-                    <img src="assets/images/s3-db.jpg" alt="Base de données" loading="lazy">
-                </div>
-                <div class="sem-card-header">
-                    <span class="sem-badge">Licence 2 • Semestre 3</span>
-                    <h3>8 Unités d'enseignement</h3>
-                </div>
-                <div class="sem-card-body">
-                    <p class="sem-meta-info">Prog. Impérative & Bases de Données</p>
-                    <span class="sem-update-date">Mise à jour : 2026</span>
-                </div>
-                <div class="sem-card-footer">
-                    <span class="action-link">Voir les cours →</span>
-                </div>
-            </div>
+<div class="semester-card glass-panel" onclick="openSemesterModal('s3')">
+
+    <div class="sem-card-image">
+        <img
+            src="assets/images/s3-db.jpg"
+            alt="Base de données"
+            loading="lazy"
+        >
+    </div>
+
+    <div class="sem-card-header">
+        <span class="sem-badge">Licence 2 • Semestre 3</span>
+        <h3>8 Unités d'enseignement</h3>
+    </div>
+
+    <div class="sem-card-body">
+        <p class="sem-meta-info">
+            Programmation impérative & bases de données
+        </p>
+    </div>
+
+    <div class="sem-card-footer">
+        <span class="action-link">Voir les cours →</span>
+    </div>
+
+</div>
 
             <!-- Semestre 4 -->
-            <div class="semester-card glass-panel" onclick="openSemesterModal('s4')">
-                <div class="sem-card-image">
-                    <img src="assets/images/s4-web.png" alt="Programmation Web" loading="lazy">
-                </div>
-                <div class="sem-card-header">
-                    <span class="sem-badge">Licence 2 • Semestre 4</span>
-                    <h3>7 Unités d'enseignement</h3>
-                </div>
-                <div class="sem-card-body">
-                    <p class="sem-meta-info">Prog. Web, AOLS & Stage I</p>
-                    <span class="sem-update-date">Mise à jour : Juillet 2026</span>
-                </div>
-                <div class="sem-card-footer">
-                    <span class="action-link">Voir les cours →</span>
-                </div>
-            </div>
+<div class="semester-card glass-panel" onclick="openSemesterModal('s4')">
 
-            <!-- Semestre 5 -->
-            <div class="semester-card glass-panel" onclick="openSemesterModal('s5')">
-                <div class="sem-card-image">
-                    <img src="assets/images/s5-cyber.jpg" alt="Cybersécurité" loading="lazy">
-                </div>
-                <div class="sem-card-header">
-                    <span class="sem-badge">Licence 3 • Semestre 5</span>
-                    <h3>7 Modules avancés</h3>
-                </div>
-                <div class="sem-card-body">
-                    <p class="sem-meta-info">Sécurité Informatique & Stage II</p>
-                    <span class="sem-update-date">Prévision 2026</span>
-                </div>
-                <div class="sem-card-footer">
-                    <span class="action-link">Voir les cours →</span>
-                </div>
-            </div>
+    <div class="sem-card-image">
+        <img
+            src="assets/images/s4-web.png"
+            alt="Programmation Web"
+            loading="lazy"
+        >
+    </div>
+
+    <div class="sem-card-header">
+        <span class="sem-badge">Licence 2 • Semestre 4</span>
+        <h3>7 Unités d'enseignement</h3>
+    </div>
+
+    <div class="sem-card-body">
+        <p class="sem-meta-info">
+            Programmation Web, AOLS & Stage I
+        </p>
+    </div>
+
+    <div class="sem-card-footer">
+        <span class="action-link">Voir les cours →</span>
+    </div>
+
+</div>
+
+           <!-- Semestre 5 -->
+<div class="semester-card glass-panel" onclick="openSemesterModal('s5')">
+
+    <div class="sem-card-image">
+        <img
+            src="assets/images/s5-cyber.jpg"
+            alt="Cybersécurité"
+            loading="lazy"
+        >
+    </div>
+
+    <div class="sem-card-header">
+        <span class="sem-badge">Licence 3 • Semestre 5</span>
+        <h3>7 Unités d'enseignement</h3>
+    </div>
+
+    <div class="sem-card-body">
+        <p class="sem-meta-info">
+            Sécurité informatique & Stage II
+        </p>
+    </div>
+
+    <div class="sem-card-footer">
+        <span class="action-link">Voir les cours →</span>
+    </div>
+
+</div>
 
             <!-- Semestre 6 -->
-            <div class="semester-card glass-panel" onclick="openSemesterModal('s6')">
-                <div class="sem-card-image">
-                    <img src="assets/images/s6-network.jpg" alt="Réseaux Cisco" loading="lazy">
-                </div>
-                <div class="sem-card-header">
-                    <span class="sem-badge">Licence 3 • Semestre 6</span>
-                    <h3>7 Modules finaux</h3>
-                </div>
-                <div class="sem-card-body">
-                    <p class="sem-meta-info">Réseaux, Mobile & Génie Logiciel</p>
-                    <span class="sem-update-date">Prévision 2026</span>
-                </div>
-                <div class="sem-card-footer">
-                    <span class="action-link">Voir les cours →</span>
-                </div>
-            </div>
-        </div>
+<div class="semester-card glass-panel" onclick="openSemesterModal('s6')">
+
+    <div class="sem-card-image">
+        <img
+            src="assets/images/s6-network.jpg"
+            alt="Réseaux informatiques"
+            loading="lazy"
+        >
+    </div>
+
+    <div class="sem-card-header">
+        <span class="sem-badge">Licence 3 • Semestre 6</span>
+        <h3>7 Unités d'enseignement</h3>
+    </div>
+
+    <div class="sem-card-body">
+        <p class="sem-meta-info">
+            Réseaux, mobile & génie logiciel
+        </p>
+    </div>
+
+    <div class="sem-card-footer">
+        <span class="action-link">Voir les cours →</span>
+    </div>
+
+</div>
 
         <!-- Tiroir / Modal de consultation interactive -->
         <div id="semesterDetailsContainer" class="semester-details-drawer glass-panel" style="display: none;">
@@ -342,41 +572,104 @@
         </div>
     </section>
 
-    <!-- Documents Officiels & Rapports -->
-    <section class="reports-section container" data-category="isp">
-        <div class="section-header">
-            <h2><span class="accent">[ 03 ]</span> Documents Officiels & Rapports</h2>
-            <p>Rapports de stage et mémoires d'immersion professionnelle.</p>
-        </div>
+    <!-- Rapports & documents personnels -->
+<section class="reports-section container" data-category="isp">
 
-        <div class="docs-grid">
-            <article class="doc-card glass-panel" data-category="isp">
-                <div class="card-image-wrapper">
-                    <img src="assets/images/isp.png" alt="Institut Supérieur Pédagogique de Mbanza-Ngungu" loading="lazy">
-                    <div class="card-badges">
-                        <span class="badge-tag pdf">PDF</span>
-                    </div>
+    <div class="section-header">
+
+        <h2>
+            <span class="accent">[ 03 ]</span>
+            Rapports & documents personnels
+        </h2>
+
+        <p>
+            Rapports et documents produits dans le cadre de mon parcours
+            académique et de mes expériences pratiques.
+        </p>
+
+    </div>
+
+    <div class="docs-grid">
+
+        <!-- Rapport de Stage -->
+        <article class="doc-card glass-panel" data-category="isp">
+
+            <div class="card-image-wrapper">
+
+                <img
+                    src="assets/images/isp.png"
+                    alt="Rapport de stage à l'ITC Badika"
+                    loading="lazy"
+                >
+
+                <div class="card-badges">
+                    <span class="badge-tag pdf">PDF</span>
                 </div>
-                <div class="card-body">
-                    <span class="tech-tag">Stage I</span>
-                    <h3>Rapport de Stage ITC Badika</h3>
-                    <p class="card-desc">Rapport d'immersion technique et pédagogique effectué au sein de l'Institut Technique Commercial Badika.</p>
-                    <div class="pdf-meta-box">
-                        <span class="pdf-file-name">rapport-stage-badika.pdf</span>
-                        <span class="pdf-file-specs">4.2 MB • 45 pages</span>
-                    </div>
-                    <div class="card-meta">
-                        <span><strong>Niveau :</strong> Licence 1</span>
-                        <span><strong>Date :</strong> Juin 2026</span>
-                    </div>
-                    <div class="card-actions">
-                        <a href="assets/PDF/rapport-stage-badika.pdf" class="btn-consult" target="_blank" rel="noopener">Consulter</a>
-                        <a href="assets/PDF/rapport-stage-badika.pdf" class="btn-download" download>Télécharger</a>
-                    </div>
+
+            </div>
+
+            <div class="card-body">
+
+                <span class="tech-tag">Stage I</span>
+
+                <h3>Rapport de Stage ITC Badika</h3>
+
+                <p class="card-desc">
+                    Rapport présentant mon expérience de stage effectuée
+                    à l'Institut Technique Commercial Badika dans le cadre
+                    de mon parcours en Informatique et Technologie.
+                </p>
+
+                <div class="pdf-meta-box">
+                    <span class="pdf-file-name">
+                        rapport-stage-badika.pdf
+                    </span>
+
+                    <span class="pdf-file-specs">
+                        PDF
+                    </span>
                 </div>
-            </article>
-        </div>
-    </section>
+
+                <div class="card-meta">
+
+                    <span>
+                        <strong>Parcours :</strong> Licence 2
+                    </span>
+
+                    <span>
+                        <strong>Type :</strong> Rapport de stage
+                    </span>
+
+                </div>
+
+                <div class="card-actions">
+
+                    <a
+                        href="assets/PDF/rapport-stage-badika.pdf"
+                        class="btn-consult"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        Consulter
+                    </a>
+
+                    <a
+                        href="assets/PDF/rapport-stage-badika.pdf"
+                        class="btn-download"
+                        download
+                    >
+                        Télécharger
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
 
 <div class="secondary-links">
 
@@ -395,185 +688,297 @@
     
 
     <!-- Section de Synthèse Finale : Bibliothèque Numérique -->
-    <section class="library-summary-section container">
-        <div class="summary-card glass-panel">
-            <div class="summary-header">
-                <h2><span class="accent">[ 04 ]</span> Synthèse de la Bibliothèque Numérique</h2>
-                <p>Indicateurs globaux et état de synchronisation du G-RIEL IT Garden.</p>
-            </div>
-            <div class="summary-grid">
-                <div class="summary-item">
-                    <span class="sum-label">Nombre de documents :</span>
-                    <span class="sum-value">45 éléments indexés</span>
-                </div>
-                <div class="summary-item">
-                    <span class="sum-label">Notes techniques :</span>
-                    <span class="sum-value">45 mémos</span>
-                </div>
-                <div class="summary-item">
-                    <span class="sum-label">Laboratoires :</span>
-                    <span class="sum-value">5 topologies & scripts</span>
-                </div>
-                <div class="summary-item">
-                    <span class="sum-label">Rapports :</span>
-                    <span class="sum-value">1 documents officiels</span>
-                </div>
-                <div class="summary-item">
-                    <span class="sum-label">Cours ISP :</span>
-                    <span class="sum-value">45 modules répertoriés</span>
-                </div>
-                <div class="summary-item">
-                    <span class="sum-label">Scripts & Projets :</span>
-                    <span class="sum-value">5 dépôts actifs</span>
-                </div>
-                <div class="summary-item">
-                    <span class="sum-label">PDF disponibles :</span>
-                    <span class="sum-value">+30 fichiers en libre accès</span>
-                </div>
-                <div class="summary-item highlight-sync">
-                    <span class="sum-label">Dernière synchronisation :</span>
-                    <span class="sum-value">Juillet 2026</span>
-                </div>
-            </div>
-            <div class="summary-action">
-                <a href="notes.html" class="btn-explore-all">Explorer tous les documents</a>
-            </div>
-        </div>
-    </section>
+<section class="library-summary-section container">
 
-    <!-- Citation finale -->
-    <section class="notes-quote-section container">
-        <div class="quote-card glass-panel">
-            <blockquote>
-                "La connaissance s'acquiert par l'expérience, tout le reste n'est que de l'information."
-            </blockquote>
-            <span class="quote-author">— G-RIEL IT Garden / Laboratoire Numérique</span>
+    <div class="summary-card glass-panel">
+
+        <div class="summary-header">
+
+            <h2>
+                <span class="accent">[ 04 ]</span>
+                Synthèse de la Bibliothèque Numérique
+            </h2>
+
+            <p>
+                Quelques repères sur les ressources et documents actuellement
+                référencés dans cet espace personnel.
+            </p>
+
         </div>
-    </section>
+
+        <div class="summary-grid">
+
+            <div class="summary-item">
+                <span class="sum-label">Semestres référencés :</span>
+                <span class="sum-value">6</span>
+            </div>
+
+            <div class="summary-item">
+                <span class="sum-label">Enseignements référencés :</span>
+                <span class="sum-value">43</span>
+            </div>
+
+            <div class="summary-item">
+                <span class="sum-label">Rapports de stage :</span>
+                <span class="sum-value">1</span>
+            </div>
+
+            <div class="summary-item">
+                <span class="sum-label">Dépôts de projets :</span>
+                <span class="sum-value">5 au total</span>
+            </div>
+
+            <div class="summary-item">
+                <span class="sum-label">Dépôts publics :</span>
+                <span class="sum-value">4</span>
+            </div>
+
+            <div class="summary-item">
+                <span class="sum-label">Dépôt privé :</span>
+                <span class="sum-value">1 — TFC</span>
+            </div>
+
+        </div>
+
+        <div class="summary-action">
+
+            <a
+                href="notes.html"
+                class="btn-explore-all"
+            >
+                Explorer les ressources
+            </a>
+
+        </div>
+
+    </div>
+
+<section class="notes-quote-section container">
+    <figure class="quote-card glass-panel">
+        <blockquote>
+            <p>
+                « La connaissance s'acquiert par l'expérience,
+                tout le reste n'est que de l'information. »
+            </p>
+        </blockquote>
+
+        <figcaption class="quote-author">
+            — G-RIEL IT Garden / Jardin Numérique
+        </figcaption>
+    </figure>
+</section>
 </main>
 
-<!-- Scripts : Données Officielles ISP, Animation des Compteurs et Filtrage -->
+<!-- Scripts : Données des enseignements ISP, animation des compteurs et filtrage -->
 <script>
 const ispCoursesData = {
     s1: {
-        title: "Licence 1 • Semestre 1 — Programme Officiel ISP Mbanza-Ngungu",
+        title: "Licence 1 • Semestre 1",
         courses: [
-            { name: "Expression orale et écrite en français", teacher: "Ass. Bafueni", pdf: "assets/PDF/isp/s1/expression-francaise.pdf" },
-            { name: "Théorie des systèmes d'exploitation", teacher: "CT Mpemba", pdf: "assets/PDF/isp/s1/theorie-systemes.pdf" },
-            { name: "Introduction à la recherche et méthodologie du travail", teacher: "Ass. Lulengo", pdf: "assets/PDF/isp/s1/intro-recherche.pdf" },
-            { name: "Histoire et épistémologie de l'informatique/bureautique", teacher: "Ass. Kizodisa", pdf: "assets/PDF/isp/s1/informatique-bureautique.pdf" },
-            { name: "Anglais I", teacher: "Ass. Lukau", pdf: "assets/PDF/isp/s1/anglais-1.pdf" },
-            { name: "Informatique et société", teacher: "Ass. Kanyinda", pdf: "assets/PDF/isp/s1/informatique-societe.pdf" },
-            { name: "Mathématiques pour informaticiens", teacher: "CT Lesa", pdf: "assets/PDF/isp/s1/mathematiques.pdf" }
+            { name: "Expression orale et écrite en français", teacher: "Ass. Bafueni", pdf: "assets/PDF/isp/s1/expression-francaise.pdf", source: "Support fourni dans le cadre du cours" },
+            { name: "Théorie des systèmes d'exploitation", teacher: "CT Mpemba", pdf: "assets/PDF/isp/s1/theorie-systemes.pdf", source: "Support fourni dans le cadre du cours" },
+            { name: "Introduction à la recherche et méthodologie du travail", teacher: "Ass. Lulengo", pdf: "assets/PDF/isp/s1/intro-recherche.pdf", source: "Support fourni dans le cadre du cours" },
+            { name: "Histoire et épistémologie de l'informatique/bureautique", teacher: "Ass. Kizodisa", pdf: "assets/PDF/isp/s1/informatique-bureautique.pdf", source: "Support fourni dans le cadre du cours" },
+            { name: "Anglais I", teacher: "Ass. Lukau", pdf: "assets/PDF/isp/s1/angla-1.pdf", source: "Ressource complémentaire personnelle" },
+            { name: "Informatique et société", teacher: "Ass. Kanyinda", pdf: "assets/PDF/isp/s1/informatique-societe.pdf", source: "Support fourni dans le cadre du cours" },
+            { name: "Mathématiques pour informaticiens", teacher: "CT Lesa", pdf: "assets/PDF/isp/s1/mathematiques.pdf", source: "Support fourni dans le cadre du cours" }
         ]
     },
     s2: {
-        title: "Licence 1 • Semestre 2 — Programme Officiel ISP Mbanza-Ngungu",
+        title: "Licence 1 • Semestre 2",
         courses: [
-            { name: "Didactique de l'informatique", teacher: "CT Dikiavovako", pdf: "assets/PDF/isp/s2/didactique-informatique.pdf" },
-            { name: "Valeurs, principes et symboles de la RDC", teacher: "CT Mansanga", pdf: "assets/PDF/isp/s2/valeurs-rdc.pdf" },
-            { name: "Algorithmique", teacher: "Ass. Ngunda", pdf: "assets/PDF/isp/s2/algorithmique.pdf" },
-            { name: "Statistique descriptive", teacher: "Ass. Rumbaim", pdf: "assets/PDF/isp/s2/statistique.pdf" },
-            { name: "Comptabilité générale", teacher: "CT Mbaka", pdf: "assets/PDF/isp/s2/comptabilite.pdf" },
-            { name: "Technologie mécanique", teacher: "Ass. Diavova", pdf: "assets/PDF/isp/s2/tech-mecanique.pdf" },
-            { name: "Technologie construction", teacher: "Ass. Sola K", pdf: "assets/PDF/isp/s2/tech-construction.pdf" }
+            { name: "Didactique de l'informatique", teacher: "CT Dikiavovako", pdf: "assets/PDF/isp/s2/didactique-informatique.pdf", source: "Support fourni dans le cadre du cours" },
+            { name: "Valeurs, principes et symboles de la RDC", teacher: "CT Mansanga", pdf: "assets/PDF/isp/s2/valeurs-rdc.pdf", source: "Support fourni dans le cadre du cours" },
+            { name: "Algorithmique", teacher: "Ass. Ngunda", pdf: "assets/PDF/isp/s2/algorithmique.pdf", source: "Support fourni dans le cadre du cours" },
+            { name: "Statistique descriptive", teacher: "Ass. Rumbaim", pdf: "assets/PDF/isp/s2/statistique.pdf", source: "Support fourni dans le cadre du cours" },
+            { name: "Comptabilité générale", teacher: "CT Mbaka", pdf: "assets/PDF/isp/s2/comptabilite.pdf", source: "Ressource complémentaire personnelle" },
+            { name: "Technologie mécanique", teacher: "Ass. Diavova", pdf: "assets/PDF/isp/s2/tech-mecanique.pdf", source: "Support fourni dans le cadre du cours" },
+            { name: "Technologie construction", teacher: "Ass. Sola K", pdf: "assets/PDF/isp/s2/tech-construction.pdf", source: "Support fourni dans le cadre du cours" }
         ]
     },
     s3: {
-        title: "Licence 2 • Semestre 3 — Programme Officiel ISP Mbanza-Ngungu",
+        title: "Licence 2 • Semestre 3",
         courses: [
-            { name: "Conception et développement des matériels didactiques", teacher: "Ass. Nkelani", pdf: "assets/PDF/isp/s3/materiels-didactiques.pdf" },
-            { name: "Programmation impérative", teacher: "Ass. Mukoko", pdf: "assets/PDF/isp/s3/prog-imperative.pdf" },
-            { name: "Anglais II", teacher: "Ass. Lukau", pdf: "assets/PDF/isp/s3/anglais-2.pdf" },
-            { name: "Enjeux environnementaux et sanitaires", teacher: "CT Makubungu", pdf: "assets/PDF/isp/s3/enjeux-env.pdf" },
-            { name: "Modélisation et bases de données", teacher: "Ass. Ngunda", pdf: "assets/PDF/isp/s3/modelisation-bd.pdf" },
-            { name: "Enseignement et diversité culturelle", teacher: "CT Mbamba", pdf: "assets/PDF/isp/s3/diversite-culturelle.pdf" },
-            { name: "Techniques de commerce", teacher: "CT Mbaka", pdf: "assets/PDF/isp/s3/tech-commerce.pdf" },
-            { name: "Marketing digital", teacher: "CT Mbaka", pdf: "assets/PDF/isp/s3/marketing-digital.pdf" }
+            { name: "Conception et développement des matériels didactiques", teacher: "Ass. Nkelani", pdf: "assets/PDF/isp/s3/materiels-didactiques.pdf", source: "Support fourni dans le cadre du cours" },
+            { name: "Programmation impérative", teacher: "Ass. Mukoko", pdf: "assets/PDF/isp/s3/prog-imperative.pdf", source: "PDF transmis par l'enseignant — origine externe" },
+            { name: "Anglais II", teacher: "Ass. Lukau", pdf: "assets/PDF/isp/s3/anglais-2.pdf", source: "Ressource complémentaire personnelle" },
+            { name: "Enjeux environnementaux et sanitaires", teacher: "CT Makubungu", pdf: "assets/PDF/isp/s3/enjeux-env.pdf", source: "Support fourni dans le cadre du cours" },
+            { name: "Modélisation et bases de données", teacher: "Ass. Ngunda", pdf: "assets/PDF/isp/s3/modelisation-bd.pdf", source: "Support fourni dans le cadre du cours" },
+            { name: "Enseignement et diversité culturelle", teacher: "CT Mbamba", pdf: "assets/PDF/isp/s3/diversite-culturelle.pdf", source: "Support fourni dans le cadre du cours" },
+            { name: "Techniques de commerce", teacher: "CT Mbaka", pdf: "assets/PDF/isp/s3/tech-commerce.pdf", source: "Ressource complémentaire personnelle" },
+            { name: "Marketing digital", teacher: "CT Mbaka", pdf: "assets/PDF/isp/s3/marketing-digital.pdf", source: "Ressource complémentaire personnelle" }
         ]
     },
     s4: {
-        title: "Licence 2 • Semestre 4 — Programme Officiel ISP Mbanza-Ngungu",
+        title: "Licence 2 • Semestre 4",
         courses: [
-            { name: "Psychologie", teacher: "CT Meno", pdf: "assets/PDF/isp/s4/psychologie.pdf" },
-            { name: "Comptabilité générale", teacher: "Ass. Lulengo", pdf: "assets/PDF/isp/s4/comptabilite-2.pdf" },
-            { name: "AOLS", teacher: "Dr Bonzeke", pdf: "assets/PDF/isp/s4/aols.pdf" },
-            { name: "Architecture et maintenance des ordinateurs", teacher: "Ass. Nkelani", pdf: "assets/PDF/isp/s4/architecture-ordinateurs.pdf" },
-            { name: "Programmation Web", teacher: "Ass. Kanyinda", pdf: "assets/PDF/isp/s4/programmation-web.pdf" },
-            { name: "Algorithmique et structures de données", teacher: "Ass. Mukoko", pdf: "assets/PDF/isp/s4/structures-donnees.pdf" },
-            { name: "Stage I", teacher: "CT Lesa", pdf: "assets/PDF/isp/s4/stage-1.pdf" }
+            { name: "Psychologie", teacher: "CT Meno", pdf: "assets/PDF/isp/s4/psychologie.pdf", source: "Support fourni dans le cadre du cours" },
+            { name: "Comptabilité générale", teacher: "Ass. Lulengo", pdf: "assets/PDF/isp/s4/comptabilite-2.pdf", source: "Ressource complémentaire personnelle" },
+            { name: "AOLS", teacher: "Dr Bonzeke", pdf: "assets/PDF/isp/s4/aols.pdf", source: "Support fourni dans le cadre du cours" },
+            { name: "Architecture et maintenance des ordinateurs", teacher: "Ass. Nkelani", pdf: "assets/PDF/isp/s4/architecture-ordinateurs.pdf", source: "Support fourni dans le cadre du cours" },
+            { name: "Programmation Web", teacher: "Ass. Kanyinda", pdf: "assets/PDF/isp/s4/programmation-web.pdf", source: "Support fourni dans le cadre du cours" },
+            { name: "Algorithmique et structures de données", teacher: "Ass. Mukoko", pdf: "assets/PDF/isp/s4/structures-donnees.pdf", source: "PDF transmis par l'enseignant — origine externe" },
+            { name: "Stage I", teacher: "CT Lesa", pdf: "assets/PDF/isp/s4/stage-1.pdf", source: "Ressource complémentaire personnelle" }
         ]
     },
     s5: {
-        title: "Licence 3 • Semestre 5 — Programme Officiel ISP Mbanza-Ngungu",
+        title: "Licence 3 • Semestre 5",
         courses: [
-            { name: "Didactique de l'informatique et de la technologie", teacher: "CT Dikiavovako", pdf: "assets/PDF/isp/s5/didactique-tech.pdf" },
-            { name: "Mesure et évaluation des apprentissages", teacher: "P. Ngoie", pdf: "assets/PDF/isp/s5/mesure-evaluation.pdf" },
-            { name: "Didactique de la physique et de la technologie", teacher: "Enseignant titulaire", pdf: "assets/PDF/isp/s5/didactique-physique.pdf" },
-            { name: "Gestion de classe", teacher: "CT Mbaka", pdf: "assets/PDF/isp/s5/gestion-classe.pdf" },
-            { name: "Sécurité informatique", teacher: "P. Ngoie", pdf: "assets/PDF/isp/s5/securite-informatique.pdf" },
-            { name: "Logiciel tableur", teacher: "Ass. Yamba", pdf: "assets/PDF/isp/s5/logiciel-tableur.pdf" },
-            { name: "Soutenance de rapport de stage II", teacher: "Comité scientifique", pdf: "assets/PDF/isp/s5/soutenance-stage2.pdf" }
+            { name: "Didactique de l'informatique et de la technologie", teacher: "CT Dikiavovako", pdf: "assets/PDF/isp/s5/didactique-tech.pdf", source: "Ressource complémentaire personnelle" },
+            { name: "Mesure et évaluation des apprentissages", teacher: "P. Ngoie", pdf: "assets/PDF/isp/s5/mesure-evaluation.pdf", source: "Ressource complémentaire personnelle" },
+            { name: "Didactique de la physique et de la technologie", teacher: "Enseignant titulaire", pdf: "assets/PDF/isp/s5/didactique-physique.pdf", source: "Ressource complémentaire personnelle" },
+            { name: "Gestion de classe", teacher: "CT Mbaka", pdf: "assets/PDF/isp/s5/gestion-classe.pdf", source: "Ressource complémentaire personnelle" },
+            { name: "Sécurité informatique", teacher: "P. Ngoie", pdf: "assets/PDF/isp/s5/securite-informatique.pdf", source: "Ressource complémentaire personnelle" },
+            { name: "Logiciel tableur", teacher: "Ass. Yamba", pdf: "assets/PDF/isp/s5/logiciel-tableur.pdf", source: "Ressource complémentaire personnelle" },
+            { name: "Soutenance de rapport de stage II", teacher: "Comité scientifique", pdf: "assets/PDF/isp/s5/soutenance-stage2.pdf", source: "Ressource complémentaire personnelle" }
         ]
     },
     s6: {
-        title: "Licence 3 • Semestre 6 — Programme Officiel ISP Mbanza-Ngungu",
+        title: "Licence 3 • Semestre 6",
         courses: [
-            { name: "Technologie électronique", teacher: "Ass. Nzambi / CT Lozolo Nkasa", pdf: "assets/PDF/isp/s6/tech-electronique.pdf" },
-            { name: "Programmation mobile", teacher: "Ass. Kanyinda", pdf: "assets/PDF/isp/s6/prog-mobile.pdf" },
-            { name: "Réseaux informatiques", teacher: "P. Selain / Ass. Nsumbu", pdf: "assets/PDF/isp/s6/reseaux-informatiques.pdf" },
-            { name: "Commerce électronique", teacher: "CT Mbaka", pdf: "assets/PDF/isp/s6/commerce-electronique.pdf" },
-            { name: "Recherche opérationnelle", teacher: "P. Ngoie R.B.", pdf: "assets/PDF/isp/s6/recherche-operationnelle.pdf" },
-            { name: "Anglais III", teacher: "Ass. Lukau R.", pdf: "assets/PDF/isp/s6/anglais-3.pdf" },
-            { name: "Génie logiciel", teacher: "Ass. Mampasi", pdf: "assets/PDF/isp/s6/genie-logiciel.pdf" }
+            { name: "Technologie électronique", teacher: "Ass. Nzambi / CT Lozolo Nkasa", pdf: "assets/PDF/isp/s6/tech-electronique.pdf", source: "Ressource complémentaire personnelle" },
+            { name: "Programmation mobile", teacher: "Ass. Kanyinda", pdf: "assets/PDF/isp/s6/prog-mobile.pdf", source: "Ressource complémentaire personnelle" },
+            { name: "Réseaux informatiques", teacher: "P. Selain / Ass. Nsumbu", pdf: "assets/PDF/isp/s6/reseaux-informatiques.pdf", source: "Ressource complémentaire personnelle" },
+            { name: "Commerce électronique", teacher: "CT Mbaka", pdf: "assets/PDF/isp/s6/commerce-electronique.pdf", source: "Ressource complémentaire personnelle" },
+            { name: "Recherche opérationnelle", teacher: "P. Ngoie R.B.", pdf: "assets/PDF/isp/s6/recherche-operationnelle.pdf", source: "Ressource complémentaire personnelle" },
+            { name: "Anglais III", teacher: "Ass. Lukau R.", pdf: "assets/PDF/isp/s6/anglais-3.pdf", source: "Ressource complémentaire personnelle" },
+            { name: "Génie logiciel", teacher: "Ass. Mampasi", pdf: "assets/PDF/isp/s6/genie-logiciel.pdf", source: "Ressource complémentaire personnelle" }
         ]
     }
 };
 
+/* ================================
+   OUVERTURE DU DÉTAIL D'UN SEMESTRE
+   ================================ */
 function openSemesterModal(semKey) {
     const container = document.getElementById('semesterDetailsContainer');
+    const titleElement = document.getElementById('drawerTitle');
+    const contentElement = document.getElementById('drawerContent');
+
+    if (!container || !titleElement || !contentElement) return;
+
     if (!semKey) {
         container.style.display = 'none';
         return;
     }
+
     const data = ispCoursesData[semKey];
     if (!data) return;
-    
-    document.getElementById('drawerTitle').innerText = data.title;
+
+    titleElement.innerText = data.title;
+
     let htmlList = '<ul class="drawer-course-list">';
     data.courses.forEach(c => {
-        htmlList += `<li>
-            <div class="course-info">
-                <span class="c-name">${c.name}</span>
-                <span class="c-teacher">Enseignant : ${c.teacher}</span>
-            </div>
-            <div class="c-actions">
-                <span class="pdf-tag-label">PDF</span>
-                <a href="${c.pdf}" class="btn-consult-sm" target="_blank" rel="noopener">Voir</a>
-                <a href="${c.pdf}" class="btn-download-sm" download>Télécharger</a>
-            </div>
-        </li>`;
+        htmlList += `
+            <li>
+                <div class="course-info">
+                    <span class="c-name">${c.name}</span>
+                    <span class="c-teacher">Enseignant : ${c.teacher}</span>
+                    <span class="c-source">Support : ${c.source}</span>
+                </div>
+
+                <div class="c-actions">
+                    <span class="pdf-tag-label">PDF</span>
+                    <a href="${c.pdf}" class="btn-consult-sm" target="_blank" rel="noopener">Voir</a>
+                    <a href="${c.pdf}" class="btn-download-sm" download>Télécharger</a>
+                </div>
+            </li>
+        `;
     });
     htmlList += '</ul>';
-    
-    document.getElementById('drawerContent').innerHTML = htmlList;
+
+    contentElement.innerHTML = htmlList;
     container.style.display = 'block';
-    container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    container.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest'
+    });
 }
 
-// Animation des compteurs au scroll (Intersection Observer)
+/* ================================
+   RECHERCHE + FILTRAGE COMBINÉS
+   ================================ */
+document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("notesSearchInput");
+    const filterButtons = document.querySelectorAll(".cat-chip");
+    const docCards = document.querySelectorAll(".doc-card");
+    const semesterCards = document.querySelectorAll(".semester-card");
+
+    let currentFilter = "all";
+    let currentQuery = "";
+
+    function applyFilters() {
+        // Filtrage des cartes techniques
+        docCards.forEach(card => {
+            const text = card.textContent.toLowerCase();
+            const categories = card.getAttribute("data-category") || "";
+
+            const matchesSearch = text.includes(currentQuery);
+            const matchesFilter =
+                currentFilter === "all" ||
+                categories
+                    .toLowerCase()
+                    .split(/\s+/)
+                    .includes(currentFilter.toLowerCase());
+
+            card.style.display = (matchesSearch && matchesFilter) ? "block" : "none";
+        });
+
+        // Filtrage des cartes de semestres ISP
+        semesterCards.forEach(card => {
+            const text = card.textContent.toLowerCase();
+
+            const matchesSearch = text.includes(currentQuery);
+            const matchesFilter =
+                currentFilter === "all" ||
+                currentFilter.toLowerCase() === "isp";
+
+            card.style.display = (matchesSearch && matchesFilter) ? "block" : "none";
+        });
+    }
+
+    if (searchInput) {
+        searchInput.addEventListener("input", event => {
+            currentQuery = event.target.value.toLowerCase().trim();
+            applyFilters();
+        });
+    }
+
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            filterButtons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            currentFilter = button.getAttribute("data-filter") || "all";
+            applyFilters();
+        });
+    });
+
+    applyFilters();
+});
+
+/* ================================
+   ANIMATION DES COMPTEURS AU SCROLL
+   ================================ */
+
 document.addEventListener("DOMContentLoaded", () => {
     const statsSection = document.getElementById("statsCounterSection");
+
     let animated = false;
 
     const animateCounters = () => {
         const counters = document.querySelectorAll(".stat-number");
+
         counters.forEach(counter => {
             const target = +counter.getAttribute("data-target");
+
             let count = 0;
             const speed = target / 30;
+
             const updateCount = () => {
                 count += speed;
+
                 if (count < target) {
                     counter.innerText = Math.ceil(count);
                     setTimeout(updateCount, 40);
@@ -581,76 +986,26 @@ document.addEventListener("DOMContentLoaded", () => {
                     counter.innerText = target;
                 }
             };
+
             updateCount();
         });
     };
 
     if (statsSection) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !animated) {
-                    animateCounters();
-                    animated = true;
-                }
-            });
-        }, { threshold: 0.5 });
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !animated) {
+                        animateCounters();
+                        animated = true;
+                    }
+                });
+            },
+            { threshold: 0.5 }
+        );
+
         observer.observe(statsSection);
     }
-});
-
-// --- SYSTÈME DE FILTRAGE ET DE RECHERCHE ---
-document.addEventListener("DOMContentLoaded", () => {
-    const searchInput = document.getElementById("notesSearchInput");
-    const filterButtons = document.querySelectorAll(".cat-chip");
-    const docCards = document.querySelectorAll(".doc-card");
-    const semesterCards = document.querySelectorAll(".semester-card");
-
-    // 1. Recherche textuelle dynamique
-    if (searchInput) {
-        searchInput.addEventListener("input", (e) => {
-            const query = e.target.value.toLowerCase().trim();
-
-            docCards.forEach(card => {
-                const text = card.textContent.toLowerCase();
-                card.style.display = text.includes(query) ? "block" : "none";
-            });
-
-            semesterCards.forEach(card => {
-                const text = card.textContent.toLowerCase();
-                card.style.display = text.includes(query) ? "block" : "none";
-            });
-        });
-    }
-
-    // 2. Filtrage par puces (Chips)
-    filterButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            // Gestion de la classe active sur les boutons
-            filterButtons.forEach(btn => btn.classList.remove("active"));
-            button.classList.add("active");
-
-            const filterValue = button.getAttribute("data-filter");
-
-            // Filtrer les cartes de documentation technique
-            docCards.forEach(card => {
-                const categories = card.getAttribute("data-category") || "";
-                if (filterValue === "all" || categories.includes(filterValue)) {
-                    card.style.display = "block";
-                } else {
-                    card.style.display = "none";
-                }
-            });
-
-            // Filtrer les cartes de semestres ISP (elles s'affichent si "all" ou "isp", sinon masquées pour laisser place au filtre technique)
-            semesterCards.forEach(card => {
-                if (filterValue === "all" || filterValue === "isp") {
-                    card.style.display = "block";
-                } else {
-                    card.style.display = "none";
-                }
-            });
-        });
-    });
 });
 </script>
 
@@ -664,7 +1019,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="footer-top">
   <img src="assets/images/logo.png" alt="Logo G-RIEL" class="footer-logo">
   <h3 class="footer-title">G-RIEL IT GARDEN</h3>
-  <p class="footer-desc">Portfolio technique et Jardin Numérique — Administration système & Cybersécurité.</p>
+  <p class="footer-desc">Laboratoire numérique personnel — Systèmes, Réseaux & Cybersécurité.</p>
 </div>
 
     <!-- 2. Navigation au milieu -->
@@ -703,9 +1058,9 @@ document.addEventListener("DOMContentLoaded", () => {
           <svg class="svg-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
         </a>
         <!-- Email -->
-                <a href="mailto:grielbakansambu@gmail.com" aria-label="Email">
-                    <svg class="svg-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                </a>
+        <a href="mailto:grielbakansambu@gmail.com" aria-label="Email">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
         <!-- Téléphone / WhatsApp -->
         <a href="tel:0840609505" aria-label="Téléphone">
           <svg class="svg-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
@@ -720,9 +1075,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   </div>
 </footer>
-
-  
-  <script src="js/navigation.js"></script>
+   <script src="js/navigation.js"></script>>
   
 </body>
 </html>
