@@ -171,3 +171,37 @@
     color: #777;
     font-size: 0.85rem;
 }
+
+.profile-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.meta-box {
+    display: block;
+    padding: 16px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 12px;
+}
+
+.meta-label {
+    display: block;
+    color: #aaa;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+
+.meta-value {
+    display: block;
+    color: #fff;
+    font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+    .profile-meta-grid {
+        grid-template-columns: 1fr;
+    }
+}
