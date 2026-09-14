@@ -1,0 +1,1746 @@
+{
+  "generatedAt": "2026-09-14T12:48:52.502Z",
+  "stats": {
+    "totalNodes": 34,
+    "totalLinks": 357,
+    "totalOrphans": 1
+  },
+  "nodes": [
+    {
+      "id": "about.html",
+      "title": "À propos",
+      "group": "page",
+      "url": "about.html",
+      "path": "about.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "assets/PDF/ccna-introduction.pdf",
+      "title": "ccna-introduction",
+      "group": "project",
+      "url": "assets/PDF/ccna-introduction.pdf",
+      "path": "assets/PDF/ccna-introduction.pdf",
+      "type": "pdf",
+      "isOrphan": false
+    },
+    {
+      "id": "assets/PDF/CV_de_Gabriel_BAKANSAMBU.pdf",
+      "title": "CV_de_Gabriel_BAKANSAMBU",
+      "group": "project",
+      "url": "assets/PDF/CV_de_Gabriel_BAKANSAMBU.pdf",
+      "path": "assets/PDF/CV_de_Gabriel_BAKANSAMBU.pdf",
+      "type": "pdf",
+      "isOrphan": false
+    },
+    {
+      "id": "assets/PDF/kali-linux.pdf",
+      "title": "kali-linux",
+      "group": "project",
+      "url": "assets/PDF/kali-linux.pdf",
+      "path": "assets/PDF/kali-linux.pdf",
+      "type": "pdf",
+      "isOrphan": false
+    },
+    {
+      "id": "assets/PDF/linux-admin.pdf",
+      "title": "linux-admin",
+      "group": "project",
+      "url": "assets/PDF/linux-admin.pdf",
+      "path": "assets/PDF/linux-admin.pdf",
+      "type": "pdf",
+      "isOrphan": false
+    },
+    {
+      "id": "assets/PDF/rapport-stage-badika.pdf",
+      "title": "rapport-stage-badika",
+      "group": "project",
+      "url": "assets/PDF/rapport-stage-badika.pdf",
+      "path": "assets/PDF/rapport-stage-badika.pdf",
+      "type": "pdf",
+      "isOrphan": false
+    },
+    {
+      "id": "assets/PDF/sacerdoce_batisseur.pdf",
+      "title": "sacerdoce_batisseur",
+      "group": "project",
+      "url": "assets/PDF/sacerdoce_batisseur.pdf",
+      "path": "assets/PDF/sacerdoce_batisseur.pdf",
+      "type": "pdf",
+      "isOrphan": false
+    },
+    {
+      "id": "assets/PDF/SIGADP_Dossier_Analyse.pdf",
+      "title": "SIGADP_Dossier_Analyse",
+      "group": "project",
+      "url": "assets/PDF/SIGADP_Dossier_Analyse.pdf",
+      "path": "assets/PDF/SIGADP_Dossier_Analyse.pdf",
+      "type": "pdf",
+      "isOrphan": false
+    },
+    {
+      "id": "certifications.html",
+      "title": "Certifications",
+      "group": "page",
+      "url": "certifications.html",
+      "path": "certifications.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "contact.html",
+      "title": "Contact",
+      "group": "page",
+      "url": "contact.html",
+      "path": "contact.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "genese.html",
+      "title": "Genèse",
+      "group": "page",
+      "url": "genese.html",
+      "path": "genese.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "googlec9d8f6001a4262b8.html",
+      "title": "googlec9d8f6001a4262b8",
+      "group": "page",
+      "url": "googlec9d8f6001a4262b8.html",
+      "path": "googlec9d8f6001a4262b8.html",
+      "type": "html",
+      "isOrphan": true
+    },
+    {
+      "id": "homelab.html",
+      "title": "Homelab",
+      "group": "project",
+      "url": "homelab.html",
+      "path": "homelab.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "index.html",
+      "title": "Gabriel Bakansambu | Informatique, Linux & G-RIEL IT Garden",
+      "group": "root",
+      "url": "index.html",
+      "path": "index.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "labs/bash/lab-1.html",
+      "title": "Laboratoire : Automatisation de Sauvegarde Bash - G-RIEL IT Garden",
+      "group": "lab",
+      "url": "labs/bash/lab-1.html",
+      "path": "labs/bash/lab-1.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "labs/bash.html",
+      "title": "Laboratoires Bash",
+      "group": "lab",
+      "url": "labs/bash.html",
+      "path": "labs/bash.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "labs/linux/lab-1.html",
+      "title": "Laboratoire : Gestion des Utilisateurs et Permissions - G-RIEL IT Garden",
+      "group": "lab",
+      "url": "labs/linux/lab-1.html",
+      "path": "labs/linux/lab-1.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "labs/linux.html",
+      "title": "Laboratoires Linux",
+      "group": "lab",
+      "url": "labs/linux.html",
+      "path": "labs/linux.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "labs/network/lab-1.html",
+      "title": "Laboratoire : Routage Statique et Topologie Réseau - G-RIEL IT Garden",
+      "group": "lab",
+      "url": "labs/network/lab-1.html",
+      "path": "labs/network/lab-1.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "labs/network.html",
+      "title": "Laboratoires Réseaux",
+      "group": "lab",
+      "url": "labs/network.html",
+      "path": "labs/network.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "labs/python/lab-1.html",
+      "title": "Laboratoire : Automatisation Système avec Python - G-RIEL IT Garden",
+      "group": "lab",
+      "url": "labs/python/lab-1.html",
+      "path": "labs/python/lab-1.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "labs/python.html",
+      "title": "Laboratoires Python",
+      "group": "lab",
+      "url": "labs/python.html",
+      "path": "labs/python.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "labs/security/lab-1.html",
+      "title": "Laboratoire : Initiation aux Scans Réseau avec Nmap - G-RIEL IT Garden",
+      "group": "lab",
+      "url": "labs/security/lab-1.html",
+      "path": "labs/security/lab-1.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "labs/security.html",
+      "title": "Laboratoires Cybersécurité",
+      "group": "lab",
+      "url": "labs/security.html",
+      "path": "labs/security.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "labs/web/lab-1.html",
+      "title": "Laboratoire : Interface Interactive en HTML, CSS et JavaScript - G-RIEL IT Garden",
+      "group": "lab",
+      "url": "labs/web/lab-1.html",
+      "path": "labs/web/lab-1.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "labs/web.html",
+      "title": "Laboratoires Web",
+      "group": "lab",
+      "url": "labs/web.html",
+      "path": "labs/web.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "labs.html",
+      "title": "Laboratoires",
+      "group": "page",
+      "url": "labs.html",
+      "path": "labs.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "manifeste.html",
+      "title": "Manifeste & Discipline",
+      "group": "page",
+      "url": "manifeste.html",
+      "path": "manifeste.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "map.html",
+      "title": "🗺️ Explorer G-RIEL",
+      "group": "page",
+      "url": "map.html",
+      "path": "map.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "notes.html",
+      "title": "Notes",
+      "group": "project",
+      "url": "notes.html",
+      "path": "notes.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "profil.html",
+      "title": "Profil & Mention Académique",
+      "group": "page",
+      "url": "profil.html",
+      "path": "profil.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "projects.html",
+      "title": "Projets",
+      "group": "project",
+      "url": "projects.html",
+      "path": "projects.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "roadmap.html",
+      "title": "Feuille de route",
+      "group": "project",
+      "url": "roadmap.html",
+      "path": "roadmap.html",
+      "type": "html",
+      "isOrphan": false
+    },
+    {
+      "id": "shadowops.html",
+      "title": "0x430 Shadow Ops",
+      "group": "page",
+      "url": "shadowops.html",
+      "path": "shadowops.html",
+      "type": "html",
+      "isOrphan": false
+    }
+  ],
+  "links": [
+    {
+      "source": "about.html",
+      "target": "index.html"
+    },
+    {
+      "source": "about.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "about.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "about.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "about.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "about.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "about.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "about.html",
+      "target": "shadowops.html"
+    },
+    {
+      "source": "about.html",
+      "target": "genese.html"
+    },
+    {
+      "source": "about.html",
+      "target": "index.html"
+    },
+    {
+      "source": "about.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "about.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "about.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "about.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "about.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "about.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "certifications.html",
+      "target": "index.html"
+    },
+    {
+      "source": "certifications.html",
+      "target": "about.html"
+    },
+    {
+      "source": "certifications.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "certifications.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "certifications.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "certifications.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "certifications.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "certifications.html",
+      "target": "index.html"
+    },
+    {
+      "source": "certifications.html",
+      "target": "about.html"
+    },
+    {
+      "source": "certifications.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "certifications.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "certifications.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "certifications.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "certifications.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "contact.html",
+      "target": "index.html"
+    },
+    {
+      "source": "contact.html",
+      "target": "about.html"
+    },
+    {
+      "source": "contact.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "contact.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "contact.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "contact.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "contact.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "contact.html",
+      "target": "index.html"
+    },
+    {
+      "source": "contact.html",
+      "target": "about.html"
+    },
+    {
+      "source": "contact.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "contact.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "contact.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "contact.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "contact.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "genese.html",
+      "target": "index.html"
+    },
+    {
+      "source": "genese.html",
+      "target": "about.html"
+    },
+    {
+      "source": "genese.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "genese.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "genese.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "genese.html",
+      "target": "profil.html"
+    },
+    {
+      "source": "genese.html",
+      "target": "manifeste.html"
+    },
+    {
+      "source": "genese.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "genese.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "genese.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "genese.html",
+      "target": "index.html"
+    },
+    {
+      "source": "genese.html",
+      "target": "index.html"
+    },
+    {
+      "source": "genese.html",
+      "target": "about.html"
+    },
+    {
+      "source": "genese.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "genese.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "genese.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "genese.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "genese.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "genese.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "index.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "about.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "labs/linux/lab-1.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "labs/network/lab-1.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "labs/bash/lab-1.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "labs/python/lab-1.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "labs/web/lab-1.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "labs/security/lab-1.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "labs.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "shadowops.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "index.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "about.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "homelab.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "index.html",
+      "target": "map.html"
+    },
+    {
+      "source": "index.html",
+      "target": "about.html"
+    },
+    {
+      "source": "index.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "index.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "index.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "index.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "index.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "index.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "index.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "index.html",
+      "target": "assets/PDF/CV_de_Gabriel_BAKANSAMBU.pdf"
+    },
+    {
+      "source": "index.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "index.html",
+      "target": "about.html"
+    },
+    {
+      "source": "index.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "index.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "index.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "index.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "index.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "index.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "index.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "index.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "index.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "index.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "index.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "index.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "index.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "index.html",
+      "target": "about.html"
+    },
+    {
+      "source": "index.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "index.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "index.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "index.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "index.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "index.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "labs/bash/lab-1.html",
+      "target": "labs/bash.html"
+    },
+    {
+      "source": "labs/bash.html",
+      "target": "index.html"
+    },
+    {
+      "source": "labs/bash.html",
+      "target": "about.html"
+    },
+    {
+      "source": "labs/bash.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "labs/bash.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "labs/bash.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "labs/bash.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "labs/bash.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "labs/bash.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "labs/bash.html",
+      "target": "labs.html"
+    },
+    {
+      "source": "labs/bash.html",
+      "target": "index.html"
+    },
+    {
+      "source": "labs/bash.html",
+      "target": "about.html"
+    },
+    {
+      "source": "labs/bash.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "labs/bash.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "labs/bash.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "labs/bash.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "labs/bash.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "labs/bash.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "labs/linux/lab-1.html",
+      "target": "labs/linux.html"
+    },
+    {
+      "source": "labs/linux.html",
+      "target": "index.html"
+    },
+    {
+      "source": "labs/linux.html",
+      "target": "about.html"
+    },
+    {
+      "source": "labs/linux.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "labs/linux.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "labs/linux.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "labs/linux.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "labs/linux.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "labs/linux.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "labs/linux.html",
+      "target": "labs.html"
+    },
+    {
+      "source": "labs/linux.html",
+      "target": "index.html"
+    },
+    {
+      "source": "labs/linux.html",
+      "target": "about.html"
+    },
+    {
+      "source": "labs/linux.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "labs/linux.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "labs/linux.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "labs/linux.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "labs/linux.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "labs/linux.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "labs/network/lab-1.html",
+      "target": "labs/network.html"
+    },
+    {
+      "source": "labs/network.html",
+      "target": "index.html"
+    },
+    {
+      "source": "labs/network.html",
+      "target": "about.html"
+    },
+    {
+      "source": "labs/network.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "labs/network.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "labs/network.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "labs/network.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "labs/network.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "labs/network.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "labs/network.html",
+      "target": "labs.html"
+    },
+    {
+      "source": "labs/network.html",
+      "target": "index.html"
+    },
+    {
+      "source": "labs/network.html",
+      "target": "about.html"
+    },
+    {
+      "source": "labs/network.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "labs/network.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "labs/network.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "labs/network.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "labs/network.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "labs/network.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "labs/python/lab-1.html",
+      "target": "labs/python.html"
+    },
+    {
+      "source": "labs/python.html",
+      "target": "index.html"
+    },
+    {
+      "source": "labs/python.html",
+      "target": "about.html"
+    },
+    {
+      "source": "labs/python.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "labs/python.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "labs/python.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "labs/python.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "labs/python.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "labs/python.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "labs/python.html",
+      "target": "labs.html"
+    },
+    {
+      "source": "labs/python.html",
+      "target": "index.html"
+    },
+    {
+      "source": "labs/python.html",
+      "target": "about.html"
+    },
+    {
+      "source": "labs/python.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "labs/python.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "labs/python.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "labs/python.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "labs/python.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "labs/python.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "labs/security/lab-1.html",
+      "target": "labs/security.html"
+    },
+    {
+      "source": "labs/security.html",
+      "target": "index.html"
+    },
+    {
+      "source": "labs/security.html",
+      "target": "about.html"
+    },
+    {
+      "source": "labs/security.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "labs/security.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "labs/security.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "labs/security.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "labs/security.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "labs/security.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "labs/security.html",
+      "target": "labs.html"
+    },
+    {
+      "source": "labs/security.html",
+      "target": "index.html"
+    },
+    {
+      "source": "labs/security.html",
+      "target": "about.html"
+    },
+    {
+      "source": "labs/security.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "labs/security.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "labs/security.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "labs/security.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "labs/security.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "labs/security.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "labs/web/lab-1.html",
+      "target": "labs/web.html"
+    },
+    {
+      "source": "labs/web.html",
+      "target": "index.html"
+    },
+    {
+      "source": "labs/web.html",
+      "target": "about.html"
+    },
+    {
+      "source": "labs/web.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "labs/web.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "labs/web.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "labs/web.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "labs/web.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "labs/web.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "labs/web.html",
+      "target": "labs.html"
+    },
+    {
+      "source": "labs/web.html",
+      "target": "index.html"
+    },
+    {
+      "source": "labs/web.html",
+      "target": "about.html"
+    },
+    {
+      "source": "labs/web.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "labs/web.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "labs/web.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "labs/web.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "labs/web.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "labs/web.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "index.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "about.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "labs/web.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "labs/linux.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "labs/bash.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "labs/network.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "labs/python.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "labs/security.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "index.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "about.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "labs.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "manifeste.html",
+      "target": "index.html"
+    },
+    {
+      "source": "manifeste.html",
+      "target": "about.html"
+    },
+    {
+      "source": "manifeste.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "manifeste.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "manifeste.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "manifeste.html",
+      "target": "profil.html"
+    },
+    {
+      "source": "manifeste.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "manifeste.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "manifeste.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "manifeste.html",
+      "target": "assets/PDF/sacerdoce_batisseur.pdf"
+    },
+    {
+      "source": "manifeste.html",
+      "target": "assets/PDF/sacerdoce_batisseur.pdf"
+    },
+    {
+      "source": "manifeste.html",
+      "target": "index.html"
+    },
+    {
+      "source": "manifeste.html",
+      "target": "index.html"
+    },
+    {
+      "source": "manifeste.html",
+      "target": "about.html"
+    },
+    {
+      "source": "manifeste.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "manifeste.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "manifeste.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "manifeste.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "manifeste.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "manifeste.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "notes.html",
+      "target": "index.html"
+    },
+    {
+      "source": "notes.html",
+      "target": "about.html"
+    },
+    {
+      "source": "notes.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "notes.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "notes.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "notes.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "notes.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "notes.html",
+      "target": "assets/PDF/linux-admin.pdf"
+    },
+    {
+      "source": "notes.html",
+      "target": "assets/PDF/linux-admin.pdf"
+    },
+    {
+      "source": "notes.html",
+      "target": "labs.html"
+    },
+    {
+      "source": "notes.html",
+      "target": "assets/PDF/ccna-introduction.pdf"
+    },
+    {
+      "source": "notes.html",
+      "target": "assets/PDF/ccna-introduction.pdf"
+    },
+    {
+      "source": "notes.html",
+      "target": "labs.html"
+    },
+    {
+      "source": "notes.html",
+      "target": "assets/PDF/kali-linux.pdf"
+    },
+    {
+      "source": "notes.html",
+      "target": "assets/PDF/kali-linux.pdf"
+    },
+    {
+      "source": "notes.html",
+      "target": "labs.html"
+    },
+    {
+      "source": "notes.html",
+      "target": "assets/PDF/rapport-stage-badika.pdf"
+    },
+    {
+      "source": "notes.html",
+      "target": "assets/PDF/rapport-stage-badika.pdf"
+    },
+    {
+      "source": "notes.html",
+      "target": "profil.html"
+    },
+    {
+      "source": "notes.html",
+      "target": "manifeste.html"
+    },
+    {
+      "source": "notes.html",
+      "target": "index.html"
+    },
+    {
+      "source": "notes.html",
+      "target": "about.html"
+    },
+    {
+      "source": "notes.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "notes.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "notes.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "notes.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "notes.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "profil.html",
+      "target": "index.html"
+    },
+    {
+      "source": "profil.html",
+      "target": "about.html"
+    },
+    {
+      "source": "profil.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "profil.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "profil.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "profil.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "profil.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "profil.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "profil.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "profil.html",
+      "target": "index.html"
+    },
+    {
+      "source": "profil.html",
+      "target": "about.html"
+    },
+    {
+      "source": "profil.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "profil.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "profil.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "profil.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "profil.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "profil.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "projects.html",
+      "target": "index.html"
+    },
+    {
+      "source": "projects.html",
+      "target": "about.html"
+    },
+    {
+      "source": "projects.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "projects.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "projects.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "projects.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "projects.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "projects.html",
+      "target": "assets/PDF/SIGADP_Dossier_Analyse.pdf"
+    },
+    {
+      "source": "projects.html",
+      "target": "labs/bash/lab-1.html"
+    },
+    {
+      "source": "projects.html",
+      "target": "index.html"
+    },
+    {
+      "source": "projects.html",
+      "target": "about.html"
+    },
+    {
+      "source": "projects.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "projects.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "projects.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "projects.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "projects.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "roadmap.html",
+      "target": "index.html"
+    },
+    {
+      "source": "roadmap.html",
+      "target": "about.html"
+    },
+    {
+      "source": "roadmap.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "roadmap.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "roadmap.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "roadmap.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "roadmap.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "roadmap.html",
+      "target": "index.html"
+    },
+    {
+      "source": "roadmap.html",
+      "target": "about.html"
+    },
+    {
+      "source": "roadmap.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "roadmap.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "roadmap.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "roadmap.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "roadmap.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "shadowops.html",
+      "target": "index.html"
+    },
+    {
+      "source": "shadowops.html",
+      "target": "about.html"
+    },
+    {
+      "source": "shadowops.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "shadowops.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "shadowops.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "shadowops.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "shadowops.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "shadowops.html",
+      "target": "contact.html"
+    },
+    {
+      "source": "shadowops.html",
+      "target": "index.html"
+    },
+    {
+      "source": "shadowops.html",
+      "target": "about.html"
+    },
+    {
+      "source": "shadowops.html",
+      "target": "roadmap.html"
+    },
+    {
+      "source": "shadowops.html",
+      "target": "projects.html"
+    },
+    {
+      "source": "shadowops.html",
+      "target": "notes.html"
+    },
+    {
+      "source": "shadowops.html",
+      "target": "homelab.html"
+    },
+    {
+      "source": "shadowops.html",
+      "target": "certifications.html"
+    },
+    {
+      "source": "shadowops.html",
+      "target": "contact.html"
+    }
+  ]
+}
