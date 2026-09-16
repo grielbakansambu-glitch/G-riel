@@ -1,0 +1,533 @@
+/* =========================================================
+   G-Riel IT Garden — Assistant
+   Ultra-Transparent Glassmorphism & Minimalist Toggle
+   ========================================================= */
+
+
+/* =========================================================
+   CONTENEUR
+   ========================================================= */
+
+#g-riel-assistant {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 9999;
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   BOUTON FLOTTANT
+   SANS CONTOUR NI LUEUR
+   ========================================================= */
+
+#g-riel-assistant-toggle {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10002;
+    border-radius: 50%;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Suppression totale de tout effet autour de l'icône */
+
+#g-riel-assistant-toggle::before,
+#g-riel-assistant-toggle::after {
+    display: none !important;
+}
+
+#g-riel-assistant-toggle:hover {
+    transform: scale(1.08);
+}
+
+#g-riel-assistant-toggle:active {
+    transform: scale(0.94);
+}
+
+#g-riel-assistant-toggle:focus-visible {
+    outline: 2px solid rgba(70, 140, 255, 0.65);
+    outline-offset: 4px;
+    border-radius: 50%;
+}
+
+#g-riel-assistant-toggle img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+
+/* =========================================================
+   ARRIÈRE-PLAN FLOU
+   ========================================================= */
+
+#g-riel-assistant-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 20, 35, 0.22);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 9997;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+#g-riel-assistant-backdrop.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   FENÊTRE GLASSMORPHISM
+   ========================================================= */
+
+#g-riel-assistant-window {
+    position: fixed;
+    right: 22px;
+    bottom: 82px;
+
+    width: min(390px, calc(100vw - 36px));
+    height: min(570px, calc(100vh - 110px));
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.78);
+
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 22px;
+
+    box-shadow:
+        0 30px 60px rgba(15, 30, 50, 0.15),
+        0 10px 20px rgba(15, 30, 50, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+
+    z-index: 10001;
+
+    transform-origin: bottom right;
+
+    animation: grielWindowIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes grielWindowIn {
+    from {
+        opacity: 0;
+        transform: scale(0.92) translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+#g-riel-assistant-window[hidden] {
+    display: none !important;
+}
+
+
+/* =========================================================
+   EN-TÊTE
+   ========================================================= */
+
+.griel-assistant-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 15px 18px;
+
+    background: rgba(255, 255, 255, 0.45);
+
+    border-bottom: 1px solid rgba(100, 120, 150, 0.06);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.griel-assistant-header-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.griel-assistant-header-info strong {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #16263b;
+    line-height: 1.2;
+}
+
+.griel-assistant-header-info span {
+    margin-top: 3px;
+    font-size: 0.72rem;
+    color: #52667d;
+    opacity: 0.8;
+}
+
+
+/* =========================================================
+   BOUTON FERMER
+   ========================================================= */
+
+.griel-assistant-close {
+    width: 30px;
+    height: 30px;
+
+    flex-shrink: 0;
+
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(20, 30, 45, 0.04);
+
+    color: #2c3e50;
+
+    cursor: pointer;
+
+    font-size: 1.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0.7;
+
+    transition:
+        background 0.2s ease,
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.griel-assistant-close:hover {
+    background: rgba(20, 30, 45, 0.08);
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+.griel-assistant-close:focus-visible {
+    outline: 2px solid rgba(70, 140, 255, 0.65);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   CONTENEUR DES MESSAGES
+   ========================================================= */
+
+.griel-assistant-messages {
+    flex: 1;
+    min-height: 0;
+
+    padding: 18px;
+
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    scroll-behavior: smooth;
+}
+
+.griel-assistant-messages::-webkit-scrollbar {
+    width: 4px;
+}
+
+.griel-assistant-messages::-webkit-scrollbar-thumb {
+    background: rgba(70, 100, 130, 0.15);
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   BULLES DE MESSAGES
+   ========================================================= */
+
+.griel-assistant-message {
+    max-width: 84%;
+
+    padding: 11px 14px;
+
+    border-radius: 16px;
+
+    font-size: 0.88rem;
+    line-height: 1.5;
+
+    overflow-wrap: anywhere;
+
+    animation: grielMessageIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+@keyframes grielMessageIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.griel-assistant-message-bot {
+    align-self: flex-start;
+
+    background: rgba(240, 244, 250, 0.75);
+
+    border: 1px solid rgba(255, 255, 255, 0.85);
+
+    color: #1e293b;
+
+    border-bottom-left-radius: 5px;
+}
+
+.griel-assistant-message-user {
+    align-self: flex-end;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(220, 234, 250, 0.85),
+            rgba(205, 224, 248, 0.85)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    color: #182b3f;
+
+    border-bottom-right-radius: 5px;
+}
+
+
+/* =========================================================
+   FORMULAIRE
+   TRANSPARENCE + EFFET VERRE
+   ========================================================= */
+
+.griel-assistant-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 12px 15px;
+    margin: 0;
+
+    background: rgba(255, 255, 255, 0.20);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+
+/* =========================================================
+   CHAMP INPUT
+   ========================================================= */
+
+.griel-assistant-form input {
+    flex: 1;
+    min-width: 0;
+
+    height: 42px;
+
+    padding: 0 14px;
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.25);
+
+    color: #1e293b;
+
+    font: inherit;
+    font-size: 0.86rem;
+
+    outline: none;
+
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.01);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.griel-assistant-form input::placeholder {
+    color: #475569;
+    opacity: 0.6;
+}
+
+.griel-assistant-form input:focus {
+    background: rgba(255, 255, 255, 0.55);
+
+    border-color: rgba(70, 130, 190, 0.45);
+
+    box-shadow:
+        0 0 0 3px rgba(70, 130, 190, 0.1);
+}
+
+
+/* =========================================================
+   BOUTON D'ENVOI
+   ========================================================= */
+
+.griel-assistant-form button {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #182b3f,
+            #284b6c
+        );
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1rem;
+
+    box-shadow:
+        0 4px 12px rgba(30, 60, 90, 0.18);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.griel-assistant-form button:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 6px 16px rgba(30, 60, 90, 0.25);
+}
+
+.griel-assistant-form button:active {
+    transform: scale(0.94);
+}
+
+.griel-assistant-form button:focus-visible {
+    outline: 2px solid rgba(70, 140, 255, 0.65);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN — MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    #g-riel-assistant {
+        right: 16px;
+        bottom: 16px;
+    }
+
+    #g-riel-assistant-toggle {
+        right: 16px;
+        bottom: 16px;
+
+        width: 44px;
+        height: 44px;
+    }
+
+    #g-riel-assistant-window {
+        right: 10px;
+        bottom: 72px;
+
+        width: calc(100vw - 20px);
+        height: min(600px, calc(100vh - 95px));
+
+        border-radius: 18px;
+    }
+
+    .griel-assistant-messages {
+        padding: 14px;
+    }
+
+    .griel-assistant-message {
+        max-width: 88%;
+    }
+}
+
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    #g-riel-assistant-toggle {
+        width: 40px;
+        height: 40px;
+
+        right: 12px;
+        bottom: 12px;
+    }
+
+    #g-riel-assistant-window {
+        right: 6px;
+        bottom: 64px;
+
+        width: calc(100vw - 12px);
+
+        border-radius: 16px;
+    }
+
+    .griel-assistant-header {
+        padding: 13px 14px;
+    }
+
+    .griel-assistant-messages {
+        padding: 12px;
+    }
+
+    .griel-assistant-form {
+        padding: 10px;
+    }
+}
