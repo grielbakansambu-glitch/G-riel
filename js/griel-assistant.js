@@ -1,7 +1,7 @@
 (function () {
     "use strict";
 
-    /**
+    /*
      * G-Riel Assistant
      * Interface globale du site G-Riel IT Garden
      *
@@ -10,11 +10,10 @@
      * - Le widget HTML est créé automatiquement
      * - Fonctionne depuis les pages racine et les sous-dossiers
      * - Le CSS est chargé automatiquement
-     * - Aucun appel API ici
+     * - Communication avec le backend Cloudflare Worker
      */
 
     // On capture currentScript immédiatement.
-    // Il peut devenir null une fois l'événement DOMContentLoaded déclenché.
     const scriptElement = document.currentScript;
 
     function initAssistant() {
@@ -32,19 +31,10 @@
             return;
         }
 
-        /**
+        /*
          * ---------------------------------------------------------
          * 1. Détermination automatique de la racine du site
          * ---------------------------------------------------------
-         *
-         * Le navigateur transforme déjà :
-         *
-         * ../js/griel-assistant.js
-         * ../../js/griel-assistant.js
-         *
-         * en URL absolue.
-         *
-         * On peut donc toujours remonter de /js/ vers la racine.
          */
 
         const scriptUrl = new URL(
@@ -54,8 +44,147 @@
 
         const siteRoot = new URL("../", scriptUrl);
 
+        /*
+         * ---------------------------------------------------------
+         * 1 bis. Chargement de la mémoire G-Riel
+         * ---------------------------------------------------------
+         */
 
-        /**
+        let grielMemory = null;
+
+        async function loadGrielMemory() {
+            try {
+                const memoryUrl = new URL(
+                    "griel-memory.json",
+                    siteRoot
+                );
+
+                const response = await fetch(memoryUrl);
+
+                if (!response.ok) {
+                    throw new Error(
+                        `Impossible de charger griel-memory.json (${response.status})`
+                    );
+                }
+
+                const memory = await response.json();
+
+                console.log(
+                    "🌱 G-Riel Memory chargée :",
+                    memory
+                );
+
+                return memory;
+
+            } catch (error) {
+                console.error(
+                    "❌ Erreur de chargement de la mémoire G-Riel :",
+                    error
+                );
+
+                return null;
+            }
+        }
+
+        /*
+         * ---------------------------------------------------------
+         * 1 ter. Chargement de la carte du Garden
+         * ---------------------------------------------------------
+         */
+
+        let grielSiteMap = null;
+
+        async function loadGrielSiteMap() {
+            try {
+                const siteMapUrl = new URL(
+                    "site-map.json",
+                    siteRoot
+                );
+
+                const response = await fetch(siteMapUrl);
+
+                if (!response.ok) {
+                    throw new Error(
+                        `Impossible de charger site-map.json (${response.status})`
+                    );
+                }
+
+                const siteMap = await response.json();
+
+                console.log(
+                    "🗺️ G-Riel Site Map chargée :",
+                    siteMap
+                );
+
+                return siteMap;
+
+            } catch (error) {
+                console.error(
+                    "❌ Erreur de chargement de site-map.json :",
+                    error
+                );
+
+                return null;
+            }
+        }
+
+        /*
+         * ---------------------------------------------------------
+         * 1 quater. Préparation du contexte G-Riel
+         * ---------------------------------------------------------
+         */
+
+        function buildAssistantContext() {
+            return {
+                memory: grielMemory,
+                site_map: grielSiteMap,
+                page: {
+                    url: window.location.href,
+                    path: window.location.pathname,
+                    title: document.title
+                }
+            };
+        }
+
+        /*
+         * ---------------------------------------------------------
+         * 1 quinquies. Chargement des sources
+         * ---------------------------------------------------------
+         */
+
+        Promise.all([
+            loadGrielMemory(),
+            loadGrielSiteMap()
+        ]).then(([memory, siteMap]) => {
+
+            grielMemory = memory;
+            grielSiteMap = siteMap;
+
+            const context = buildAssistantContext();
+
+            console.log(
+                "🧠 Contexte G-Riel préparé :",
+                context
+            );
+
+            console.log(
+                "Nom :",
+                grielMemory?.assistant?.name
+            );
+
+            console.log(
+                "Garden :",
+                grielMemory?.garden?.name
+            );
+
+            console.log(
+                "Principe :",
+                grielMemory?.assistant?.principle
+            );
+
+        });
+
+        /*
          * ---------------------------------------------------------
          * 2. Chargement automatique du CSS
          * ---------------------------------------------------------
@@ -75,31 +204,31 @@
 
             cssLink.rel = "stylesheet";
             cssLink.href = cssUrl.href;
-            cssLink.dataset.grielAssistant = "true";
+            cssLink.dataset.grielAssistantCss = "true";
 
             document.head.appendChild(cssLink);
         }
 
-
-        /**
+        /*
          * ---------------------------------------------------------
          * 3. Fonction utilitaire pour créer les éléments
          * ---------------------------------------------------------
          */
 
-        function createElement(tag, attributes = {}, text = "") {
-
+        function createElement(
+            tag,
+            attributes = {},
+            text = ""
+        ) {
             const element = document.createElement(tag);
 
             Object.entries(attributes).forEach(
                 ([attribute, value]) => {
 
                     if (attribute === "className") {
-
                         element.className = value;
 
                     } else if (attribute === "dataset") {
-
                         Object.entries(value).forEach(
                             ([key, datasetValue]) => {
                                 element.dataset[key] = datasetValue;
@@ -107,9 +236,10 @@
                         );
 
                     } else {
-
-                        element.setAttribute(attribute, value);
-
+                        element.setAttribute(
+                            attribute,
+                            value
+                        );
                     }
                 }
             );
@@ -121,8 +251,7 @@
             return element;
         }
 
-
-        /**
+        /*
          * ---------------------------------------------------------
          * 4. Conteneur principal
          * ---------------------------------------------------------
@@ -132,8 +261,7 @@
             id: "g-riel-assistant"
         });
 
-
-        /**
+        /*
          * ---------------------------------------------------------
          * 5. Bouton flottant
          * ---------------------------------------------------------
@@ -159,22 +287,17 @@
 
         toggleButton.appendChild(assistantIcon);
 
-
-        /**
+        /*
          * ---------------------------------------------------------
          * 6. Arrière-plan flou
          * ---------------------------------------------------------
-         *
-         * Cet élément couvre le site lorsque l'assistant est ouvert.
-         * Le CSS contrôle son flou et sa transparence.
          */
 
         const backdrop = createElement("div", {
             id: "g-riel-assistant-backdrop"
         });
 
-
-        /**
+        /*
          * ---------------------------------------------------------
          * 7. Fenêtre de discussion
          * ---------------------------------------------------------
@@ -189,8 +312,7 @@
         chatWindow.hidden = true;
         chatWindow.style.display = "none";
 
-
-        /**
+        /*
          * ---------------------------------------------------------
          * 8. En-tête
          * ---------------------------------------------------------
@@ -236,8 +358,7 @@
         header.appendChild(headerInfo);
         header.appendChild(closeButton);
 
-
-        /**
+        /*
          * ---------------------------------------------------------
          * 9. Zone des messages
          * ---------------------------------------------------------
@@ -259,8 +380,7 @@
 
         messages.appendChild(welcomeMessage);
 
-
-        /**
+        /*
          * ---------------------------------------------------------
          * 10. Zone de saisie
          * ---------------------------------------------------------
@@ -292,8 +412,7 @@
         form.appendChild(input);
         form.appendChild(sendButton);
 
-
-        /**
+        /*
          * ---------------------------------------------------------
          * 11. Assemblage de la fenêtre
          * ---------------------------------------------------------
@@ -303,8 +422,7 @@
         chatWindow.appendChild(messages);
         chatWindow.appendChild(form);
 
-
-        /**
+        /*
          * ---------------------------------------------------------
          * 12. Insertion dans la page
          * ---------------------------------------------------------
@@ -317,15 +435,13 @@
 
         document.body.appendChild(assistant);
 
-
-        /**
+        /*
          * ---------------------------------------------------------
          * 13. Fonctions d'ouverture / fermeture
          * ---------------------------------------------------------
          */
 
         function openAssistant() {
-
             chatWindow.hidden = false;
             chatWindow.style.display = "flex";
 
@@ -334,9 +450,7 @@
             input.focus();
         }
 
-
         function closeAssistant() {
-
             chatWindow.hidden = true;
             chatWindow.style.display = "none";
 
@@ -345,15 +459,13 @@
             toggleButton.focus();
         }
 
-
-        /**
+        /*
          * ---------------------------------------------------------
          * 14. Ajout d'un message
          * ---------------------------------------------------------
          */
 
         function addMessage(text, type) {
-
             const message = createElement(
                 "div",
                 {
@@ -372,46 +484,34 @@
             return message;
         }
 
-
-        /**
+        /*
          * ---------------------------------------------------------
          * 15. Événements
          * ---------------------------------------------------------
          */
 
-        // Le logo fonctionne maintenant comme un véritable toggle :
-        // fermé → ouvre
-        // ouvert → ferme
-
         toggleButton.addEventListener(
             "click",
             function () {
-
                 if (chatWindow.hidden) {
                     openAssistant();
                 } else {
                     closeAssistant();
                 }
-
             }
         );
 
-
-        // Bouton X
         closeButton.addEventListener(
             "click",
             closeAssistant
         );
 
-
-        // Clic sur l'arrière-plan flou
         backdrop.addEventListener(
             "click",
             closeAssistant
         );
 
-
-        /**
+        /*
          * ---------------------------------------------------------
          * 16. Fermeture avec Escape
          * ---------------------------------------------------------
@@ -420,30 +520,27 @@
         document.addEventListener(
             "keydown",
             function (event) {
-
                 if (
                     event.key === "Escape" &&
                     !chatWindow.hidden
                 ) {
                     closeAssistant();
                 }
-
             }
         );
 
-
-        /**
+        /*
          * ---------------------------------------------------------
-         * 17. Formulaire temporaire
+         * 17. Communication avec le Cloudflare Worker
          * ---------------------------------------------------------
-         *
-         * Pour l'instant, aucune IA/API.
-         * On prépare uniquement l'interface.
          */
+
+        const WORKER_URL =
+            "https://griel-assistant-backend.grielbakansambu.workers.dev";
 
         form.addEventListener(
             "submit",
-            function (event) {
+            async function (event) {
 
                 event.preventDefault();
 
@@ -453,31 +550,102 @@
                     return;
                 }
 
+                // Affiche le message utilisateur
                 addMessage(message, "user");
 
                 input.value = "";
 
+                // Indicateur de chargement
+                const loadingMessage = addMessage(
+                    "Réflexion en cours...",
+                    "bot"
+                );
 
-                /**
-                 * Réponse temporaire.
-                 * Elle sera remplacée plus tard
-                 * par le backend / l'IA.
-                 */
+                try {
 
-                setTimeout(function () {
+                    // Prépare le contexte complet
+                    const context = buildAssistantContext();
 
-                    addMessage(
-                        "L’interface est prête. La connexion à l’assistant intelligent sera ajoutée dans une prochaine étape.",
-                        "bot"
+                    const response = await fetch(
+                        WORKER_URL,
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+
+                            body: JSON.stringify({
+                                message: message,
+                                context: context
+                            })
+                        }
                     );
 
-                }, 400);
+                    const data = await response.json();
 
+                    // Diagnostic complet
+                    console.log(
+                        "G-RIEL RESPONSE FULL:",
+                        JSON.stringify(data, null, 2)
+                    );
+
+                    // Supprime le message de chargement
+                    loadingMessage.remove();
+
+                    if (!response.ok) {
+                        throw new Error(
+                            data.error ||
+                            "Erreur de communication avec le backend."
+                        );
+                    }
+
+                    /*
+                     * Gemini Interactions API :
+                     *
+                     * data.steps[]
+                     *   └── type: "model_output"
+                     *       └── content[]
+                     *           └── type: "text"
+                     *               └── text
+                     */
+
+                    const botReply =
+                        data.steps
+                            ?.find(
+                                step =>
+                                    step.type === "model_output"
+                            )
+                            ?.content
+                            ?.find(
+                                part =>
+                                    part.type === "text"
+                            )
+                            ?.text ||
+                        "Désolé, je n'ai pas pu décoder la réponse.";
+
+                    // IMPORTANT :
+                    // Affiche réellement la réponse de l'assistant
+                    addMessage(botReply, "bot");
+
+                } catch (error) {
+
+                    console.error(
+                        "Erreur G-Riel Assistant :",
+                        error
+                    );
+
+                    loadingMessage.remove();
+
+                    addMessage(
+                        "Oups, une erreur technique est survenue lors de la connexion au Worker.",
+                        "bot"
+                    );
+                }
             }
         );
 
-
-        /**
+        /*
          * ---------------------------------------------------------
          * 18. Confirmation dans la console
          * ---------------------------------------------------------
@@ -488,8 +656,7 @@
         );
     }
 
-
-    /**
+    /*
      * -------------------------------------------------------------
      * Initialisation sûre
      * -------------------------------------------------------------
@@ -505,7 +672,6 @@
     } else {
 
         initAssistant();
-
     }
 
 })();
