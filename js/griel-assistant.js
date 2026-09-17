@@ -11,6 +11,7 @@
      * - Fonctionne depuis les pages racine et les sous-dossiers
      * - Le CSS est chargé automatiquement
      * - Communication avec le backend Cloudflare Worker
+     * - Affichage Markdown sécurisé des réponses
      */
 
     // On capture currentScript immédiatement.
@@ -77,6 +78,7 @@
                 return memory;
 
             } catch (error) {
+
                 console.error(
                     "❌ Erreur de chargement de la mémoire G-Riel :",
                     error
@@ -119,6 +121,7 @@
                 return siteMap;
 
             } catch (error) {
+
                 console.error(
                     "❌ Erreur de chargement de site-map.json :",
                     error
@@ -135,9 +138,12 @@
          */
 
         function buildAssistantContext() {
+
             return {
                 memory: grielMemory,
+
                 site_map: grielSiteMap,
+
                 page: {
                     url: window.location.href,
                     path: window.location.pathname,
@@ -200,6 +206,7 @@
                 'link[data-griel-assistant-css="true"]'
             )
         ) {
+
             const cssLink = document.createElement("link");
 
             cssLink.rel = "stylesheet";
@@ -220,22 +227,28 @@
             attributes = {},
             text = ""
         ) {
+
             const element = document.createElement(tag);
 
             Object.entries(attributes).forEach(
                 ([attribute, value]) => {
 
                     if (attribute === "className") {
+
                         element.className = value;
 
                     } else if (attribute === "dataset") {
+
                         Object.entries(value).forEach(
                             ([key, datasetValue]) => {
-                                element.dataset[key] = datasetValue;
+
+                                element.dataset[key] =
+                                    datasetValue;
                             }
                         );
 
                     } else {
+
                         element.setAttribute(
                             attribute,
                             value
@@ -373,7 +386,8 @@
             "div",
             {
                 className:
-                    "griel-assistant-message griel-assistant-message-bot"
+                    "griel-assistant-message " +
+                    "griel-assistant-message-bot"
             },
             "Bonjour. Je suis G-Riel Assistant. Que souhaites-tu explorer dans le Garden ?"
         );
@@ -442,6 +456,7 @@
          */
 
         function openAssistant() {
+
             chatWindow.hidden = false;
             chatWindow.style.display = "flex";
 
@@ -451,6 +466,7 @@
         }
 
         function closeAssistant() {
+
             chatWindow.hidden = true;
             chatWindow.style.display = "none";
 
@@ -461,11 +477,323 @@
 
         /*
          * ---------------------------------------------------------
-         * 14. Ajout d'un message
+         * 14. Moteur Markdown sécurisé
+         * ---------------------------------------------------------
+         */
+
+        function escapeHtml(text) {
+
+            return String(text)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        function renderMarkdown(text) {
+
+            let source = String(text ?? "");
+
+            /*
+             * -----------------------------------------------------
+             * Protection des blocs de code
+             * -----------------------------------------------------
+             */
+
+            const codeBlocks = [];
+
+            source = source.replace(
+                /```(?:[a-zA-Z0-9_-]+)?\s*\n?([\s\S]*?)```/g,
+                function (_, code) {
+
+                    const index = codeBlocks.length;
+
+                    codeBlocks.push(
+                        "<pre><code>" +
+                        escapeHtml(
+                            code.replace(/\n$/, "")
+                        ) +
+                        "</code></pre>"
+                    );
+
+                    return `@@GRIEL_CODE_BLOCK_${index}@@`;
+                }
+            );
+
+            /*
+             * -----------------------------------------------------
+             * Protection du HTML
+             * -----------------------------------------------------
+             */
+
+            let html = escapeHtml(source);
+
+            /*
+             * -----------------------------------------------------
+             * Code inline
+             * -----------------------------------------------------
+             */
+
+            const inlineCodes = [];
+
+            html = html.replace(
+                /`([^`\n]+)`/g,
+                function (_, code) {
+
+                    const index = inlineCodes.length;
+
+                    inlineCodes.push(
+                        "<code>" +
+                        code +
+                        "</code>"
+                    );
+
+                    return `@@GRIEL_INLINE_CODE_${index}@@`;
+                }
+            );
+
+            /*
+             * -----------------------------------------------------
+             * Titres Markdown
+             * -----------------------------------------------------
+             */
+
+            html = html.replace(
+                /^### (.+)$/gm,
+                "<h4>$1</h4>"
+            );
+
+            html = html.replace(
+                /^## (.+)$/gm,
+                "<h3>$1</h3>"
+            );
+
+            html = html.replace(
+                /^# (.+)$/gm,
+                "<h2>$1</h2>"
+            );
+
+            /*
+             * -----------------------------------------------------
+             * Liens Markdown
+             * -----------------------------------------------------
+             */
+
+            html = html.replace(
+                /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+                function (_, label, url) {
+
+                    return (
+                        '<a href="' +
+                        url +
+                        '" target="_blank" ' +
+                        'rel="noopener noreferrer">' +
+                        label +
+                        "</a>"
+                    );
+                }
+            );
+
+            /*
+             * -----------------------------------------------------
+             * URLs simples
+             * -----------------------------------------------------
+             */
+
+            html = html.replace(
+                /(^|[\s>])(https?:\/\/[^\s<]+)/g,
+                function (_, prefix, url) {
+
+                    let cleanUrl = url;
+                    let ending = "";
+
+                    while (
+                        /[.,!?;:]$/.test(cleanUrl)
+                    ) {
+                        ending =
+                            cleanUrl.slice(-1) +
+                            ending;
+
+                        cleanUrl =
+                            cleanUrl.slice(0, -1);
+                    }
+
+                    return (
+                        prefix +
+                        '<a href="' +
+                        cleanUrl +
+                        '" target="_blank" ' +
+                        'rel="noopener noreferrer">' +
+                        cleanUrl +
+                        "</a>" +
+                        ending
+                    );
+                }
+            );
+
+            /*
+             * -----------------------------------------------------
+             * Gras
+             * -----------------------------------------------------
+             */
+
+            html = html.replace(
+                /\*\*(.+?)\*\*/g,
+                "<strong>$1</strong>"
+            );
+
+            /*
+             * -----------------------------------------------------
+             * Italique
+             * -----------------------------------------------------
+             */
+
+            html = html.replace(
+                /(?<!\*)\*([^*\n]+)\*(?!\*)/g,
+                "<em>$1</em>"
+            );
+
+            /*
+             * -----------------------------------------------------
+             * Listes non ordonnées
+             * -----------------------------------------------------
+             */
+
+            const lines = html.split("\n");
+            const output = [];
+
+            let insideList = false;
+
+            lines.forEach(function (line) {
+
+                const listMatch =
+                    line.match(/^\s*[-*]\s+(.+)$/);
+
+                if (listMatch) {
+
+                    if (!insideList) {
+
+                        output.push("<ul>");
+                        insideList = true;
+                    }
+
+                    output.push(
+                        "<li>" +
+                        listMatch[1] +
+                        "</li>"
+                    );
+
+                    return;
+                }
+
+                if (insideList) {
+
+                    output.push("</ul>");
+                    insideList = false;
+                }
+
+                output.push(line);
+            });
+
+            if (insideList) {
+                output.push("</ul>");
+            }
+
+            html = output.join("\n");
+
+            /*
+             * -----------------------------------------------------
+             * Retours à la ligne
+             * -----------------------------------------------------
+             */
+
+            html = html.replace(
+                /\n/g,
+                "<br>"
+            );
+
+            /*
+             * -----------------------------------------------------
+             * Nettoyage des <br> autour des blocs
+             * -----------------------------------------------------
+             */
+
+            html = html.replace(
+                /<br>\s*(<h[234]>)/g,
+                "$1"
+            );
+
+            html = html.replace(
+                /(<\/h[234]>)\s*<br>/g,
+                "$1"
+            );
+
+            html = html.replace(
+                /<br>\s*(<ul>)/g,
+                "$1"
+            );
+
+            html = html.replace(
+                /(<\/ul>)\s*<br>/g,
+                "$1"
+            );
+
+            html = html.replace(
+                /<br>\s*(<pre>)/g,
+                "$1"
+            );
+
+            html = html.replace(
+                /(<\/pre>)\s*<br>/g,
+                "$1"
+            );
+
+            /*
+             * -----------------------------------------------------
+             * Restauration du code inline
+             * -----------------------------------------------------
+             */
+
+            inlineCodes.forEach(
+                function (codeHtml, index) {
+
+                    html = html.replace(
+                        `@@GRIEL_INLINE_CODE_${index}@@`,
+                        codeHtml
+                    );
+                }
+            );
+
+            /*
+             * -----------------------------------------------------
+             * Restauration des blocs de code
+             * -----------------------------------------------------
+             */
+
+            codeBlocks.forEach(
+                function (codeHtml, index) {
+
+                    html = html.replace(
+                        `@@GRIEL_CODE_BLOCK_${index}@@`,
+                        codeHtml
+                    );
+                }
+            );
+
+            return html;
+        }
+        
+
+        /*
+         * ---------------------------------------------------------
+         * 15. Ajout d'un message
          * ---------------------------------------------------------
          */
 
         function addMessage(text, type) {
+            
+
             const message = createElement(
                 "div",
                 {
@@ -473,29 +801,51 @@
                         "griel-assistant-message " +
                         "griel-assistant-message-" +
                         type
-                },
-                text
+                }
             );
+
+            /*
+             * Les messages utilisateur restent du texte brut.
+             *
+             * Les réponses de l'assistant passent par le moteur
+             * Markdown sécurisé.
+             */
+
+            if (type === "bot") {
+
+                message.innerHTML =
+                    renderMarkdown(text);
+
+            } else {
+
+                message.textContent = text;
+            }
 
             messages.appendChild(message);
 
-            messages.scrollTop = messages.scrollHeight;
+            messages.scrollTop =
+                messages.scrollHeight;
 
             return message;
         }
+        
 
         /*
          * ---------------------------------------------------------
-         * 15. Événements
+         * 16. Événements
          * ---------------------------------------------------------
          */
 
         toggleButton.addEventListener(
             "click",
             function () {
+
                 if (chatWindow.hidden) {
+
                     openAssistant();
+
                 } else {
+
                     closeAssistant();
                 }
             }
@@ -513,17 +863,19 @@
 
         /*
          * ---------------------------------------------------------
-         * 16. Fermeture avec Escape
+         * 17. Fermeture avec Escape
          * ---------------------------------------------------------
          */
 
         document.addEventListener(
             "keydown",
             function (event) {
+
                 if (
                     event.key === "Escape" &&
                     !chatWindow.hidden
                 ) {
+
                     closeAssistant();
                 }
             }
@@ -531,7 +883,7 @@
 
         /*
          * ---------------------------------------------------------
-         * 17. Communication avec le Cloudflare Worker
+         * 18. Communication avec le Cloudflare Worker
          * ---------------------------------------------------------
          */
 
@@ -551,49 +903,91 @@
                 }
 
                 // Affiche le message utilisateur
-                addMessage(message, "user");
+                addMessage(
+                    message,
+                    "user"
+                );
 
                 input.value = "";
 
                 // Indicateur de chargement
-                const loadingMessage = addMessage(
-                    "Réflexion en cours...",
-                    "bot"
-                );
+                const loadingMessage =
+                    addMessage(
+                        "Réflexion en cours...",
+                        "bot"
+                    );
 
                 try {
 
-                    // Prépare le contexte complet
-                    const context = buildAssistantContext();
+                    /*
+                     * -------------------------------------------------
+                     * Prépare le contexte complet
+                     * -------------------------------------------------
+                     */
 
-                    const response = await fetch(
-                        WORKER_URL,
-                        {
-                            method: "POST",
+                    const context =
+                        buildAssistantContext();
 
-                            headers: {
-                                "Content-Type": "application/json"
-                            },
+                    /*
+                     * -------------------------------------------------
+                     * Appel du Worker
+                     * -------------------------------------------------
+                     */
 
-                            body: JSON.stringify({
-                                message: message,
-                                context: context
-                            })
-                        }
-                    );
+                    const response =
+                        await fetch(
+                            WORKER_URL,
+                            {
+                                method: "POST",
 
-                    const data = await response.json();
+                                headers: {
+                                    "Content-Type":
+                                        "application/json"
+                                },
 
-                    // Diagnostic complet
+                                body: JSON.stringify({
+                                    message: message,
+                                    context: context
+                                })
+                            }
+                        );
+
+                    /*
+                     * -------------------------------------------------
+                     * Lecture de la réponse JSON
+                     * -------------------------------------------------
+                     */
+
+                    const data =
+                        await response.json();
+
+                    /*
+                     * Diagnostic complet
+                     */
+
                     console.log(
                         "G-RIEL RESPONSE FULL:",
-                        JSON.stringify(data, null, 2)
+                        JSON.stringify(
+                            data,
+                            null,
+                            2
+                        )
                     );
 
-                    // Supprime le message de chargement
+                    /*
+                     * Supprime le message de chargement
+                     */
+
                     loadingMessage.remove();
 
+                    /*
+                     * -------------------------------------------------
+                     * Vérification de la réponse HTTP
+                     * -------------------------------------------------
+                     */
+
                     if (!response.ok) {
+
                         throw new Error(
                             data.error ||
                             "Erreur de communication avec le backend."
@@ -601,32 +995,44 @@
                     }
 
                     /*
-                     * Gemini Interactions API :
+                     * -------------------------------------------------
+                     * Gemini Interactions API
                      *
                      * data.steps[]
                      *   └── type: "model_output"
                      *       └── content[]
                      *           └── type: "text"
                      *               └── text
+                     * -------------------------------------------------
                      */
 
                     const botReply =
                         data.steps
                             ?.find(
                                 step =>
-                                    step.type === "model_output"
+                                    step.type ===
+                                    "model_output"
                             )
                             ?.content
                             ?.find(
                                 part =>
-                                    part.type === "text"
+                                    part.type ===
+                                    "text"
                             )
                             ?.text ||
                         "Désolé, je n'ai pas pu décoder la réponse.";
 
-                    // IMPORTANT :
-                    // Affiche réellement la réponse de l'assistant
-                    addMessage(botReply, "bot");
+                    /*
+                     * Affiche réellement la réponse
+                     *
+                     * addMessage() applique maintenant
+                     * automatiquement le Markdown sécurisé.
+                     */
+
+                    addMessage(
+                        botReply,
+                        "bot"
+                    );
 
                 } catch (error) {
 
@@ -635,7 +1041,17 @@
                         error
                     );
 
-                    loadingMessage.remove();
+                    /*
+                     * Le message de chargement peut déjà avoir
+                     * été supprimé avant l'erreur.
+                     */
+
+                    if (
+                        loadingMessage &&
+                        loadingMessage.isConnected
+                    ) {
+                        loadingMessage.remove();
+                    }
 
                     addMessage(
                         "Oups, une erreur technique est survenue lors de la connexion au Worker.",
@@ -647,7 +1063,7 @@
 
         /*
          * ---------------------------------------------------------
-         * 18. Confirmation dans la console
+         * 19. Confirmation dans la console
          * ---------------------------------------------------------
          */
 
