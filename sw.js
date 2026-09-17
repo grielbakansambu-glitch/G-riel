@@ -64,9 +64,12 @@ self.addEventListener("fetch", event => {
 async function networkFirst(request) {
   try {
     const response = await fetch(request);
-    if (response.ok) {
-      const cache = await caches.open(RUNTIME_CACHE);
-      cache.put(request, response.clone());
+    // Vérification stricte : on ne clone et met en cache que si la réponse est valide
+    if (response && response.status === 200 && response.type === 'basic') {
+      const responseToCache = response.clone();
+      caches.open(RUNTIME_CACHE).then(cache => {
+        cache.put(request, responseToCache);
+      });
     }
     return response;
   } catch {
@@ -80,9 +83,12 @@ async function cacheFirstWithRevalidate(request) {
 
   const networkUpdate = fetch(request)
     .then(response => {
-      if (response.ok) {
-        caches.open(RUNTIME_CACHE)
-          .then(cache => cache.put(request, response.clone()));
+      // Vérification similaire pour éviter de cloner un flux invalide ou déjà consommé
+      if (response && response.status === 200 && response.type === 'basic') {
+        const responseToCache = response.clone();
+        caches.open(RUNTIME_CACHE).then(cache => {
+          cache.put(request, responseToCache);
+        });
       }
       return response;
     })
