@@ -1,74 +1,107 @@
 # G-RIEL IT Garden
 
-> Portfolio technique, laboratoire personnel et jardin numérique consacré à l'informatique, aux réseaux, à l'administration système et à la cybersécurité.
+<p align="center">
+  <img src="assets/images/ico.png" alt="Logo G-RIEL IT Garden" width="100">
+</p>
+
+<p align="center">
+  <strong>Un jardin numérique personnel</strong>
+</p>
+
+<p align="center">
+  Explorer · Comprendre · Apprendre · Conserver
+</p>
+
+<p align="center">
+  <a href="https://grielbakansambu-glitch.github.io/G-riel/">
+    Visiter G-RIEL IT Garden
+  </a>
+</p>
 
 ---
 
-## Présentation
+## À propos
 
-**G-RIEL IT Garden** est un laboratoire numérique personnel développé par **Gabriel Bakansambu Basikila**.
+**G-RIEL IT Garden** est mon jardin numérique personnel.
 
-Ce projet a pour objectif de documenter mon parcours académique, mes recherches, mes expérimentations techniques ainsi que les projets réalisés dans le domaine des technologies de l'information.
+Je l'utilise pour conserver progressivement des notes, des ressources, des expérimentations, des projets et différentes traces de mon parcours en informatique et en technologie.
 
-Plus qu'un simple portfolio, il constitue une base de connaissances évolutive où sont centralisés des laboratoires, des notes techniques, des projets, des documentations et des ressources destinées à accompagner ma progression vers l'expertise.
+Ce jardin évolue avec mes apprentissages.
 
----
+Tout n'y est pas terminé, et tout n'a pas vocation à l'être. Certaines choses sont simplement des essais, certaines sont en cours, et d'autres sont conservées comme traces de ce que j'ai appris ou essayé de comprendre.
 
-## Objectifs
-
-Le projet poursuit plusieurs objectifs :
-
-- documenter mon apprentissage de manière structurée ;
-- construire un portfolio technique professionnel ;
-- centraliser les laboratoires et expérimentations ;
-- partager des connaissances techniques ;
-- développer une documentation personnelle réutilisable ;
-- mettre en valeur les projets réalisés.
+L'objectif est simplement de garder une trace de mon parcours et de pouvoir revenir sur ce que j'ai étudié, testé ou construit.
 
 ---
 
-## Domaines explorés
+## Pourquoi un jardin numérique ?
 
-- Administration système Linux
-- Réseaux informatiques
-- Cybersécurité
-- Développement Web
-- Programmation Python
-- Scripts Bash
-- Automatisation
-- Virtualisation
-- Homelab
+L'idée du **Digital Garden** m'intéresse parce qu'elle permet de considérer les connaissances comme quelque chose qui évolue avec le temps.
+
+Une note peut commencer comme une simple idée, être complétée après une expérience, corrigée plus tard ou simplement rester une trace d'apprentissage.
+
+Le jardin n'est donc pas uniquement un endroit où je présente des résultats.
+
+C'est aussi un espace où je peux **apprendre, expérimenter, corriger et conserver**.
 
 ---
 
-## Stack technique
+## Ce que j'y rassemble
 
-### Front-end
+Selon l'avancement de mon parcours, le jardin peut contenir :
 
-- HTML5
-- CSS3
-- JavaScript
+* des notes personnelles ;
+* des ressources utiles ;
+* des expérimentations ;
+* des laboratoires techniques ;
+* des projets ;
+* des réflexions ;
+* des découvertes ;
+* des traces de mon apprentissage.
 
-### Design
-
-- Glassmorphism
-- Responsive Design
-- Animations CSS
-- Interface sombre
-
-### Environnements
-
-- Kali Linux
-- Ubuntu
-- VirtualBox
-- Cisco Packet Tracer
+Le contenu peut évoluer au fil du temps.
 
 ---
 
-## Structure du projet
+## Domaines que j'explore
 
-```
+Mon parcours m'amène notamment à explorer :
+
+* Informatique et technologies
+* Systèmes Linux
+* Réseaux informatiques
+* Administration système
+* Cybersécurité
+* Développement Web
+* Programmation
+* Automatisation
+* Virtualisation
+* Technologies pédagogiques
+
+Cette liste n'est pas exhaustive et peut évoluer avec mes apprentissages.
+
+---
+
+## Technologies utilisées
+
+Le jardin est principalement construit avec des technologies Web simples :
+
+* HTML5
+* CSS3
+* JavaScript
+* Git
+* GitHub
+* GitHub Pages
+
+D'autres outils peuvent être utilisés ponctuellement pour certaines expérimentations ou certains projets.
+
+---
+
+## Structure
+
+```text
 /
+
 ├── index.html
 ├── about.html
 ├── manifeste.html
@@ -94,32 +127,42 @@ Le projet poursuit plusieurs objectifs :
     └── web/
 ```
 
----
-
-## Philosophie
-
-Construire avant de consommer.
-
-Comprendre avant d'utiliser.
-
-Documenter avant d'oublier.
-
-Partager avant de recommencer.
+La structure peut évoluer au fil du développement et de l'organisation du jardin.
 
 ---
 
-## Auteur
+## Une petite philosophie
+
+> Construire avant de consommer.
+> Comprendre avant d'utiliser.
+> Expérimenter avant de conclure.
+> Documenter avant d'oublier.
+
+Ces quelques principes représentent surtout ma manière d'aborder mon apprentissage.
+
+---
+
+## À propos de moi
 
 **Gabriel Bakansambu Basikila**
 
-Étudiant en Informatique et Technologie.
+Étudiant en Licence 3 — Informatique & Technologie
+ISP Mbanza-Ngungu · République démocratique du Congo
 
-Fondateur de **G-RIEL IT Garden**.
+**G-RIEL IT Garden** est un projet personnel qui accompagne mon parcours d'apprentissage.
+
+---
+
+## Le jardin
+
+Le jardin numérique est accessible ici :
+
+**https://grielbakansambu-glitch.github.io/G-riel/**
 
 ---
 
 ## Licence
 
-Ce projet est développé à des fins d'apprentissage, de recherche et de démonstration technique.
+Ce projet est personnel et principalement destiné à l'apprentissage, à la documentation et au partage de certaines ressources et expérimentations.
 
-© 2026 Gabriel Bakansambu Basikila. Tous droits réservés.
+© 2026 Gabriel Bakansambu Basikila
