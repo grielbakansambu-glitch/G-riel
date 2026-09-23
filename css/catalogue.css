@@ -1,0 +1,740 @@
+/* =========================================================
+   CATALOGUE TFC — G-RIEL IT GARDEN
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Base
+   --------------------------------------------------------- */
+
+:root {
+    --catalogue-max-width: 1180px;
+    --catalogue-reading-width: 900px;
+    --catalogue-gap: 28px;
+    --catalogue-radius: 18px;
+    --catalogue-border: rgba(20, 40, 70, 0.12);
+    --catalogue-muted: #667085;
+    --catalogue-text: #1d2939;
+    --catalogue-title: #102a43;
+    --catalogue-surface: #ffffff;
+    --catalogue-surface-soft: #f7f9fc;
+    --catalogue-accent: #1f5f8b;
+    --catalogue-accent-soft: rgba(31, 95, 139, 0.08);
+    --catalogue-shadow: 0 12px 35px rgba(16, 42, 67, 0.07);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* ---------------------------------------------------------
+   Main
+   --------------------------------------------------------- */
+
+main {
+    width: 100%;
+    overflow: hidden;
+}
+
+main > section {
+    width: min(100% - 40px, var(--catalogue-max-width));
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ---------------------------------------------------------
+   Hero
+   --------------------------------------------------------- */
+
+.projects-hero {
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 24px;
+    margin-bottom: 70px;
+    padding: 72px 64px;
+    border-radius: 28px;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(247, 250, 253, 0.98),
+            rgba(235, 243, 249, 0.96)
+        );
+    border: 1px solid var(--catalogue-border);
+    box-shadow: var(--catalogue-shadow);
+}
+
+.projects-hero::before {
+    content: "";
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    right: -130px;
+    top: -150px;
+    border-radius: 50%;
+    background: rgba(31, 95, 139, 0.08);
+    pointer-events: none;
+}
+
+.projects-hero::after {
+    content: "";
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    left: -100px;
+    bottom: -120px;
+    border-radius: 50%;
+    background: rgba(31, 95, 139, 0.05);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 850px);
+}
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 7px 14px;
+    margin-bottom: 22px;
+    border: 1px solid rgba(31, 95, 139, 0.16);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--catalogue-accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.hero-title {
+    max-width: 850px;
+    margin: 0;
+    color: var(--catalogue-title);
+    font-size: clamp(2.2rem, 5vw, 4.3rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    font-weight: 750;
+}
+
+.hero-desc {
+    max-width: 760px;
+    margin: 28px 0 0;
+    color: var(--catalogue-muted);
+    font-size: clamp(1rem, 1.7vw, 1.15rem);
+    line-height: 1.8;
+}
+
+/* ---------------------------------------------------------
+   Sections
+   --------------------------------------------------------- */
+
+.content-section {
+    width: min(100%, var(--catalogue-reading-width));
+    margin-bottom: 64px;
+    padding: 42px 46px;
+    background: var(--catalogue-surface);
+    border: 1px solid var(--catalogue-border);
+    border-radius: var(--catalogue-radius);
+    box-shadow: 0 7px 25px rgba(16, 42, 67, 0.035);
+}
+
+.content-section:last-child {
+    margin-bottom: 90px;
+}
+
+.content-section h2 {
+    position: relative;
+    margin: 0 0 25px;
+    padding-left: 18px;
+    color: var(--catalogue-title);
+    font-size: clamp(1.45rem, 2.4vw, 2rem);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+}
+
+.content-section h2::before {
+    content: "";
+    position: absolute;
+    top: 0.15em;
+    left: 0;
+    width: 4px;
+    height: 1.05em;
+    border-radius: 999px;
+    background: var(--catalogue-accent);
+}
+
+.content-section p {
+    margin: 0 0 18px;
+    color: var(--catalogue-text);
+    font-size: 1rem;
+    line-height: 1.85;
+}
+
+.content-section p:last-child {
+    margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------
+   Lists
+   --------------------------------------------------------- */
+
+.content-section ul {
+    margin: 22px 0 0;
+    padding-left: 24px;
+}
+
+.content-section li {
+    margin-bottom: 14px;
+    padding-left: 6px;
+    color: var(--catalogue-text);
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.content-section li:last-child {
+    margin-bottom: 0;
+}
+
+.content-section li::marker {
+    color: var(--catalogue-accent);
+}
+
+/* ============================================
+   CATALOGUE DES LABS WEB
+   ============================================ */
+
+.lab-list {
+    width: 100%;
+    margin-top: 2.75rem;
+    border-top: 1px solid rgba(30, 64, 175, 0.18);
+    border-bottom: 1px solid rgba(30, 64, 175, 0.18);
+    isolation: isolate;
+}
+
+.lab-list-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr) 44px;
+    align-items: center;
+    gap: 1.5rem;
+
+    width: 100%;
+    min-height: 82px;
+    padding: 1.25rem 1rem;
+
+    color: #111827;
+    text-decoration: none;
+
+    border-bottom: 1px solid rgba(30, 64, 175, 0.14);
+
+    overflow: hidden;
+
+    transition:
+        color 0.3s ease,
+        background-color 0.3s ease,
+        padding-left 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Supprime la dernière ligne */
+.lab-list-item:last-child {
+    border-bottom: 0;
+}
+
+/* Barre lumineuse latérale */
+.lab-list-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 3px;
+    height: 100%;
+
+    background: #1d4ed8;
+
+    transform: scaleY(0);
+    transform-origin: center;
+
+    transition:
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Halo très léger */
+.lab-list-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 8% 50%,
+            rgba(30, 64, 175, 0.08),
+            transparent 32%
+        );
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity 0.35s ease;
+}
+
+/* Survol */
+.lab-list-item:hover {
+    color: #0f2a6b;
+    padding-left: 1.35rem;
+    background: rgba(30, 64, 175, 0.035);
+}
+
+/* Activation de la barre */
+.lab-list-item:hover::before,
+.lab-list-item:focus-visible::before {
+    transform: scaleY(1);
+}
+
+/* Activation du halo */
+.lab-list-item:hover::after,
+.lab-list-item:focus-visible::after {
+    opacity: 1;
+}
+
+/* ============================================
+   NUMÉRO DU LAB
+   ============================================ */
+
+.lab-number {
+    position: relative;
+    z-index: 1;
+
+    display: inline-flex;
+    align-items: center;
+
+    width: fit-content;
+
+    font-size: 0.76rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    color: #64748b;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lab-number::before {
+    content: "";
+
+    width: 5px;
+    height: 5px;
+    margin-right: 0.65rem;
+
+    border-radius: 50%;
+
+    background: #94a3b8;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.3s ease;
+}
+
+.lab-list-item:hover .lab-number {
+    color: #1d4ed8;
+    transform: translateX(3px);
+}
+
+.lab-list-item:hover .lab-number::before {
+    background: #1d4ed8;
+    transform: scale(1.35);
+
+    box-shadow:
+        0 0 0 4px rgba(29, 78, 216, 0.08);
+}
+
+/* ============================================
+   TITRE DU LAB
+   ============================================ */
+
+.lab-title {
+    position: relative;
+    z-index: 1;
+
+    min-width: 0;
+
+    font-size: 1.08rem;
+    font-weight: 600;
+    line-height: 1.45;
+    letter-spacing: 0.005em;
+
+    color: inherit;
+
+    transition:
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        letter-spacing 0.3s ease;
+}
+
+.lab-list-item:hover .lab-title {
+    transform: translateX(4px);
+    letter-spacing: 0.01em;
+}
+
+/* ============================================
+   FLÈCHE
+   ============================================ */
+
+.lab-arrow {
+    position: relative;
+    z-index: 1;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 2.5rem;
+    height: 2.5rem;
+
+    border: 1px solid rgba(30, 64, 175, 0.16);
+    border-radius: 50%;
+
+    font-size: 1.15rem;
+    line-height: 1;
+
+    color: #1d4ed8;
+    background: rgba(255, 255, 255, 0.72);
+
+    transition:
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        color 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.lab-list-item:hover .lab-arrow {
+    transform: translateX(5px);
+
+    color: #ffffff;
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+
+    box-shadow:
+        0 6px 18px rgba(29, 78, 216, 0.2);
+}
+
+/* ============================================
+   FOCUS CLAVIER
+   ============================================ */
+
+.lab-list-item:focus-visible {
+    outline: 3px solid rgba(29, 78, 216, 0.2);
+    outline-offset: -3px;
+    background: rgba(30, 64, 175, 0.035);
+}
+
+.lab-list-item:focus-visible .lab-arrow {
+    color: #ffffff;
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 900px) {
+    .lab-list-item {
+        grid-template-columns: 100px minmax(0, 1fr) 42px;
+        gap: 1.25rem;
+        min-height: 76px;
+    }
+
+    .lab-title {
+        font-size: 1.03rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .lab-list {
+        margin-top: 2rem;
+    }
+
+    .lab-list-item {
+        grid-template-columns: 72px minmax(0, 1fr) 38px;
+        gap: 0.85rem;
+
+        min-height: 70px;
+        padding: 1rem 0.65rem;
+    }
+
+    .lab-list-item:hover {
+        padding-left: 0.85rem;
+    }
+
+    .lab-number {
+        font-size: 0.68rem;
+        letter-spacing: 0.09em;
+    }
+
+    .lab-number::before {
+        width: 4px;
+        height: 4px;
+        margin-right: 0.45rem;
+    }
+
+    .lab-title {
+        font-size: 0.98rem;
+        line-height: 1.4;
+    }
+
+    .lab-arrow {
+        width: 2.15rem;
+        height: 2.15rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .lab-list-item {
+        grid-template-columns: 1fr 36px;
+        gap: 0.75rem;
+        padding: 0.95rem 0.5rem;
+    }
+
+    .lab-number {
+        grid-column: 1 / -1;
+        margin-bottom: -0.35rem;
+    }
+
+    .lab-title {
+        grid-column: 1;
+        font-size: 0.95rem;
+    }
+
+    .lab-arrow {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .lab-list-item:hover {
+        padding-left: 0.7rem;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITÉ — RÉDUCTION DES ANIMATIONS
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .lab-list-item,
+    .lab-list-item::before,
+    .lab-list-item::after,
+    .lab-number,
+    .lab-number::before,
+    .lab-title,
+    .lab-arrow {
+        transition: none;
+    }
+}
+
+/* ---------------------------------------------------------
+   Paragraphes longs
+   --------------------------------------------------------- */
+
+.content-section p,
+.content-section li {
+    overflow-wrap: break-word;
+}
+
+/* ---------------------------------------------------------
+   Tablettes
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    main > section {
+        width: min(100% - 30px, var(--catalogue-max-width));
+    }
+
+    .projects-hero {
+        min-height: 460px;
+        margin-top: 18px;
+        margin-bottom: 50px;
+        padding: 58px 42px;
+        border-radius: 24px;
+    }
+
+    .content-section {
+        margin-bottom: 42px;
+        padding: 34px 34px;
+    }
+
+    .lab-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------------------------------------------------------
+   Mobiles
+   --------------------------------------------------------- */
+
+@media (max-width: 640px) {
+
+    main > section {
+        width: calc(100% - 24px);
+    }
+
+    .projects-hero {
+        min-height: auto;
+        margin-top: 12px;
+        margin-bottom: 36px;
+        padding: 42px 24px;
+        border-radius: 20px;
+    }
+
+    .projects-hero::before {
+        width: 260px;
+        height: 260px;
+        right: -120px;
+        top: -100px;
+    }
+
+    .projects-hero::after {
+        width: 180px;
+        height: 180px;
+        left: -90px;
+        bottom: -90px;
+    }
+
+    .hero-tag {
+        margin-bottom: 18px;
+        font-size: 0.7rem;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 10vw, 3rem);
+        line-height: 1.1;
+    }
+
+    .hero-desc {
+        margin-top: 20px;
+        font-size: 0.98rem;
+        line-height: 1.7;
+    }
+
+    .content-section {
+        margin-bottom: 28px;
+        padding: 28px 22px;
+        border-radius: 16px;
+    }
+
+    .content-section:last-child {
+        margin-bottom: 55px;
+    }
+
+    .content-section h2 {
+        margin-bottom: 20px;
+        padding-left: 14px;
+        font-size: 1.4rem;
+    }
+
+    .content-section p {
+        font-size: 0.96rem;
+        line-height: 1.78;
+    }
+
+    .content-section ul {
+        padding-left: 21px;
+    }
+
+    .content-section li {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .lab-list {
+        gap: 10px;
+        margin-top: 24px;
+    }
+
+    .lab-list-item {
+        grid-template-columns: 1fr auto;
+        gap: 8px 12px;
+        padding: 14px 15px;
+    }
+
+    .lab-number {
+        grid-column: 1 / -1;
+        font-size: 0.68rem;
+    }
+
+    .lab-title {
+        font-size: 0.92rem;
+    }
+
+    .lab-arrow {
+        grid-column: 2;
+        grid-row: 2;
+    }
+}
+
+/* ---------------------------------------------------------
+   Très petits écrans
+   --------------------------------------------------------- */
+
+@media (max-width: 400px) {
+
+    main > section {
+        width: calc(100% - 16px);
+    }
+
+    .projects-hero {
+        padding: 34px 19px;
+        border-radius: 17px;
+    }
+
+    .content-section {
+        padding: 24px 18px;
+    }
+
+    .content-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .content-section p,
+    .content-section li {
+        font-size: 0.92rem;
+    }
+
+    .lab-list-item {
+        padding: 13px 13px;
+    }
+}
+
+/* ---------------------------------------------------------
+   Réduction des animations
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .lab-list-item,
+    .lab-arrow {
+        transition: none;
+    }
+}
