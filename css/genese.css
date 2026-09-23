@@ -1179,6 +1179,49 @@
     }
 }
 
+/* ----------------------------------------------------------
+   NAVIGATION — Poursuivre la découverte
+   ---------------------------------------------------------- */
+
+.genese-next {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0 1.5rem;
+}
+
+.genese-next-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    color: #2563eb;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.genese-next-button span:last-child {
+    font-size: 1.2rem;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+.genese-next-button:hover {
+    color: #1d4ed8;
+}
+
+.genese-next-button:hover span:last-child {
+    transform: translateX(5px);
+}
+
+.genese-next-button:focus-visible {
+    outline: 2px solid #93c5fd;
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
 
 /* ==========================================================================
    END — G-RIEL IT GARDEN
