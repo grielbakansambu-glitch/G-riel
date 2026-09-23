@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Documentation de G-RIEL IT Garden : architecture, organisation, fonctionnement et technologies du jardin numérique personnel."
+  >
+
+  <meta name="author" content="Gabriel Bakansambu">
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <link
+    rel="canonical"
+    href="https://grielbakansambu-glitch.github.io/G-riel/documentation.html"
+  >
+
+  <title>Documentation — G-RIEL IT Garden</title>
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="assets/images/ico.png"
+  >
+
+  <!-- Styles -->
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/documentation.css"
+  >
+
+
+</head>
+
+
+<body>
+
+<!-- ============================================
+     HEADER — Identique sur toutes les pages
+     ============================================ -->
+
+<header class="site-header">
+
+  <div class="header-container">
+
+    <!-- Partie Gauche : Identité visuelle -->
+
+    <div class="header-brand-group">
+
+      <div class="header-logos">
+
+        <img
+          src="assets/images/logo.png"
+          alt="Logo G-RIEL"
+          class="brand-main-logo"
+        >
+
+      </div>
+
+      <div class="header-text-block">
+
+        <span class="header-site-title">G-RIEL</span>
+
+        <span class="header-site-subtitle">
+          IT Garden & Labs
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- Partie Droite : Recherche discrète + Menu Hamburger -->
+
+    <div class="header-actions">
+
+      <div class="header-search-bar">
+
+        <svg
+          class="search-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            fill="currentColor"
+            d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5
+               16 5.91 13.09 3 9.5 3S3 5.91 3 9.5
+               5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5
+               4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5
+               S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+          />
+        </svg>
+
+        <input
+          type="text"
+          placeholder="Rechercher..."
+          aria-label="Recherche"
+        >
+
+      </div>
+
+
+      <button
+        type="button"
+        aria-label="Menu"
+        class="hamburger-btn"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- Mobile Navigation Overlay -->
+
+  <div
+    class="menu-overlay"
+    id="menuOverlay"
+    aria-hidden="true"
+  >
+
+    <div
+      class="menu-panel"
+      role="dialog"
+      aria-label="Navigation"
+    >
+
+      <a href="index.html" class="nav-link">
+        Accueil
+      </a>
+
+      <a href="about.html" class="nav-link">
+        À propos
+      </a>
+
+      <a href="roadmap.html" class="nav-link">
+        Feuille de route
+      </a>
+
+      <a href="projects.html" class="nav-link">
+        Projets
+      </a>
+
+      <a href="notes.html" class="nav-link">
+        Notes
+      </a>
+
+      <a href="profil.html" class="nav-link">
+        Profil & Mention académique
+      </a>
+
+      <a href="manifeste.html" class="nav-link">
+        Manifeste
+      </a>
+
+      <a href="genese.html" class="nav-link">
+        Genèse
+      </a>
+
+      <a
+        href="documentation.html"
+        class="nav-link active"
+        aria-current="page"
+      >
+        Documentation
+      </a>
+
+      <a href="homelab.html" class="nav-link">
+        Homelab
+      </a>
+
+      <a href="certifications.html" class="nav-link">
+        Certifications
+      </a>
+
+      <a href="contact.html" class="nav-link">
+        Contact
+      </a>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<main class="documentation-main">
+
+  <!-- Hero — Documentation -->
+  <section
+    class="documentation-hero"
+    aria-labelledby="documentation-title"
+  >
+    <div class="documentation-hero-logo">
+      <img
+        src="assets/images/logo.png"
+        alt="Logo G-RIEL"
+        class="documentation-logo"
+      >
+    </div>
+
+    <div class="documentation-hero-content">
+      <p class="documentation-kicker">Documentation technique</p>
+
+      <h1 id="documentation-title">
+        Comprendre le jardin
+      </h1>
+
+      <p class="documentation-lead">
+        Cette page présente la structure, les composants, les choix techniques
+        et les mécanismes qui font fonctionner G-RIEL IT Garden.
+      </p>
+    </div>
+
+    <figure class="documentation-hero-image">
+      <img
+        src="assets/images/banner-doc.jpg"
+        alt="Illustration de la documentation technique de G-RIEL IT Garden"
+        loading="eager"
+      >
+    </figure>
+  </section>
+
+
+  <!-- Introduction -->
+  <section
+    class="documentation-section documentation-introduction"
+    aria-labelledby="documentation-introduction-title"
+  >
+    <p class="documentation-section-number">Introduction</p>
+
+    <h2 id="documentation-introduction-title">
+      Un jardin numérique à comprendre par sa structure
+    </h2>
+
+    <p>
+      G-RIEL IT Garden est un espace numérique personnel consacré à
+      l’apprentissage, à l’expérimentation, à la documentation et à la
+      transmission autour de l’informatique et des technologies.
+    </p>
+
+    <p>
+      Le site ne se limite pas à un ensemble de pages statiques. Il rassemble
+      des contenus, des laboratoires pratiques, des ressources, des données
+      structurées, une cartographie du site, une Progressive Web App et un
+      assistant intégré.
+    </p>
+
+    <p>
+      Cette documentation permet donc de comprendre comment ces différents
+      éléments s’articulent, quelles responsabilités ils assurent et quelles
+      limites doivent être prises en compte.
+    </p>
+  </section>
+
+
+  <!-- 01 — Identité et rôle -->
+  <section
+    class="documentation-section"
+    aria-labelledby="documentation-identity-title"
+  >
+    <p class="documentation-section-number">01</p>
+
+    <h2 id="documentation-identity-title">
+      Identité et rôle du Garden
+    </h2>
+
+    <p>
+      G-RIEL IT Garden fonctionne comme un jardin numérique personnel :
+      les connaissances, les expériences et les projets y sont organisés
+      progressivement plutôt que présentés comme un simple portfolio.
+    </p>
+
+    <div class="documentation-list">
+
+      <div class="documentation-list-item">
+        <h3>Connaissances</h3>
+        <p>
+          Notes, ressources pédagogiques et contenus techniques constituent
+          la base documentaire du Garden.
+        </p>
+      </div>
+
+      <div class="documentation-list-item">
+        <h3>Expérimentation</h3>
+        <p>
+          Les laboratoires permettent de transformer les notions étudiées
+          en expériences pratiques.
+        </p>
+      </div>
+
+      <div class="documentation-list-item">
+        <h3>Projets</h3>
+        <p>
+          Les projets présentent des réalisations, des réflexions de
+          conception et des travaux menés individuellement ou en groupe.
+        </p>
+      </div>
+
+      <div class="documentation-list-item">
+        <h3>Transmission</h3>
+        <p>
+          La documentation rend les démarches, les choix et les résultats
+          consultables au-delà de l’expérience initiale.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 02 — Architecture générale -->
+  <section
+    class="documentation-section"
+    aria-labelledby="documentation-architecture-title"
+  >
+    <p class="documentation-section-number">02</p>
+
+    <h2 id="documentation-architecture-title">
+      Architecture générale
+    </h2>
+
+    <p>
+      Le Garden repose principalement sur des pages web statiques, des
+      fichiers JavaScript, des ressources structurées et quelques services
+      externes utilisés pour des fonctions précises.
+    </p>
+
+    <p>
+      L’architecture ci-dessous représente les principaux flux entre le
+      visiteur, les pages du Garden, les laboratoires, la cartographie,
+      l’assistant, la PWA et les services de données.
+    </p>
+
+    <div
+      class="documentation-diagram"
+      role="img"
+      aria-label="Diagramme de l’architecture technique de G-RIEL IT Garden"
+    >
+      <pre class="mermaid">
+flowchart TD
+
+subgraph group_presentation["Présentation du site"]
+  node_landing["Entrée du jardin<br/>index.html"]
+  node_site_pages["Pages du jardin<br/>pages HTML"]
+  node_navigation["Navigation et recherche<br/>navigation.js"]
+  node_welcome["Écran d'accueil<br/>welcome-smoke.js"]
+end
+
+subgraph group_knowledge["Jardin de connaissances"]
+  node_notes["Collection de notes<br/>notes.html"]
+  node_projects["Collection de projets<br/>projects.html"]
+  node_resource_library["Ressources PDF<br/>assets/PDF/"]
+end
+
+subgraph group_map["Cartographie"]
+  node_map["Carte du Garden<br/>map.html"]
+  node_site_map[("Index structurel<br/>site-map.json")]
+end
+
+subgraph group_labs["Laboratoires techniques"]
+  node_lab_catalog["Catalogue des laboratoires<br/>labs.html"]
+  node_lab_guides["Guides des laboratoires<br/>labs/*"]
+  node_lab_runtime["Interactions des laboratoires<br/>labs.js"]
+  node_supabase_db[("Supabase<br/>laboratories / feedback_types / lab_feedbacks")]
+end
+
+subgraph group_runtime["Services d'exécution"]
+  node_assistant["Assistant G-RIEL<br/>griel-assistant.js"]
+  node_garden_memory["Contexte du Garden<br/>griel-memory.json"]
+  node_assistant_backend["Backend Assistant<br/>Cloudflare Worker"]
+  node_pwa_registration["Enregistrement PWA<br/>pwa-register.js"]
+  node_service_worker["Service Worker<br/>sw.js"]
+  node_browser_cache[("Cache du navigateur")]
+end
+
+node_visitor(("Visiteur"))
+
+node_visitor -->|"ouvre"| node_landing
+node_landing -->|"affiche"| node_welcome
+
+node_visitor -->|"consulte"| node_site_pages
+node_visitor -->|"recherche / ouvre le menu"| node_navigation
+node_navigation -->|"filtre les éléments présents"| node_site_pages
+
+node_visitor -->|"lit"| node_notes
+node_visitor -->|"explore"| node_projects
+node_visitor -->|"télécharge"| node_resource_library
+
+node_visitor -->|"explore"| node_map
+node_map -->|"lit"| node_site_map
+
+node_visitor -->|"ouvre"| node_lab_catalog
+node_lab_catalog -->|"oriente vers"| node_lab_guides
+node_lab_guides -->|"initialise"| node_lab_runtime
+node_lab_runtime -->|"crée / retrouve le laboratoire"| node_supabase_db
+node_lab_runtime -->|"enregistre le feedback"| node_supabase_db
+
+node_visitor -->|"interroge"| node_assistant
+node_assistant -->|"charge"| node_garden_memory
+node_assistant -->|"charge"| node_site_map
+node_assistant -.->|"envoie message + contexte"| node_assistant_backend
+node_assistant_backend -.->|"retourne la réponse IA"| node_assistant
+
+node_pwa_registration -.->|"enregistre"| node_service_worker
+node_service_worker -->|"met en cache"| node_browser_cache
+node_service_worker -->|"lit le cache"| node_browser_cache
+
+classDef toneBlue fill:#dbeafe,stroke:#2563eb,stroke-width:1.5px,color:#172554
+classDef toneAmber fill:#fef3c7,stroke:#d97706,stroke-width:1.5px,color:#78350f
+classDef toneMint fill:#dcfce7,stroke:#16a34a,stroke-width:1.5px,color:#14532d
+classDef toneRose fill:#ffe4e6,stroke:#e11d48,stroke-width:1.5px,color:#881337
+classDef toneIndigo fill:#e0e7ff,stroke:#4f46e5,stroke-width:1.5px,color:#312e81
+classDef toneTeal fill:#ccfbf1,stroke:#0f766e,stroke-width:1.5px,color:#134e4a
+
+class node_landing,node_site_pages,node_navigation,node_welcome toneBlue
+class node_notes,node_projects,node_resource_library toneAmber
+class node_map,node_site_map toneTeal
+class node_lab_catalog,node_lab_guides,node_lab_runtime,node_supabase_db toneMint
+class node_assistant,node_garden_memory,node_assistant_backend,node_pwa_registration,node_service_worker,node_browser_cache toneRose
+class node_visitor toneIndigo
+      </pre>
+    </div>
+
+    <figure class="documentation-figure">
+      <img
+        src="assets/images/documentation-architecture.png"
+        alt="Architecture générale de G-RIEL IT Garden"
+        loading="lazy"
+      >
+
+      <figcaption>
+        <strong>Figure 1.</strong>
+        Vue d’ensemble de l’architecture technique du Garden.
+      </figcaption>
+    </figure>
+
+    <div class="documentation-subsection">
+      <h3>
+        Comment lire cette architecture ?
+      </h3>
+
+      <p>
+        Le visiteur constitue le point de départ. Il accède aux pages du
+        Garden, consulte les ressources, explore les laboratoires ou utilise
+        l’assistant.
+      </p>
+
+      <p>
+        Les différentes fonctions sont séparées selon leur responsabilité :
+        les pages présentent le contenu, les scripts assurent les interactions,
+        les fichiers JSON fournissent des informations structurées et les
+        services externes prennent en charge certaines fonctions spécialisées.
+      </p>
+
+      <p>
+        Cette séparation permet de conserver une architecture relativement
+        simple tout en laissant la possibilité de faire évoluer certaines
+        parties indépendamment.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- 03 — Cartographie -->
+  <section
+    class="documentation-section"
+    aria-labelledby="documentation-map-title"
+  >
+    <p class="documentation-section-number">03</p>
+
+    <h2 id="documentation-map-title">
+      Cartographie du Garden
+    </h2>
+
+    <p>
+      Le fichier <code>map.html</code> constitue une interface destinée à
+      explorer la structure réelle du Garden sous forme de graphe.
+    </p>
+
+    <p>
+      Il s’appuie sur <code>site-map.json</code>, un fichier structuré qui
+      décrit les ressources et les relations détectées dans le projet.
+    </p>
+
+    <div class="documentation-facts">
+
+      <div class="documentation-fact">
+        <strong>34</strong>
+        <span>Nœuds recensés lors de la génération actuelle</span>
+      </div>
+
+      <div class="documentation-fact">
+        <strong>357</strong>
+        <span>Relations recensées lors de la génération actuelle</span>
+      </div>
+
+      <div class="documentation-fact">
+        <strong>1</strong>
+        <span>Ressource identifiée comme orpheline</span>
+      </div>
+
+    </div>
+
+    <p>
+      Ces valeurs correspondent à l’état de <code>site-map.json</code> au
+      moment de sa génération. Elles peuvent évoluer lorsque de nouvelles
+      pages ou ressources sont ajoutées au Garden.
+    </p>
+
+    <p>
+      La cartographie permet notamment de rechercher une ressource, de
+      visualiser ses relations et d’identifier plus facilement les éléments
+      isolés ou difficiles à retrouver.
+    </p>
+
+    <p class="documentation-inline-link">
+      <a href="map.html">
+        Explorer la cartographie du Garden
+        <span aria-hidden="true">→</span>
+      </a>
+    </p>
+
+    <figure class="documentation-figure">
+      <img
+        src="assets/images/documentation-map.png"
+        alt="Cartographie interactive du Garden affichée dans map.html"
+        loading="lazy"
+      >
+
+      <figcaption>
+        <strong>Figure 2.</strong>
+        Graphe représentant la structure et les relations entre les ressources
+        du Garden.
+      </figcaption>
+    </figure>
+  </section>
+
+
+  <!-- 04 — Organisation du projet -->
+  <section
+    class="documentation-section"
+    aria-labelledby="documentation-organization-title"
+  >
+    <p class="documentation-section-number">04</p>
+
+    <h2 id="documentation-organization-title">
+      Organisation du projet
+    </h2>
+
+    <p>
+      Le projet est organisé autour de plusieurs catégories de fichiers,
+      chacune correspondant à une responsabilité particulière.
+    </p>
+
+    <div class="documentation-table-wrapper">
+      <table class="documentation-table">
+        <thead>
+          <tr>
+            <th scope="col">Élément</th>
+            <th scope="col">Rôle</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <th scope="row">Pages HTML</th>
+            <td>
+              Présentation des contenus et des différentes sections du Garden.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              <code>css/</code>
+            </th>
+            <td>
+              Feuilles de style utilisées pour l’interface et les composants
+              visuels.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              <code>js/</code>
+            </th>
+            <td>
+              Scripts responsables des interactions et des fonctionnalités
+              dynamiques.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              <code>labs/</code>
+            </th>
+            <td>
+              Pages et contenus consacrés aux laboratoires pratiques.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              <code>assets/</code>
+            </th>
+            <td>
+              Images, icônes, documents PDF et autres ressources utilisées
+              par le site.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              <code>griel-memory.json</code>
+            </th>
+            <td>
+              Contexte structuré utilisé par G-RIEL Assistant pour mieux
+              comprendre le Garden.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              <code>site-map.json</code>
+            </th>
+            <td>
+              Index structurel utilisé notamment par la cartographie et
+              l’assistant.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              <code>manifest.webmanifest</code>
+            </th>
+            <td>
+              Déclaration de l’application web progressive.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              <code>sw.js</code>
+            </th>
+            <td>
+              Service Worker responsable de la stratégie de cache de la PWA.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <!-- 05 — Laboratoires et Supabase -->
+  <section
+    class="documentation-section"
+    aria-labelledby="documentation-labs-title"
+  >
+    <p class="documentation-section-number">05</p>
+
+    <h2 id="documentation-labs-title">
+      Laboratoires et persistance des feedbacks
+    </h2>
+
+    <p>
+      Les laboratoires constituent la partie expérimentale du Garden.
+      Ils couvrent actuellement plusieurs domaines techniques :
+      développement web, Linux, Bash, réseaux, Python et cybersécurité.
+    </p>
+
+    <p>
+      Les pages de laboratoire présentent notamment les prérequis, les
+      objectifs, les notions à retenir, les manipulations et les exercices
+      associés.
+    </p>
+
+    <div class="documentation-flow">
+      <p>
+        <code>labs.html</code>
+        <span aria-hidden="true">→</span>
+        catalogue des laboratoires
+      </p>
+
+      <p>
+        <span aria-hidden="true">→</span>
+        pages et contenus des laboratoires
+      </p>
+
+      <p>
+        <span aria-hidden="true">→</span>
+        <code>labs.js</code>
+      </p>
+
+      <p>
+        <span aria-hidden="true">→</span>
+        Supabase
+      </p>
+    </div>
+
+    <p>
+      Le script <code>labs.js</code> utilise le client Supabase côté navigateur.
+      Il peut retrouver ou créer un laboratoire via une fonction distante et
+      enregistrer les feedbacks associés dans les tables prévues à cet effet.
+    </p>
+
+    <p>
+      Les principales structures utilisées sont
+      <code>laboratories</code>,
+      <code>feedback_types</code> et
+      <code>lab_feedbacks</code>.
+    </p>
+
+    <p>
+      La clé utilisée côté client est une clé publique destinée à cet usage.
+      La sécurité réelle des données dépend toutefois des règles d’accès et
+      des politiques RLS configurées dans Supabase.
+    </p>
+
+    <figure class="documentation-figure">
+      <img
+        src="assets/images/documentation-supabase.png"
+        alt="Table Supabase contenant les feedbacks des laboratoires"
+        loading="lazy"
+      >
+
+      <figcaption>
+        <strong>Figure 3.</strong>
+        Exemple de données de feedback enregistrées pour les laboratoires.
+      </figcaption>
+    </figure>
+  </section>
+
+
+  <!-- 06 — G-RIEL Assistant -->
+  <section
+    class="documentation-section"
+    aria-labelledby="documentation-assistant-title"
+  >
+    <p class="documentation-section-number">06</p>
+
+    <h2 id="documentation-assistant-title">
+      G-RIEL Assistant et intelligence artificielle
+    </h2>
+
+    <p>
+      G-RIEL Assistant est une interface intégrée directement au Garden.
+      Son objectif est d’aider à explorer les contenus et à interagir avec
+      les connaissances disponibles dans le projet.
+    </p>
+
+    <p>
+      Le fonctionnement repose sur plusieurs éléments complémentaires :
+    </p>
+
+    <ul class="documentation-list">
+      <li>
+        <code>griel-assistant.js</code> construit l’interface et orchestre
+        les échanges.
+      </li>
+
+      <li>
+        <code>griel-memory.json</code> fournit un contexte structuré sur
+        le Garden.
+      </li>
+
+      <li>
+        <code>site-map.json</code> apporte une représentation structurelle
+        des ressources du site.
+      </li>
+
+      <li>
+        L’URL et certaines informations de la page courante peuvent être
+        intégrées au contexte envoyé à l’assistant.
+      </li>
+
+      <li>
+        Le message et son contexte sont transmis à un backend hébergé sur
+        Cloudflare Worker.
+      </li>
+
+      <li>
+        Le backend dialogue avec le service d’intelligence artificielle et
+        retourne le résultat à l’interface.
+      </li>
+    </ul>
+
+    <div class="documentation-subsection">
+      <h3>
+        Séparation entre interface et secret
+      </h3>
+
+      <p>
+        Le navigateur ne contient pas directement une clé secrète du service
+        d’intelligence artificielle. L’appel passe par le backend de
+        l’assistant, ce qui permet de séparer l’interface publique du site
+        et les informations sensibles nécessaires au service distant.
+      </p>
+    </div>
+
+    <div class="documentation-subsection">
+      <h3>
+        Rôle de l’IA
+      </h3>
+
+      <p>
+        L’intelligence artificielle intervient ici comme une couche
+        d’assistance au-dessus du contenu existant. Elle ne remplace pas
+        les sources du Garden : son contexte repose notamment sur les
+        informations structurées fournies par le projet.
+      </p>
+    </div>
+
+    <figure class="documentation-figure">
+      <img
+        src="assets/images/documentation-assistant.png"
+        alt="Interface de G-RIEL Assistant intégrée au Garden"
+        loading="lazy"
+      >
+
+      <figcaption>
+        <strong>Figure 4.</strong>
+        Assistant intégré au Garden comme interface d’exploration et
+        d’apprentissage.
+      </figcaption>
+    </figure>
+  </section>
+
+
+  <!-- 07 — PWA -->
+  <section
+    class="documentation-section"
+    aria-labelledby="documentation-pwa-title"
+  >
+    <p class="documentation-section-number">07</p>
+
+    <h2 id="documentation-pwa-title">
+      Progressive Web App
+    </h2>
+
+    <p>
+      G-RIEL IT Garden possède une configuration Progressive Web App basée
+      notamment sur un manifeste et un Service Worker.
+    </p>
+
+    <div class="documentation-table-wrapper">
+      <table class="documentation-table">
+        <thead>
+          <tr>
+            <th scope="col">Composant</th>
+            <th scope="col">Responsabilité</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <th scope="row">
+              <code>manifest.webmanifest</code>
+            </th>
+            <td>
+              Décrit l’identité de l’application, son nom, son icône,
+              son URL de démarrage et son mode d’affichage.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              <code>sw.js</code>
+            </th>
+            <td>
+              Gère l’installation du cache et les stratégies de récupération
+              des ressources.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              <code>navigation.js</code>
+            </th>
+            <td>
+              Assure les fonctions de navigation du Garden.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              <code>pwa-register.js</code>
+            </th>
+            <td>
+              Contient le mécanisme dédié d’enregistrement du Service Worker,
+              lorsqu’il est utilisé par la configuration actuelle.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="documentation-subsection">
+      <h3>
+        Stratégie de cache
+      </h3>
+
+      <p>
+        Le Service Worker utilise notamment un cache initial pour certaines
+        ressources essentielles, une stratégie réseau prioritaire pour les
+        navigations et une stratégie de cache avec mise à jour en arrière-plan
+        pour certaines ressources du même domaine.
+      </p>
+
+      <p>
+        Les fichiers PDF ne sont pas traités comme des ressources devant être
+        systématiquement mises en cache de manière agressive.
+      </p>
+
+      <p>
+        La PWA permet donc une consultation dégradée ou hors connexion des
+        ressources effectivement disponibles dans le cache. Elle ne doit pas
+        être interprétée comme une copie hors ligne intégrale de l’ensemble
+        du Garden.
+      </p>
+    </div>
+
+    <figure class="documentation-figure">
+      <img
+        src="assets/images/documentation-pwa.png"
+        alt="Vérification du Service Worker et des ressources mises en cache"
+        loading="lazy"
+      >
+
+      <figcaption>
+        <strong>Figure 5.</strong>
+        Vérification de l’enregistrement du Service Worker et du fonctionnement
+        de la Progressive Web App.
+      </figcaption>
+    </figure>
+  </section>
+
+
+  <!-- 08 — Données et persistance -->
+  <section
+    class="documentation-section"
+    aria-labelledby="documentation-data-title"
+  >
+    <p class="documentation-section-number">08</p>
+
+    <h2 id="documentation-data-title">
+      Données et persistance
+    </h2>
+
+    <p>
+      Le Garden utilise plusieurs formes de données, qui n’ont pas toutes
+      le même rôle.
+    </p>
+
+    <div class="documentation-table-wrapper">
+      <table class="documentation-table">
+        <thead>
+          <tr>
+            <th scope="col">Donnée</th>
+            <th scope="col">Nature</th>
+            <th scope="col">Rôle</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <th scope="row">
+              Contenus HTML
+            </th>
+            <td>
+              Statique
+            </td>
+            <td>
+              Présentation principale des pages et contenus.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              <code>griel-memory.json</code>
+            </th>
+            <td>
+              JSON structuré
+            </td>
+            <td>
+              Contexte documentaire destiné à l’assistant.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              <code>site-map.json</code>
+            </th>
+            <td>
+              JSON structuré
+            </td>
+            <td>
+              Représentation des ressources et relations du Garden.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              Ressources PDF
+            </th>
+            <td>
+              Documents
+            </td>
+            <td>
+              Ressources pédagogiques et documentaires.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              Supabase
+            </th>
+            <td>
+              Données distantes
+            </td>
+            <td>
+              Persistance des informations utilisées par les laboratoires,
+              notamment les feedbacks.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              Cache du navigateur
+            </th>
+            <td>
+              Stockage local temporaire
+            </td>
+            <td>
+              Conservation de certaines ressources par le Service Worker.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Cette distinction est importante : un fichier JSON public servant de
+      contexte n’est pas une base de données, tandis que Supabase assure ici
+      une véritable persistance distante pour les données concernées.
+    </p>
+  </section>
+
+
+  <!-- 09 — Technologies -->
+  <section
+    class="documentation-section"
+    aria-labelledby="documentation-technologies-title"
+  >
+    <p class="documentation-section-number">09</p>
+
+    <h2 id="documentation-technologies-title">
+      Technologies et choix techniques
+    </h2>
+
+    <p>
+      Le Garden privilégie des technologies web simples, largement
+      accessibles et adaptées à un projet statique évolutif.
+    </p>
+
+    <div class="documentation-technology-list">
+
+      <div class="documentation-technology">
+        <strong>HTML</strong>
+        <span>Structure et sémantique des pages</span>
+      </div>
+
+      <div class="documentation-technology">
+        <strong>CSS</strong>
+        <span>Présentation visuelle et responsive design</span>
+      </div>
+
+      <div class="documentation-technology">
+        <strong>JavaScript</strong>
+        <span>Interactions et fonctionnalités dynamiques</span>
+      </div>
+
+      <div class="documentation-technology">
+        <strong>Mermaid</strong>
+        <span>Représentation graphique de l’architecture</span>
+      </div>
+
+      <div class="documentation-technology">
+        <strong>Git / GitHub</strong>
+        <span>Versionnement et hébergement du projet</span>
+      </div>
+
+      <div class="documentation-technology">
+        <strong>GitHub Pages</strong>
+        <span>Publication du site statique</span>
+      </div>
+
+      <div class="documentation-technology">
+        <strong>Supabase</strong>
+        <span>Persistance des données liées aux feedbacks</span>
+      </div>
+
+      <div class="documentation-technology">
+        <strong>Cloudflare Worker</strong>
+        <span>Backend intermédiaire de l’assistant</span>
+      </div>
+
+    </div>
+
+    <p>
+      L’utilisation d’une architecture principalement statique réduit la
+      complexité d’hébergement et permet au Garden de rester facilement
+      consultable sur des environnements disposant de ressources limitées.
+    </p>
+  </section>
+
+
+  <!-- 10 — Sécurité et limites -->
+  <section
+    class="documentation-section"
+    aria-labelledby="documentation-security-title"
+  >
+    <p class="documentation-section-number">10</p>
+
+    <h2 id="documentation-security-title">
+      Sécurité et limites
+    </h2>
+
+    <p>
+      La sécurité du Garden repose d’abord sur une séparation claire entre
+      les éléments publics nécessaires au fonctionnement du site et les
+      secrets qui doivent rester côté serveur.
+    </p>
+
+    <div class="documentation-subsection">
+      <h3>
+        Assistant
+      </h3>
+
+      <p>
+        Le site public communique avec le backend de l’assistant. La clé
+        secrète du service d’intelligence artificielle n’est pas placée
+        directement dans le JavaScript public du Garden.
+      </p>
+    </div>
+
+    <div class="documentation-subsection">
+      <h3>
+        Supabase
+      </h3>
+
+      <p>
+        Une clé publique Supabase peut être utilisée côté client. Cela ne
+        signifie pas que les données sont automatiquement sécurisées :
+        les politiques RLS et les permissions associées aux tables restent
+        déterminantes.
+      </p>
+    </div>
+
+    <div class="documentation-subsection">
+      <h3>
+        Données publiques
+      </h3>
+
+      <p>
+        Les fichiers comme <code>griel-memory.json</code> et
+        <code>site-map.json</code> sont accessibles publiquement lorsqu’ils
+        font partie du site publié. Ils ne doivent donc pas contenir de
+        secrets ou d’informations qui doivent rester privées.
+      </p>
+    </div>
+
+    <div class="documentation-subsection">
+      <h3>
+        Limites de la documentation
+      </h3>
+
+      <p>
+        Cette documentation décrit l’architecture telle qu’elle existe dans
+        le projet. Elle ne constitue pas à elle seule un audit complet de
+        sécurité. Les configurations externes, notamment les règles
+        Supabase et le backend Cloudflare, doivent être vérifiées séparément
+        lorsqu’une analyse de sécurité approfondie est nécessaire.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- 11 — État actuel -->
+  <section
+    class="documentation-section"
+    aria-labelledby="documentation-status-title"
+  >
+    <p class="documentation-section-number">11</p>
+
+    <h2 id="documentation-status-title">
+      État actuel du Garden
+    </h2>
+
+    <p>
+      Le projet dispose déjà d’une architecture fonctionnelle réunissant
+      publication statique, contenu documentaire, laboratoires, cartographie,
+      assistant, persistance des feedbacks et fonctionnalités PWA.
+    </p>
+
+    <div class="documentation-table-wrapper">
+      <table class="documentation-table">
+        <thead>
+          <tr>
+            <th scope="col">Composant</th>
+            <th scope="col">État</th>
+            <th scope="col">Observation</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <th scope="row">
+              Pages principales
+            </th>
+            <td>
+              Présentes
+            </td>
+            <td>
+              Ensemble de pages organisant l’identité, les notes, projets,
+              laboratoires et autres ressources.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              Laboratoires
+            </th>
+            <td>
+              Présents
+            </td>
+            <td>
+              Plusieurs domaines techniques sont déjà structurés.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              Cartographie
+            </th>
+            <td>
+              Fonctionnelle
+            </td>
+            <td>
+              <code>map.html</code> exploite <code>site-map.json</code>.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              Assistant
+            </th>
+            <td>
+              Intégré
+            </td>
+            <td>
+              Interface publique, contexte structuré et backend distant.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              Feedbacks des laboratoires
+            </th>
+            <td>
+              Persistants
+            </td>
+            <td>
+              Enregistrement via Supabase.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              PWA
+            </th>
+            <td>
+              Configurée
+            </td>
+            <td>
+              Manifest, Service Worker et stratégie de cache.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              Documentation technique
+            </th>
+            <td>
+              En construction
+            </td>
+            <td>
+              Cette page formalise l’architecture et les choix du projet.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <!-- 12 — Évolution -->
+  <section
+    class="documentation-section"
+    aria-labelledby="documentation-evolution-title"
+  >
+    <p class="documentation-section-number">12</p>
+
+    <h2 id="documentation-evolution-title">
+      Évolution de l’architecture
+    </h2>
+
+    <p>
+      G-RIEL IT Garden est conçu comme un projet évolutif. Les nouvelles
+      fonctionnalités doivent cependant rester cohérentes avec le rôle
+      principal du Garden : apprendre, expérimenter, documenter et transmettre.
+    </p>
+
+    <div class="documentation-evolution">
+
+      <div class="documentation-evolution-item">
+        <span class="documentation-evolution-marker">01</span>
+
+        <div>
+          <h3>Contenu</h3>
+
+          <p>
+            Ajouter et améliorer les connaissances, ressources et notes.
+          </p>
+        </div>
+      </div>
+
+      <div class="documentation-evolution-item">
+        <span class="documentation-evolution-marker">02</span>
+
+        <div>
+          <h3>Laboratoires</h3>
+
+          <p>
+            Développer progressivement de nouvelles expériences pratiques
+            et documenter les résultats.
+          </p>
+        </div>
+      </div>
+
+      <div class="documentation-evolution-item">
+        <span class="documentation-evolution-marker">03</span>
+
+        <div>
+          <h3>Architecture</h3>
+
+          <p>
+            Faire évoluer les composants uniquement lorsque les besoins
+            réels du Garden le justifient.
+          </p>
+        </div>
+      </div>
+
+      <div class="documentation-evolution-item">
+        <span class="documentation-evolution-marker">04</span>
+
+        <div>
+          <h3>Documentation</h3>
+
+          <p>
+            Conserver une trace claire des choix techniques, des expériences
+            et des évolutions du projet.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <p>
+      L’objectif n’est donc pas d’ajouter de la complexité pour elle-même,
+      mais de faire évoluer progressivement une architecture compréhensible,
+      maintenable et adaptée aux usages réels.
+    </p>
+  </section>
+
+
+  <!-- Navigation finale -->
+  <nav
+    class="documentation-next"
+    aria-label="Navigation complémentaire"
+  >
+    <a
+      href="genese.html"
+      class="documentation-next-link"
+    >
+      <span>Lire la genèse du Garden</span>
+      <span aria-hidden="true">←</span>
+    </a>
+
+    <a
+      href="map.html"
+      class="documentation-next-link"
+    >
+      <span>Explorer la cartographie</span>
+      <span aria-hidden="true">→</span>
+    </a>
+
+    <a
+      href="index.html"
+      class="documentation-next-link"
+    >
+      <span>Retour à l’accueil</span>
+      <span aria-hidden="true">↑</span>
+    </a>
+  </nav>
+
+</main>
+
+
+
+<!-- ============================================
+       FOOTER — Identique sur toutes les pages
+       ============================================ -->
+  <footer class="site-footer">
+  <div class="footer-container">
+    
+    <!-- 1. Logo et descriptif en haut du footer -->
+<div class="footer-top">
+  <img src="assets/images/logo.png" alt="Logo G-RIEL" class="footer-logo">
+  <h3 class="footer-title">G-RIEL IT GARDEN</h3>
+  <p class="footer-desc">Laboratoire numérique personnel — Systèmes, Réseaux & Cybersécurité.</p>
+</div>
+
+    <!-- 2. Navigation au milieu -->
+    <div class="footer-nav">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="about.html">À propos</a></li>
+        <li><a href="roadmap.html">Feuille de route</a></li>
+        <li><a href="projects.html">Projets</a></li>
+        <li><a href="notes.html">Notes</a></li>
+        <li><a href="homelab.html">Homelab</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- 3. Réseaux & Contact en SVG alignés en bas -->
+    <div class="footer-social">
+      <h4>Réseaux & Contact</h4>
+      <div class="social-icons">
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/share/1DQwb4sk5p/" target="_blank" aria-label="Facebook">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+        </a>
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/@griel_it?_r=1&_t=ZS-98LtkOWsKlJ" target="_blank" aria-label="TikTok">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
+        </a>
+        <!-- GitHub -->
+        <a href="https://github.com/grielbakansambu-glitch" target="_blank" aria-label="GitHub">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/gabriel-bakansambu-983ba6424" target="_blank" aria-label="LinkedIn">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+        <!-- Email -->
+        <a href="mailto:grielbakansambu@gmail.com" aria-label="Email">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+        <!-- Téléphone / WhatsApp -->
+        <a href="tel:0840609505" aria-label="Téléphone">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Signature finale -->
+    <div class="footer-bottom">
+      <p>Gabriel Bakansambu — © 2026 G-RIEL IT Garden</p>
+    </div>
+
+  </div>
+</footer>
+  <!-- ================================================================
+       JAVASCRIPT
+       ================================================================ -->
+
+  <script
+    src="js/navigation.js"
+    defer
+  ></script>
+  <script src="js/griel-assistant.js"></script>
+
+</body>
+
+</html>
