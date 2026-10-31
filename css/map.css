@@ -1,0 +1,438 @@
+:root {
+  --bg: #f4f6f8; /* Fond général en blanc cassé très doux */
+  --panel: rgba(
+    255,
+    255,
+    255,
+    0.88
+  ); /* Panneaux blancs translucides avec effet verre */
+  --panel-border: rgba(56, 189, 248, 0.3); /* Bordure subtilement bleutée */
+  --text: #1e293b; /* Texte sombre et contrasté pour une excellente lisibilité */
+  --muted: #64748b; /* Texte secondaire gris moyen */
+  --cyan: #0284c7; /* Cyan ajusté pour un meilleur contraste sur fond clair */
+  --green: #059669; /* Vert accentué */
+  --purple: #7e22ce; /* Violet accentué */
+  --orange: #d97706; /* Orange accentué */
+  --red: #dc2626; /* Rouge accentué */
+  --line: #cbd5e1; /* Lignes du graphe plus visibles sur fond clair */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+body {
+  position: relative;
+}
+
+/* =========================
+        INTERFACE
+    ========================= */
+
+.panel {
+  position: absolute;
+  z-index: 20;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* Ombre douce et légère pour le mode clair */
+}
+
+#header-ui {
+  top: 18px;
+  left: 18px;
+  width: min(390px, calc(100vw - 36px));
+  padding: 15px 18px;
+  border-radius: 14px;
+}
+
+#header-ui h1 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.08rem;
+  color: var(--cyan);
+}
+
+#header-ui p {
+  margin: 5px 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+#stats-badge {
+  margin-top: 8px;
+  font-size: 0.74rem;
+  color: var(--green);
+  font-weight: 600;
+}
+
+/* =========================
+        SEARCH
+    ========================= */
+
+#search-panel {
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(360px, calc(100vw - 36px));
+  padding: 8px;
+  border-radius: 12px;
+}
+
+#search-input {
+  width: 100%;
+  padding: 9px 11px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  background: #ffffff;
+  color: var(--text);
+  font-size: 0.82rem;
+}
+
+#search-input::placeholder {
+  color: #94a3b8;
+}
+
+#search-input:focus {
+  border-color: var(--cyan);
+}
+
+#search-result {
+  display: none;
+  margin-top: 7px;
+  padding: 7px 9px;
+  border-radius: 7px;
+  background: #f1f5f9;
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+/* =========================
+        LEGEND
+    ========================= */
+
+#legend {
+  top: 18px;
+  right: 18px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 0.72rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  white-space: nowrap;
+}
+
+.legend-item:last-child {
+  margin-bottom: 0;
+}
+
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 9px;
+  border-radius: 50%;
+}
+
+/* =========================
+        CONTROLS
+    ========================= */
+
+#controls {
+  position: absolute;
+  z-index: 20;
+  left: 18px;
+  bottom: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.control-btn {
+  padding: 9px 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #334155;
+  cursor: pointer;
+  font-size: 0.78rem;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.control-btn:hover {
+  background: var(--cyan);
+  border-color: var(--cyan);
+  color: #ffffff;
+}
+
+/* =========================
+        DETAILS
+    ========================= */
+
+#details-panel {
+  right: 18px;
+  bottom: 18px;
+  width: min(330px, calc(100vw - 36px));
+  padding: 15px;
+  border-radius: 12px;
+  display: none;
+}
+
+#details-title {
+  margin: 0 0 7px;
+  color: var(--cyan);
+  font-size: 0.95rem;
+}
+
+#details-path {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+#details-meta {
+  margin-top: 10px;
+  color: #334155;
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+#details-open {
+  margin-top: 11px;
+  width: 100%;
+}
+
+/* =========================
+        CANVAS
+    ========================= */
+
+#canvas-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+#canvas-container:active {
+  cursor: grabbing;
+}
+
+svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================
+        GRAPH
+    ========================= */
+
+.graph-link {
+  stroke: var(--line);
+  stroke-opacity: 0.45; /* Légèrement plus opaque pour bien ressortir sur le fond clair */
+  stroke-width: 1;
+  transition:
+    stroke-opacity 0.2s ease,
+    stroke-width 0.2s ease;
+}
+
+.graph-link.link-highlight {
+  stroke: var(--cyan);
+  stroke-opacity: 0.9;
+  stroke-width: 2;
+}
+
+.graph-node {
+  stroke: var(--bg);
+  stroke-width: 2;
+  cursor: pointer;
+}
+
+.graph-node.node-dimmed {
+  opacity: 0.18;
+}
+
+.graph-node.node-selected,
+.graph-node.node-search {
+  stroke: #0f172a; /* Bordure sombre contrastée pour la sélection */
+  stroke-width: 3;
+}
+
+.graph-label {
+  fill: #334155; /* Texte des labels plus sombre pour la lisibilité */
+  font-size: 9px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.graph-label.label-dimmed {
+  opacity: 0.12;
+}
+
+/* =========================
+        LOADING / ERROR
+    ========================= */
+
+#status {
+  position: absolute;
+  z-index: 30;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+#status.error {
+  color: var(--red);
+  text-align: center;
+  padding: 30px;
+}
+
+@media (max-width: 800px) {
+  /* =========================
+            HEADER MOBILE
+        ========================= */
+
+  #header-ui {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    width: auto;
+    padding: 10px 12px;
+  }
+
+  #header-ui h1 {
+    font-size: 0.92rem;
+  }
+
+  #header-ui p {
+    font-size: 0.68rem;
+    margin-top: 4px;
+  }
+
+  #stats-badge {
+    font-size: 0.66rem;
+    margin-top: 6px;
+  }
+
+  /* =========================
+            RECHERCHE MOBILE
+        ========================= */
+
+  #search-panel {
+    top: auto;
+    bottom: 62px;
+    left: 10px;
+    right: 10px;
+    width: auto;
+    transform: none;
+  }
+
+  #search-input {
+    font-size: 0.78rem;
+    padding: 8px 10px;
+  }
+
+  /* =========================
+            LÉGENDE MOBILE
+        ========================= */
+
+  #legend {
+    top: auto;
+    right: 10px;
+    bottom: 150px;
+    padding: 8px 10px;
+    font-size: 0.62rem;
+  }
+
+  .legend-item {
+    gap: 6px;
+    margin-bottom: 5px;
+  }
+
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    flex-basis: 8px;
+  }
+
+  /* =========================
+            CONTRÔLES MOBILE
+        ========================= */
+
+  #controls {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    gap: 6px;
+  }
+
+  .control-btn {
+    padding: 7px 9px;
+    font-size: 0.66rem;
+  }
+
+  /* =========================
+            PANNEAU DÉTAILS MOBILE
+        ========================= */
+
+  #details-panel {
+    left: 10px;
+    right: 10px;
+    bottom: 115px;
+    width: auto;
+    max-height: 30vh;
+    overflow-y: auto;
+    padding: 12px;
+  }
+
+  #details-title {
+    font-size: 0.88rem;
+  }
+
+  #details-path,
+  #details-meta {
+    font-size: 0.68rem;
+  }
+
+  /* =========================
+            LABELS DU GRAPHE
+        ========================= */
+
+  .graph-label {
+    font-size: 8px;
+  }
+}
