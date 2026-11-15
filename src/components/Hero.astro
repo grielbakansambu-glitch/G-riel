@@ -1,0 +1,964 @@
+---
+/*
+ * G-RIEL IT GARDEN — V2
+ * Hero principal bilingue
+ */
+
+const locale = Astro.currentLocale ?? "fr";
+const isEnglish = locale === "en";
+
+const slides = [
+  {
+    image: "/images/hero/hero-01.jpg",
+    label: isEnglish ? "LEARN" : "APPRENDRE",
+  },
+  {
+    image: "/images/hero/hero-02.jpg",
+    label: isEnglish ? "EXPERIMENT" : "EXPÉRIMENTER",
+  },
+  {
+    image: "/images/hero/hero-03.jpg",
+    label: isEnglish ? "BUILD" : "CONSTRUIRE",
+  },
+];
+
+const content = {
+  kicker: isEnglish
+    ? "Personal digital garden"
+    : "Jardin numérique personnel",
+
+  description: isEnglish
+    ? "A personal digital garden where I collect and connect knowledge, notes and resources. I document my learning journey, research and experiments to learn, build and share discoveries over time."
+    : "Un jardin numérique personnel où je rassemble et relie des connaissances, des notes et des ressources. J'y documente mon parcours, mes recherches et mes expérimentations pour apprendre, construire et partager des découvertes au fil du temps.",
+
+  domainsLabel: isEnglish
+    ? "Areas of exploration"
+    : "Domaines explorés",
+
+  domains: isEnglish
+    ? [
+        "Computer Science",
+        "Technology",
+        "Science",
+        "Didactics",
+        "Research",
+        "Experimentation",
+        "Documentation",
+      ]
+    : [
+        "Informatique",
+        "Technologies",
+        "Sciences",
+        "Didactique",
+        "Recherche",
+        "Expérimentation",
+        "Documentation",
+      ],
+
+  explore: isEnglish
+    ? "Explore the Garden"
+    : "Explorer le Garden",
+
+  about: isEnglish
+    ? "About the Gardener"
+    : "À propos du jardinier",
+
+  scroll: isEnglish
+    ? "Explore"
+    : "Explorer",
+};
+---
+
+<section class="hero" aria-labelledby="hero-title">
+
+  <!-- =========================================
+       IMAGES DU GARDEN
+       ========================================= -->
+
+  <div class="hero-slides" aria-hidden="true">
+    {
+      slides.map((slide, index) => (
+        <div
+          class:list={["hero-slide", { active: index === 0 }]}
+          data-slide={index}
+        >
+          <img
+            src={slide.image}
+            alt=""
+            class="hero-image"
+            loading={index === 0 ? "eager" : "lazy"}
+            fetchpriority={index === 0 ? "high" : "auto"}
+          />
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Profondeur et lisibilité -->
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <!-- Signature graphique du Garden -->
+  <div class="hero-accent" aria-hidden="true"></div>
+
+  <!-- =========================================
+       REPÈRE DU JARDIN
+       ========================================= -->
+
+  <div class="hero-garden-mark" aria-hidden="true">
+    <span class="garden-mark-line"></span>
+
+    <span class="garden-mark-text">
+      DIGITAL GARDEN
+    </span>
+
+    <span class="garden-mark-number">
+      01
+    </span>
+  </div>
+
+  <!-- =========================================
+       CONTENU
+       ========================================= -->
+
+  <div class="hero-container">
+    <div class="hero-content">
+
+      <div class="hero-kicker-wrapper">
+        <span class="hero-kicker-line" aria-hidden="true"></span>
+
+        <p class="hero-kicker">
+          {content.kicker}
+        </p>
+      </div>
+
+      <h1 id="hero-title">
+        G-RIEL
+        <span>IT Garden</span>
+      </h1>
+
+      <div class="hero-motto" aria-label="Learn. Build. Document. Evolve.">
+        <span>Learn.</span>
+        <span>Build.</span>
+        <span>Document.</span>
+        <span>Evolve.</span>
+      </div>
+
+      <p class="hero-description">
+        {content.description}
+      </p>
+
+      <div class="hero-domains" aria-label={content.domainsLabel}>
+        {
+          content.domains.map((domain) => (
+            <span>{domain}</span>
+          ))
+        }
+      </div>
+
+      <!-- =====================================
+           ACTIONS
+           ===================================== -->
+
+      <div class="hero-actions">
+
+        <a
+          href={`/${locale}/map`}
+          class="hero-button hero-button-primary"
+        >
+          <span>{content.explore}</span>
+
+          <span
+            class="hero-button-arrow"
+            aria-hidden="true"
+          >
+            →
+          </span>
+        </a>
+
+        <a
+          href={`/${locale}/about`}
+          class="hero-button hero-button-secondary"
+        >
+          {content.about}
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =========================================
+       INDICATEURS
+       ========================================= -->
+
+  {
+    slides.length > 1 && (
+      <div
+        class="hero-indicators"
+        aria-hidden="true"
+      >
+        {
+          slides.map((slide, index) => (
+            <div class="hero-indicator">
+              <span class="hero-indicator-label">
+                {slide.label}
+              </span>
+
+              <span
+                class:list={[
+                  "hero-dot",
+                  { active: index === 0 },
+                ]}
+                data-dot={index}
+              ></span>
+            </div>
+          ))
+        }
+      </div>
+    )
+  }
+
+  <!-- =========================================
+       INDICATION DE DÉFILEMENT
+       ========================================= -->
+
+  <div class="hero-scroll" aria-hidden="true">
+    <span>{content.scroll}</span>
+    <span class="hero-scroll-line"></span>
+  </div>
+
+</section>
+
+<script>
+  const hero = document.querySelector(".hero");
+
+  if (hero) {
+    const slides =
+      hero.querySelectorAll<HTMLElement>(".hero-slide");
+
+    const dots =
+      hero.querySelectorAll<HTMLElement>(".hero-dot");
+
+    let current = 0;
+
+    let interval:
+      ReturnType<typeof setInterval> | undefined;
+
+    const showSlide = (index: number) => {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle(
+          "active",
+          i === index
+        );
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle(
+          "active",
+          i === index
+        );
+      });
+
+      current = index;
+    };
+
+    const nextSlide = () => {
+      if (slides.length <= 1) {
+        return;
+      }
+
+      showSlide(
+        (current + 1) % slides.length
+      );
+    };
+
+    const startCarousel = () => {
+      if (
+        slides.length <= 1 ||
+        interval
+      ) {
+        return;
+      }
+
+      interval = setInterval(
+        nextSlide,
+        6000
+      );
+    };
+
+    const stopCarousel = () => {
+      if (!interval) {
+        return;
+      }
+
+      clearInterval(interval);
+      interval = undefined;
+    };
+
+    const reducedMotion =
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      );
+
+    if (!reducedMotion.matches) {
+      startCarousel();
+    }
+
+    reducedMotion.addEventListener(
+      "change",
+      (event) => {
+        if (event.matches) {
+          stopCarousel();
+        } else {
+          startCarousel();
+        }
+      }
+    );
+
+    hero.addEventListener(
+      "mouseenter",
+      stopCarousel
+    );
+
+    hero.addEventListener(
+      "mouseleave",
+      () => {
+        if (!reducedMotion.matches) {
+          startCarousel();
+        }
+      }
+    );
+
+    hero.addEventListener(
+      "focusin",
+      stopCarousel
+    );
+
+    hero.addEventListener(
+      "focusout",
+      () => {
+        if (!reducedMotion.matches) {
+          startCarousel();
+        }
+      }
+    );
+  }
+</script>
+
+<style>
+  /* =========================================
+     HERO
+     ========================================= */
+
+  .hero {
+    position: relative;
+    min-height: 740px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    isolation: isolate;
+    background: var(--color-brand-navy, #0B132A);
+  }
+
+  /* =========================================
+     SLIDES
+     ========================================= */
+
+  .hero-slides,
+  .hero-slide {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-slide {
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1),
+      visibility 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transform: scale(1.05);
+    transition: transform 7000ms cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .hero-slide.active .hero-image {
+    transform: scale(1);
+  }
+
+  /* =========================================
+     OVERLAY
+     ========================================= */
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(11, 19, 42, 0.96) 0%,
+        rgba(11, 19, 42, 0.90) 30%,
+        rgba(11, 19, 42, 0.65) 60%,
+        rgba(11, 19, 42, 0.35) 100%
+      );
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 240px;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        to top,
+        rgba(11, 19, 42, 0.8),
+        transparent
+      );
+  }
+
+  /* =========================================
+     SIGNATURE GARDEN
+     ========================================= */
+
+  .hero-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    z-index: 4;
+    background:
+      linear-gradient(
+        to bottom,
+        var(--color-brand-navy, #0B132A) 0%,
+        var(--color-brand-blue, #223D6C) 45%,
+        var(--color-brand-green, #2EBD4F) 100%
+      );
+  }
+
+  /* =========================================
+     DIGITAL GARDEN MARK
+     ========================================= */
+
+  .hero-garden-mark {
+    position: absolute;
+    top: 50%;
+    right: 48px;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    writing-mode: vertical-rl;
+    transform: translateY(-50%);
+  }
+
+  .garden-mark-line {
+    width: 1px;
+    height: 52px;
+    background:
+      linear-gradient(
+        to bottom,
+        transparent,
+        var(--color-brand-green, #2EBD4F)
+      );
+  }
+
+  .garden-mark-number {
+    color: var(--color-brand-green, #2EBD4F);
+  }
+
+  /* =========================================
+     CONTAINER
+     ========================================= */
+
+  .hero-container {
+    position: relative;
+    z-index: 3;
+    width: min(calc(100% - 100px), 1280px);
+    margin-inline: auto;
+    padding-block: 120px;
+  }
+
+  .hero-content {
+    max-width: 820px;
+    color: #FFFFFF;
+  }
+
+  /* =========================================
+     KICKER
+     ========================================= */
+
+  .hero-kicker-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .hero-kicker-line {
+    width: 38px;
+    height: 2px;
+    display: block;
+    background: var(--color-brand-green, #2EBD4F);
+  }
+
+  .hero-kicker {
+    margin: 0;
+    color: var(--color-brand-green, #2EBD4F);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* =========================================
+     TITLE
+     ========================================= */
+
+  .hero h1 {
+    margin: 0;
+    color: #FFFFFF;
+    font-size: clamp(3.6rem, 8vw, 7rem);
+    line-height: 0.9;
+    font-weight: 800;
+    letter-spacing: -0.055em;
+    text-wrap: balance;
+  }
+
+  .hero h1 span {
+    display: block;
+    margin-top: 0.18em;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(2.4rem, 5.5vw, 4.7rem);
+    font-weight: 400;
+    letter-spacing: -0.045em;
+  }
+
+  /* =========================================
+     MOTTO
+     ========================================= */
+
+  .hero-motto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1.25rem;
+    margin-top: 34px;
+    color: #FFFFFF;
+    font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+    line-height: 1.35;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  .hero-motto span {
+    position: relative;
+  }
+
+  .hero-motto span:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -0.8rem;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--color-brand-green, #2EBD4F);
+    transform: translateY(-50%);
+  }
+
+  /* =========================================
+     DESCRIPTION
+     ========================================= */
+
+  .hero-description {
+    max-width: 680px;
+    margin: 26px 0 0;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.02rem;
+    line-height: 1.8;
+  }
+
+  /* =========================================
+     DOMAINES
+     ========================================= */
+
+  .hero-domains {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+  }
+
+  .hero-domains span {
+    padding: 6px 11px;
+    border: 1px solid rgba(220, 227, 236, 0.22);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    transition: background-color 160ms ease, border-color 160ms ease;
+  }
+
+  .hero-domains span:hover {
+    background: rgba(46, 189, 79, 0.12);
+    border-color: rgba(46, 189, 79, 0.4);
+    color: #FFFFFF;
+  }
+
+  /* =========================================
+     ACTIONS
+     ========================================= */
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 38px;
+  }
+
+  .hero-button {
+    min-height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding-inline: 22px;
+    border-radius: 10px;
+    font-size: 0.86rem;
+    font-weight: 750;
+    text-decoration: none;
+    transition:
+      transform 180ms ease,
+      background-color 180ms ease,
+      border-color 180ms ease,
+      color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .hero-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .hero-button-primary {
+    border: 1px solid var(--color-brand-green, #2EBD4F);
+    background: var(--color-brand-green, #2EBD4F);
+    color: #0B132A;
+    box-shadow: 0 10px 28px rgba(46, 189, 79, 0.22);
+  }
+
+  .hero-button-primary:hover {
+    background: #34cf58;
+    border-color: #34cf58;
+    box-shadow: 0 14px 34px rgba(46, 189, 79, 0.3);
+  }
+
+  .hero-button-arrow {
+    font-size: 1.15rem;
+    transition: transform 180ms ease;
+  }
+
+  .hero-button-primary:hover .hero-button-arrow {
+    transform: translateX(4px);
+  }
+
+  .hero-button-secondary {
+    border: 1px solid rgba(220, 227, 236, 0.35);
+    background: rgba(255, 255, 255, 0.07);
+    color: #FFFFFF;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .hero-button-secondary:hover {
+    border-color: var(--color-brand-green, #2EBD4F);
+    background: rgba(255, 255, 255, 0.14);
+  }
+
+  .hero-button:focus-visible {
+    outline: 3px solid var(--color-brand-green, #2EBD4F);
+    outline-offset: 4px;
+  }
+
+  /* =========================================
+     INDICATEURS
+     ========================================= */
+
+  .hero-indicators {
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    bottom: 34px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transform: translateX(-50%);
+  }
+
+  .hero-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hero-indicator-label {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .hero-dot {
+    width: 8px;
+    height: 8px;
+    display: block;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    transition:
+      width 260ms cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 260ms ease;
+  }
+
+  .hero-dot.active {
+    width: 32px;
+    border-radius: 12px;
+    background: var(--color-brand-green, #2EBD4F);
+  }
+
+  /* =========================================
+     SCROLL
+     ========================================= */
+
+  .hero-scroll {
+    position: absolute;
+    right: 48px;
+    bottom: 34px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+  }
+
+  .hero-scroll-line {
+    width: 1px;
+    height: 46px;
+    background:
+      linear-gradient(
+        to bottom,
+        var(--color-brand-green, #2EBD4F),
+        rgba(255, 255, 255, 0.3)
+      );
+  }
+
+  /* =========================================
+     TABLETTE
+     ========================================= */
+
+  @media (max-width: 960px) {
+    .hero {
+      min-height: 660px;
+    }
+
+    .hero-container {
+      width: min(calc(100% - 70px), 820px);
+      padding-block: 100px;
+    }
+
+    .hero-garden-mark {
+      display: none;
+    }
+
+    .hero-scroll {
+      display: none;
+    }
+  }
+
+  /* =========================================
+     MOBILE
+     ========================================= */
+
+  @media (max-width: 600px) {
+    .hero {
+      min-height: 720px;
+    }
+
+    .hero-overlay {
+      background:
+        linear-gradient(
+          180deg,
+          rgba(11, 19, 42, 0.90) 0%,
+          rgba(11, 19, 42, 0.75) 45%,
+          rgba(11, 19, 42, 0.92) 100%
+        );
+    }
+
+    .hero-accent {
+      width: 3px;
+    }
+
+    .hero-container {
+      width: min(calc(100% - 36px), 520px);
+      padding-block: 84px 108px;
+    }
+
+    .hero-kicker-wrapper {
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .hero-kicker-line {
+      width: 28px;
+    }
+
+    .hero-kicker {
+      font-size: 0.64rem;
+      letter-spacing: 0.14em;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 14vw, 4.4rem);
+      line-height: 0.92;
+    }
+
+    .hero h1 span {
+      margin-top: 0.2em;
+      font-size: clamp(2.2rem, 10vw, 3.5rem);
+    }
+
+    .hero-motto {
+      gap: 0 0.9rem;
+      margin-top: 28px;
+      font-size: 1.18rem;
+      line-height: 1.6;
+    }
+
+    .hero-motto span:not(:last-child)::after {
+      right: -0.55rem;
+      width: 3px;
+      height: 3px;
+    }
+
+    .hero-description {
+      margin-top: 20px;
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .hero-domains {
+      gap: 6px;
+      margin-top: 19px;
+    }
+
+    .hero-domains span {
+      padding: 5px 9px;
+      font-size: 0.65rem;
+    }
+
+    .hero-actions {
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .hero-button {
+      min-height: 48px;
+      padding-inline: 16px;
+      font-size: 0.78rem;
+    }
+
+    .hero-indicators {
+      bottom: 24px;
+      gap: 10px;
+    }
+
+    .hero-indicator-label {
+      display: none;
+    }
+
+    .hero-dot {
+      width: 7px;
+      height: 7px;
+    }
+
+    .hero-dot.active {
+      width: 26px;
+    }
+  }
+
+  /* =========================================
+     PETITS SMARTPHONES
+     ========================================= */
+
+  @media (max-width: 400px) {
+    .hero {
+      min-height: 740px;
+    }
+
+    .hero-container {
+      width: calc(100% - 28px);
+      padding-block: 74px 100px;
+    }
+
+    .hero-motto {
+      display: grid;
+      grid-template-columns: repeat(2, max-content);
+      gap: 4px 22px;
+    }
+
+    .hero-motto span::after {
+      display: none;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .hero-button {
+      width: 100%;
+    }
+  }
+
+  /* =========================================
+     MOUVEMENT RÉDUIT
+     ========================================= */
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-slide,
+    .hero-image,
+    .hero-dot,
+    .hero-button,
+    .hero-button-arrow {
+      transition: none !important;
+    }
+
+    .hero-image {
+      transform: none !important;
+    }
+  }
+</style>

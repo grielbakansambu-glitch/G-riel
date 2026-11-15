@@ -1,0 +1,250 @@
+
+---
+const technologies = [
+  { name: "Linux", role: "Système d'exploitation", status: "learning", label: "En apprentissage", img: "linux.jpg" },
+  { name: "Ubuntu", role: "Distribution Linux", status: "learning", label: "En apprentissage", img: "ubuntu.jpg" },
+  { name: "Kali Linux", role: "Cybersécurité", status: "exploration", label: "En exploration", img: "kali.jpg" },
+  { name: "VirtualBox", role: "Virtualisation", status: "learning", label: "En apprentissage", img: "virtualbox.jpg" },
+  { name: "Docker", role: "Conteneurs", status: "exploration", label: "En exploration", img: "docker.jpg" },
+  { name: "Cisco", role: "Administration réseau", status: "learning", label: "En apprentissage", img: "cisco.jpg" },
+  { name: "HTML5", role: "Structure Web", status: "learning", label: "En apprentissage", img: "html5.jpg" },
+  { name: "CSS3", role: "Design Web", status: "learning", label: "En apprentissage", img: "css3.jpg" },
+  { name: "JavaScript", role: "Interaction Web", status: "exploration", label: "En exploration", img: "javascript.jpg" },
+  { name: "PHP", role: "Back-end", status: "learning", label: "En apprentissage", img: "php.jpg" },
+  { name: "MySQL", role: "Base de données", status: "learning", label: "En apprentissage", img: "mysql.jpg" },
+  { name: "Python", role: "Programmation", status: "learning", label: "En apprentissage", img: "python.jpg" },
+  { name: "Flutter", role: "Applications mobiles", status: "exploration", label: "En exploration", img: "flutter.jpg" },
+  { name: "Git", role: "Versioning", status: "learning", label: "En apprentissage", img: "git.jpg" },
+  { name: "GitHub", role: "Collaboration", status: "learning", label: "En apprentissage", img: "github.jpg" },
+  { name: "VS Code", role: "Éditeur de code", status: "learning", label: "En apprentissage", img: "vscode.jpg" }
+];
+---
+
+<section class="technologies-section" id="technologies">
+  <div class="container text-center">
+
+    <span class="section-tag">TECHNOLOGIES EN EXPLORATION</span>
+
+    <h2>Technologies & outils</h2>
+
+    <p class="section-subtitle">
+      Les technologies, plateformes et outils découverts, étudiés et explorés
+      au fil des apprentissages, des laboratoires et des projets.
+    </p>
+
+    <div class="skills-ticker-container">
+      <div class="ticker-track" id="ticker-track">
+
+        {technologies.map((tech) => (
+          <div class="tech-card">
+            <img
+              src={`/assets/images/${tech.img}`}
+              alt={tech.name}
+              class="tech-icon"
+              loading="lazy"
+            />
+
+            <h4>{tech.name}</h4>
+            <small>{tech.role}</small>
+
+            <span class:list={["tech-status", `status-${tech.status}`]}>
+              {tech.label}
+            </span>
+          </div>
+        ))}
+
+      </div>
+    </div>
+
+    <p class="stack-note">
+      Cet aperçu évolue progressivement au fil des découvertes,
+      des apprentissages et des nouvelles explorations.
+    </p>
+
+  </div>
+</section>
+
+<style>
+  .technologies-section {
+    padding: 80px 0;
+    overflow: hidden;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-primary, #173b70);
+    margin-bottom: 12px;
+  }
+
+  .technologies-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary, #1e293b);
+    text-align: center;
+  }
+
+  .section-subtitle {
+    color: var(--text-muted, #64748b);
+    font-size: 1.05rem;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    text-align: center;
+  }
+
+  /* Conteneur principal du carrousel */
+  .skills-ticker-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 1.5rem 0;
+  }
+
+  /* Piste en mouvement continu */
+  .ticker-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    will-change: transform;
+    animation: scrollTicker 35s linear infinite;
+  }
+
+  .skills-ticker-container:hover .ticker-track,
+  .skills-ticker-container:focus-within .ticker-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes scrollTicker {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  /* Cartes technologiques */
+  .tech-card {
+    flex: 0 0 220px;
+    background: var(--bg-muted, #ffffff);
+    border: 1px solid var(--border, #e2e8f0);
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-align: center;
+    transition:
+      border-color 0.2s ease,
+      transform 0.2s ease,
+      background-color 0.2s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+  }
+
+  .tech-card:hover {
+    background: var(--bg-hover, #f8fafc);
+    border-color: var(--accent-primary, #173b70);
+    transform: translateY(-4px);
+  }
+
+  .tech-icon {
+    width: 100%;
+    height: 90px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 1rem;
+  }
+
+  .tech-card h4 {
+    color: var(--text-primary, #1e293b);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    text-align: center;
+  }
+
+  .tech-card small {
+    display: block;
+    color: var(--text-muted, #64748b);
+    font-size: 0.78rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
+  }
+
+  /* Statuts d'apprentissage */
+  .tech-status {
+    display: inline-block;
+    padding: 0.3rem 0.65rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    font-family: var(--font-mono, monospace);
+  }
+
+  .status-exploration {
+    color: var(--accent-primary, #173b70);
+    background: var(--bg-primary, #e2e8f0);
+  }
+
+  .status-learning {
+    color: var(--text-secondary, #475569);
+    background: var(--bg-primary, #e2e8f0);
+  }
+
+  .stack-note {
+    font-size: 0.9rem;
+    color: var(--text-tertiary, #94a3b8);
+    font-style: italic;
+    max-width: 600px;
+    margin: 2rem auto 0;
+    text-align: center;
+  }
+
+  /* Accessibilité : désactivation du mouvement */
+  @media (prefers-reduced-motion: reduce) {
+    .ticker-track {
+      animation: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .technologies-section h2 {
+      font-size: 2rem;
+    }
+
+    .tech-card {
+      flex-basis: 190px;
+    }
+  }
+</style>
+
+<script>
+  function initTicker() {
+    const track = document.getElementById("ticker-track");
+
+    if (!track || track.dataset.duplicated === "true") return;
+
+    const cards = Array.from(track.children) as HTMLElement[];
+
+    cards.forEach((card) => {
+      const clone = card.cloneNode(true) as HTMLElement;
+      clone.setAttribute("aria-hidden", "true");
+      track.appendChild(clone);
+    });
+
+    track.dataset.duplicated = "true";
+  }
+
+  initTicker();
+  document.addEventListener("astro:page-load", initTicker);
+</script>

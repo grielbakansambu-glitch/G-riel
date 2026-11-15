@@ -1,0 +1,614 @@
+---
+/**
+ * G-RIEL IT GARDEN — V2
+ * Aperçu biographique & académique bilingue
+ */
+
+interface Props {
+  imageSrc?: string;
+  imageAlt?: string;
+  ctaHref?: string;
+  ctaLabel?: string;
+}
+
+const {
+  imageSrc = "/images/hero/hero-01.jpg",
+  imageAlt,
+  ctaHref,
+  ctaLabel,
+} = Astro.props;
+
+const locale = Astro.currentLocale ?? "fr";
+const isEnglish = locale === "en";
+
+const resolvedImageAlt =
+  imageAlt ??
+  (isEnglish
+    ? "Gabriel Bakansambu in his workspace"
+    : "Gabriel Bakansambu dans son espace de travail");
+
+const resolvedCtaHref = ctaHref ?? `/${locale}/about`;
+
+const resolvedCtaLabel =
+  ctaLabel ?? (isEnglish ? "Learn more" : "En savoir plus");
+
+const tags = isEnglish
+  ? [
+      "Computer Science & Technology",
+      "Systems & Networks",
+      "Practical Learning",
+    ]
+  : [
+      "Informatique & Technologies",
+      "Systèmes & Réseaux",
+      "Apprentissage pratique",
+    ];
+
+const academicDetails = [
+  {
+    label: isEnglish ? "Current status" : "Statut actuel",
+    value: isEnglish
+      ? "Undergraduate studies — Year 2, ISP Mbanza-Ngungu"
+      : "Licence 2 — ISP Mbanza-Ngungu",
+  },
+  {
+    label: isEnglish ? "Current program" : "Formation actuelle",
+    value: isEnglish
+      ? "Didactics of Computer Science and Technology"
+      : "Didactique de l'Informatique et Technologie",
+  },
+];
+---
+
+<section class="about-preview" aria-labelledby="about-heading" data-about-reveal>
+  <div class="about-preview__container">
+
+    <!-- Présentation -->
+    <div class="about-preview__content">
+      <div class="about-preview__header">
+        <span class="about-preview__eyebrow">
+          {isEnglish ? "ABOUT ME" : "À PROPOS DE MOI"}
+        </span>
+        <span class="about-preview__ref" aria-hidden="true">
+          REF // GARDENER-01
+        </span>
+      </div>
+
+      <h2 id="about-heading" class="about-preview__title">
+        Gabriel Bakansambu,
+        <span>
+          {
+            isEnglish
+              ? "building through practice."
+              : "construire par la pratique."
+          }
+        </span>
+      </h2>
+
+      <p class="about-preview__text">
+        {
+          isEnglish
+            ? "I am a Computer Science and Technology student interested in understanding how digital technologies work and how knowledge can be transformed into practical skills."
+            : "Je suis étudiant en Informatique et Technologie, intéressé par la compréhension des technologies numériques et par la manière dont les connaissances peuvent devenir des compétences pratiques."
+        }
+
+        <br />
+
+        {
+          isEnglish
+            ? "Through learning, experimentation and documentation, I am gradually building my academic and technical journey."
+            : "À travers l'apprentissage, l'expérimentation et la documentation, je construis progressivement mon parcours académique et technique."
+        }
+      </p>
+
+      <!-- Domaines d'intérêt -->
+      <ul
+        class="about-preview__tags"
+        aria-label={isEnglish ? "Areas of interest" : "Domaines d'intérêt"}
+      >
+        {tags.map((tag) => (
+          <li class="about-preview__tag">{tag}</li>
+        ))}
+      </ul>
+
+      <!-- Parcours académique -->
+      <div class="about-preview__details">
+        {academicDetails.map((detail) => (
+          <p>
+            <span>{detail.label}</span>
+            <strong>{detail.value}</strong>
+          </p>
+        ))}
+      </div>
+
+      <!-- Appel à l'action -->
+      <div class="about-preview__action">
+        <a href={resolvedCtaHref} class="about-preview__btn">
+          <span>{resolvedCtaLabel}</span>
+
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Photographie -->
+    <div class="about-preview__media">
+      <img
+        src={imageSrc}
+        alt={resolvedImageAlt}
+        class="about-preview__img"
+        loading="lazy"
+        decoding="async"
+      />
+      <div class="about-preview__caption" aria-hidden="true">
+        <span class="caption-dot"></span>
+        <span>
+          {isEnglish
+            ? "G-RIEL IT Garden — Academic & Technical Profile"
+            : "G-RIEL IT Garden — Profil Académique & Technique"}
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const aboutSection = document.querySelector<HTMLElement>("[data-about-reveal]");
+
+  if (aboutSection) {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReduced || !("IntersectionObserver" in window)) {
+      aboutSection.classList.add("is-visible");
+    } else {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.16 }
+      );
+
+      observer.observe(aboutSection);
+    }
+  }
+</script>
+
+<style>
+  /* =========================================
+     SECTION
+  ========================================= */
+
+  .about-preview {
+    padding: 100px 24px;
+    background: var(--color-surface-subtle, #F3F6FA);
+    color: var(--color-text-primary, #0B132A);
+    border-top: 1px solid var(--color-border-subtle, #DCE3EC);
+    border-bottom: 1px solid var(--color-border-subtle, #DCE3EC);
+  }
+
+  .about-preview__container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    width: min(1180px, 100%);
+    margin-inline: auto;
+    overflow: hidden;
+
+    background: var(--color-surface-base, #FFFFFF);
+    border: 1px solid var(--color-border-default, #DCE3EC);
+    border-radius: 10px;
+    box-shadow: 0 10px 32px rgba(11, 19, 42, 0.05);
+
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 550ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 550ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .about-preview.is-visible .about-preview__container {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Liseré signature supérieur */
+  .about-preview__container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    z-index: 3;
+    background: linear-gradient(
+      90deg,
+      var(--color-brand-navy, #0B132A) 0%,
+      var(--color-brand-blue, #223D6C) 55%,
+      var(--color-brand-green, #2EBD4F) 100%
+    );
+  }
+
+  /* =========================================
+     CONTENU
+  ========================================= */
+
+  .about-preview__content {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 56px 48px 56px 56px;
+    color: var(--color-text-primary, #0B132A);
+  }
+
+  .about-preview__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .about-preview__eyebrow {
+    display: inline-block;
+    color: var(--color-brand-green-dark, #187A36);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.72rem;
+    font-weight: 750;
+    letter-spacing: 0.15em;
+    line-height: 1.5;
+  }
+
+  .about-preview__ref {
+    color: var(--color-text-muted, #667085);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  .about-preview__title {
+    max-width: 580px;
+    margin: 0 0 22px;
+
+    color: var(--color-brand-navy, #0B132A);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.95rem, 3.2vw, 2.65rem);
+    font-weight: 600;
+    line-height: 1.18;
+    letter-spacing: -0.03em;
+  }
+
+  .about-preview__title span {
+    display: block;
+    margin-top: 6px;
+    color: var(--color-brand-blue, #223D6C);
+    font-weight: 400;
+  }
+
+  .about-preview__text {
+    max-width: 550px;
+    margin: 0 0 24px;
+
+    color: var(--color-text-secondary, #475467);
+    font-size: 0.95rem;
+    line-height: 1.85;
+  }
+
+  /* =========================================
+     DOMAINES D'INTÉRÊT
+  ========================================= */
+
+  .about-preview__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    padding: 0;
+    margin: 0 0 26px;
+    list-style: none;
+  }
+
+  .about-preview__tag {
+    padding: 6px 12px;
+    border: 1px solid var(--color-border-default, #DCE3EC);
+    border-radius: 5px;
+    background: var(--color-surface-subtle, #F3F6FA);
+    color: var(--color-brand-blue, #223D6C);
+    font-size: 0.76rem;
+    font-weight: 650;
+    line-height: 1.4;
+    transition: border-color 160ms ease, background-color 160ms ease;
+  }
+
+  .about-preview__tag:hover {
+    border-color: var(--color-brand-green, #2EBD4F);
+    background: var(--color-surface-base, #FFFFFF);
+  }
+
+  /* =========================================
+     PARCOURS ACADÉMIQUE
+  ========================================= */
+
+  .about-preview__details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+
+    max-width: 560px;
+    padding: 18px 20px;
+    margin-bottom: 30px;
+
+    border: 1px solid var(--color-border-default, #DCE3EC);
+    border-left: 3px solid var(--color-brand-green, #2EBD4F);
+    border-radius: 0 6px 6px 0;
+    background: var(--color-surface-subtle, #F3F6FA);
+  }
+
+  .about-preview__details p {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0;
+  }
+
+  .about-preview__details span {
+    color: var(--color-brand-green-dark, #187A36);
+    font-size: 0.68rem;
+    font-weight: 750;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .about-preview__details strong {
+    color: var(--color-brand-navy, #0B132A);
+    font-size: 0.85rem;
+    font-weight: 650;
+    line-height: 1.5;
+  }
+
+  /* =========================================
+     BOUTON
+  ========================================= */
+
+  .about-preview__action {
+    display: flex;
+    align-items: center;
+  }
+
+  .about-preview__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+
+    min-height: 48px;
+    padding: 12px 24px;
+
+    border: 1px solid var(--color-brand-navy, #0B132A);
+    border-radius: 7px;
+
+    background: var(--color-brand-navy, #0B132A);
+    color: #FFFFFF;
+
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition:
+      transform 180ms ease,
+      background-color 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .about-preview__btn svg {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    color: var(--color-brand-green, #2EBD4F);
+    transition: transform 180ms ease;
+  }
+
+  .about-preview__btn:hover {
+    transform: translateY(-2px);
+    background: var(--color-brand-blue, #223D6C);
+    border-color: var(--color-brand-blue, #223D6C);
+    box-shadow: 0 8px 20px rgba(11, 19, 42, 0.14);
+  }
+
+  .about-preview__btn:hover svg {
+    transform: translateX(4px);
+  }
+
+  .about-preview__btn:focus-visible {
+    outline: 3px solid var(--color-brand-green, #2EBD4F);
+    outline-offset: 4px;
+  }
+
+  /* =========================================
+     PHOTOGRAPHIE
+  ========================================= */
+
+  .about-preview__media {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    min-width: 0;
+    min-height: 460px;
+
+    background: var(--color-brand-navy, #0B132A);
+    border-left: 1px solid var(--color-border-default, #DCE3EC);
+  }
+
+  .about-preview__media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      to top,
+      rgba(11, 19, 42, 0.65) 0%,
+      rgba(11, 19, 42, 0.08) 38%,
+      transparent 100%
+    );
+  }
+
+  .about-preview__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 460px;
+
+    object-fit: cover;
+    object-position: center 20%;
+
+    transition: transform 600ms cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .about-preview__container:hover .about-preview__img {
+    transform: scale(1.03);
+  }
+
+  .about-preview__caption {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 18px;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: rgba(255, 255, 255, 0.88);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .caption-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--color-brand-green, #2EBD4F);
+  }
+
+  /* =========================================
+     TABLETTES
+  ========================================= */
+
+  @media (max-width: 920px) {
+    .about-preview {
+      padding: 70px 18px;
+    }
+
+    .about-preview__container {
+      grid-template-columns: 1fr;
+    }
+
+    .about-preview__media {
+      order: -1;
+      min-height: 300px;
+      max-height: 360px;
+      border-left: none;
+      border-bottom: 1px solid var(--color-border-default, #DCE3EC);
+    }
+
+    .about-preview__img {
+      min-height: 300px;
+      max-height: 360px;
+    }
+
+    .about-preview__content {
+      padding: 38px 32px;
+    }
+
+    .about-preview__action {
+      width: 100%;
+    }
+
+    .about-preview__btn {
+      width: 100%;
+    }
+  }
+
+  /* =========================================
+     PETITS ÉCRANS
+  ========================================= */
+
+  @media (max-width: 560px) {
+    .about-preview {
+      padding: 52px 14px;
+    }
+
+    .about-preview__content {
+      padding: 30px 20px;
+    }
+
+    .about-preview__ref {
+      display: none;
+    }
+
+    .about-preview__title {
+      font-size: 1.85rem;
+    }
+
+    .about-preview__text {
+      font-size: 0.9rem;
+    }
+
+    .about-preview__details {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .about-preview__media {
+      min-height: 240px;
+      max-height: 290px;
+    }
+
+    .about-preview__img {
+      min-height: 240px;
+      max-height: 290px;
+    }
+  }
+
+  /* =========================================
+     ACCESSIBILITÉ
+  ========================================= */
+
+  @media (prefers-reduced-motion: reduce) {
+    .about-preview__container,
+    .about-preview__btn,
+    .about-preview__btn svg,
+    .about-preview__img,
+    .about-preview__tag {
+      transition: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+    }
+  }
+</style>

@@ -1,0 +1,76 @@
+:root {
+  /* ========================================
+     G-RIEL IT GARDEN — V2
+     DESIGN TOKENS
+     ======================================== */
+
+  /* ----------------------------------------
+     BRAND
+     ---------------------------------------- */
+
+  --color-brand-navy: #012448;
+  --color-brand-blue: #032a7b;
+  --color-brand-blue-light: #0368cd;
+
+  --color-brand-green: #1c8d06;
+  --color-brand-green-light: #58b80c;
+
+  --color-brand-gold: #dba10f;
+
+  /* ----------------------------------------
+     SURFACES
+     ---------------------------------------- */
+
+  --color-surface-base: #ffffff;
+  --color-surface-subtle: #f6f8fb;
+  --color-surface-muted: #eef3f8;
+
+  --color-surface-brand: #012448;
+  --color-surface-blue: #032a7b;
+  --color-surface-green: #1c8d06;
+
+  /* ----------------------------------------
+     TEXT
+     ---------------------------------------- */
+
+  --color-text-primary: #102033;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
+
+  --color-text-on-brand: #ffffff;
+
+  --color-text-link: #0b5cad;
+  --color-text-success: #147a05;
+
+  /* ----------------------------------------
+     BORDERS
+     ---------------------------------------- */
+
+  --color-border-subtle: #e8eef5;
+  --color-border-default: #d7dee8;
+  --color-border-strong: #b8c5d4;
+
+  --color-border-brand: #032a7b;
+  --color-border-focus: #0368cd;
+
+  /* ----------------------------------------
+     INTERACTION
+     ---------------------------------------- */
+
+  --color-hover-blue: #012448;
+  --color-hover-green: #0f6b00;
+
+  --color-active-blue: #012448;
+  --color-active-green: #0f6b00;
+
+  --color-focus: #0368cd;
+
+  /* ----------------------------------------
+     SEMANTIC
+     ---------------------------------------- */
+
+  --color-success: #147a05;
+  --color-warning: #b45309;
+  --color-error: #b42318;
+  --color-info: #0b5cad;
+}

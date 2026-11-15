@@ -1,0 +1,48 @@
+
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "G-RIEL IT Garden",
+  description = "Un espace numérique dédié à l'apprentissage, à l'expérimentation et au partage des connaissances en informatique et technologies."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="G-RIEL IT Garden" />
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <title>{title}</title>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+  }
+</style>

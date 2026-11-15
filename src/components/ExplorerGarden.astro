@@ -1,0 +1,424 @@
+---
+/**
+ * G-RIEL IT GARDEN — V2
+ * Explorer le Garden (Hub central)
+ */
+
+const locale = Astro.currentLocale ?? "fr";
+const isEnglish = locale === "en";
+
+const cards = [
+  {
+    title: isEnglish ? "Technical Notes" : "Notes techniques",
+    description: isEnglish
+      ? "Documentation, research, procedures and feedback from learning and experimentation."
+      : "Documentation, recherches, procédures et retours d'expérience issus des apprentissages et des expérimentations.",
+    image: "/assets/images/card-notes.jpg",
+    href: `/${locale}/notes`,
+    alt: isEnglish ? "Technical documentation" : "Documentation technique",
+  },
+  {
+    title: "Home Lab",
+    description: isEnglish
+      ? "An environment to explore systems, networks, virtualization and information security through experimentation."
+      : "Un environnement pour explorer les systèmes, les réseaux, la virtualisation et la sécurité informatique par l'expérimentation.",
+    image: "/assets/images/card-homelab.jpg",
+    href: `/${locale}/homelab`,
+    alt: isEnglish ? "Home laboratory" : "Laboratoire informatique personnel",
+  },
+  {
+    title: isEnglish ? "Roadmap" : "Feuille de route",
+    description: isEnglish
+      ? "Learning directions, goals and paths that progressively shape the learning journey."
+      : "Les orientations, objectifs et pistes d'apprentissage qui structurent progressivement le parcours.",
+    image: "/assets/images/card-roadmap.jpg",
+    href: `/${locale}/roadmap`,
+    alt: isEnglish ? "Learning roadmap" : "Feuille de route d'apprentissage",
+  },
+  {
+    title: isEnglish ? "Projects" : "Projets",
+    description: isEnglish
+      ? "Personal, academic and collaborative ideas, designs and achievements at different stages of development."
+      : "Des idées, conceptions et réalisations personnelles, académiques ou collaboratives, à différents stades d'évolution.",
+    image: "/assets/images/card-projects.jpg",
+    href: `/${locale}/projects`,
+    alt: isEnglish ? "Projects and experiments" : "Projets et expérimentations",
+  },
+];
+---
+
+<section class="garden-hub-section" id="garden">
+  <div class="container text-center">
+
+    <div class="garden-hub-heading">
+
+      <span class="section-tag">
+        {isEnglish ? "DIGITAL ECOSYSTEM" : "ÉCOSYSTÈME NUMÉRIQUE"}
+      </span>
+
+      <h2>
+        {isEnglish ? "Explore the G-RIEL IT Garden" : "Explorer le G-RIEL IT Garden"}
+      </h2>
+
+      <p class="section-subtitle">
+        {
+          isEnglish
+            ? "A digital space organized into complementary areas to discover knowledge, explore experiments and follow projects as they evolve."
+            : "Un espace numérique organisé en plusieurs domaines complémentaires, pour retrouver les connaissances, découvrir les expérimentations et suivre les projets en évolution."
+        }
+      </p>
+
+      <div class="heading-divider" aria-hidden="true">
+        <span></span>
+      </div>
+
+    </div>
+
+    <div class="garden-hub-grid">
+      {cards.map((card, index) => (
+        <a href={card.href} class="hub-card hub-card-illustrated">
+
+          <div
+            class="hub-card-image"
+            style={`background-image: url('${card.image}');`}
+            role="img"
+            aria-label={card.alt}
+          >
+          </div>
+
+          <div class="hub-card-content">
+
+            <div class="hub-card-meta">
+              <span class="hub-card-number">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+
+              <span class="hub-card-label">
+                {isEnglish ? "GARDEN SECTION" : "ESPACE DU GARDEN"}
+              </span>
+            </div>
+
+            <h3>{card.title}</h3>
+
+            <p>{card.description}</p>
+
+            <span class="hub-link-arrow">
+              <span>
+                {isEnglish ? "Explore section" : "Explorer cet espace"}
+              </span>
+
+              <span class="arrow-icon" aria-hidden="true">→</span>
+            </span>
+
+          </div>
+
+        </a>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* =========================================
+     GARDEN HUB
+     ACADEMIC EDITORIAL DESIGN
+     G-RIEL IT GARDEN
+  ========================================= */
+
+  .garden-hub-section {
+    position: relative;
+    padding: 110px 5%;
+    background: var(--color-surface-subtle, #F3F6FA);
+    border-top: 1px solid var(--color-border-subtle, #DCE3EC);
+    border-bottom: 1px solid var(--color-border-subtle, #DCE3EC);
+  }
+
+  .garden-hub-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  /* SECTION HEADING */
+
+  .garden-hub-heading {
+    max-width: 800px;
+    margin: 0 auto 52px;
+  }
+
+  .section-tag {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: var(--color-brand-green, #2EBD4F);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    text-transform: uppercase;
+  }
+
+  .garden-hub-section h2 {
+    margin: 0;
+    color: var(--color-brand-navy, #0B132A);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 600;
+    letter-spacing: -1.2px;
+    line-height: 1.2;
+  }
+
+  .section-subtitle {
+    max-width: 700px;
+    margin: 18px auto 0;
+    color: var(--color-text-secondary, #475467);
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .heading-divider {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+  }
+
+  .heading-divider span {
+    width: 56px;
+    height: 2px;
+    background: var(--color-brand-green, #2EBD4F);
+    border-radius: 2px;
+  }
+
+  /* GARDEN GRID */
+
+  .garden-hub-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    text-align: left;
+  }
+
+  /* SECTION CARDS */
+
+  .hub-card {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--color-surface-base, #FFFFFF);
+    border: 1px solid var(--color-border-default, #DCE3EC);
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(11, 19, 42, 0.03);
+    transition:
+      transform 200ms ease,
+      border-color 200ms ease,
+      box-shadow 200ms ease;
+  }
+
+  .hub-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-brand-green, #2EBD4F);
+    box-shadow: 0 12px 32px rgba(11, 19, 42, 0.08);
+  }
+
+  .hub-card:focus-visible {
+    outline: 3px solid var(--color-brand-green, #2EBD4F);
+    outline-offset: 4px;
+    border-radius: 10px;
+  }
+
+  /* IMAGE AREA */
+
+  .hub-card-image {
+    position: relative;
+    height: 190px;
+    flex-shrink: 0;
+    background-color: var(--color-surface-subtle, #F3F6FA);
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid var(--color-border-subtle, #DCE3EC);
+  }
+
+  .hub-card-image::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background: linear-gradient(
+      to bottom,
+      rgba(11, 19, 42, 0.02),
+      rgba(11, 19, 42, 0.15)
+    );
+  }
+
+  /* CARD CONTENT */
+
+  .hub-card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 28px 30px 24px;
+  }
+
+  /* DOCUMENTARY METADATA */
+
+  .hub-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border-subtle, #DCE3EC);
+  }
+
+  .hub-card-number {
+    color: var(--color-brand-blue, #223D6C);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .hub-card-label {
+    color: var(--color-text-muted, #667085);
+    font-size: 0.62rem;
+    font-weight: 750;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+
+  /* CARD TITLE */
+
+  .hub-card-content h3 {
+    margin: 20px 0 12px;
+    color: var(--color-brand-navy, #0B132A);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.55rem;
+    font-weight: 600;
+    letter-spacing: -0.35px;
+    line-height: 1.35;
+    text-align: left;
+  }
+
+  /* DESCRIPTION */
+
+  .hub-card-content p {
+    flex-grow: 1;
+    margin: 0 0 26px;
+    color: var(--color-text-secondary, #475467);
+    font-size: 0.92rem;
+    font-weight: 400;
+    line-height: 1.8;
+    text-align: left;
+  }
+
+  /* NAVIGATION LINK */
+
+  .hub-link-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 18px;
+    color: var(--color-brand-blue, #223D6C);
+    border-top: 1px solid var(--color-border-subtle, #DCE3EC);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.78rem;
+    font-weight: 750;
+    letter-spacing: 0.2px;
+    transition: color 160ms ease;
+  }
+
+  .hub-card:hover .hub-link-arrow {
+    color: var(--color-brand-green, #2EBD4F);
+  }
+
+  .arrow-icon {
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    transition: transform 160ms ease;
+  }
+
+  .hub-card:hover .arrow-icon {
+    transform: translateX(5px);
+  }
+
+  /* TABLET */
+
+  @media (max-width: 760px) {
+    .garden-hub-section {
+      padding: 80px 4%;
+    }
+
+    .garden-hub-grid {
+      gap: 20px;
+    }
+
+    .hub-card-image {
+      height: 160px;
+    }
+
+    .hub-card-content {
+      padding: 24px 22px;
+    }
+
+    .hub-card-content h3 {
+      font-size: 1.4rem;
+    }
+  }
+
+  /* MOBILE */
+
+  @media (max-width: 600px) {
+    .garden-hub-section {
+      padding: 64px 4%;
+    }
+
+    .garden-hub-heading {
+      margin-bottom: 36px;
+    }
+
+    .garden-hub-section h2 {
+      font-size: 2rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      line-height: 1.75;
+    }
+
+    .garden-hub-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .hub-card-image {
+      height: 175px;
+    }
+
+    .hub-card-content {
+      padding: 24px 20px;
+    }
+
+    .hub-card-content h3 {
+      font-size: 1.45rem;
+    }
+  }
+
+  /* ACCESSIBILITY */
+
+  @media (prefers-reduced-motion: reduce) {
+    .hub-card,
+    .hub-link-arrow,
+    .arrow-icon {
+      transition: none !important;
+    }
+
+    .hub-card:hover {
+      transform: none !important;
+    }
+  }
+</style>
